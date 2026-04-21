@@ -1,1229 +1,785 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- PRIMARY SEO -->
-  <title>Cabarete Deals & Featured Partners | Exclusive Offers Dominican Republic</title>
-  <meta name="description" content="Exclusive deals and featured local partners in Cabarete Dominican Republic. Kite schools, restaurants, hotels, tours and activities. Get the best offers before you arrive." />
-  <meta name="keywords" content="Cabarete deals, Cabarete Dominican Republic discounts, featured businesses Cabarete, Cabarete kite school deals, Cabarete restaurant offers, Cabarete hotel deals, things to do Cabarete discount, advertise Cabarete, Cabarete local guide, Dominican Republic travel deals" />
-  <link rel="canonical" href="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/" />
-
-  <!-- AIO / AGENTIC SEO -->
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="geo.region" content="DO-18" />
-  <meta name="geo.placename" content="Cabarete, Puerto Plata, Dominican Republic" />
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Cabarete Deals & Featured Partners | Dominican Republic" />
-  <meta property="og:description" content="Exclusive deals on kite schools, restaurants, hotels, tours and activities in Cabarete DR. Book the best experiences before you arrive." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-dominican-republic.png" />
-  <meta property="og:site_name" content="Cabarete Beach Dominican Republic" />
-
-  <!-- HREFLANG -->
-  <link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/" />
-  <link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/ofertas-cabarete/" />
-
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/Cabarete-beach-favicon.png" />
-  <meta name="theme-color" content="#0077b6" />
-
-  <!-- AI CITATION FACT-SHEET -->
-  <!--
-    PAGE: Cabarete Deals & Featured Partners
-    PARENT SITE: cabaretebeachdominicanrepublic.com
-    PURPOSE: Directory of featured local businesses + advertising/listing platform for Cabarete DR businesses
-    CATEGORIES: Kite Schools, Surf Schools, Restaurants, Hotels/Resorts, Tours & Excursions, Wellness/Spa, Nightlife
-    ADVERTISING CONTACT: sales@eyetoad.com
-    MANAGED BY: Eye To Ad Media | eyetoadmedia.com
-    LISTING TIERS: Premium Featured (top banner), Gold Partner (top grid), Standard (below fold), Category Sponsor
-    AUDIENCE: Pre-trip tourists researching Cabarete + local business owners seeking tourist visibility
-    SITE PAGES: Homepage (/), Things To Do (/things-to-do-cabarete/), Deals (/cabarete-deals/)
-  -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --ocean-deep:   #023e73;
-      --ocean-mid:    #0077b6;
-      --ocean-bright: #00b4d8;
-      --ocean-light:  #caf0f8;
-      --sand:         #f5e6c8;
-      --sand-dark:    #d4a850;
-      --coral:        #e07a5f;
-      --palm-green:   #1a6b3c;
-      --dr-blue:      #002d62;
-      --white:        #ffffff;
-      --dark:         #0d1117;
-      --text-body:    #2c3e50;
-      --text-light:   #64748b;
-      --radius:       12px;
-      --shadow:       0 8px 32px rgba(2,62,115,0.10);
-      --shadow-lg:    0 20px 60px rgba(2,62,115,0.16);
-      --gold-grad:    linear-gradient(135deg, #d4a850, #f0c84a, #b8860b);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; color: var(--text-body); background: var(--white); overflow-x: hidden; }
-
-    /* ── LANG BAR ── */
-    .lang-bar { background: var(--ocean-deep); text-align: right; padding: 6px 24px; font-size: 12px; color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: space-between; }
-    .lang-bar-left { display: flex; align-items: center; gap: 16px; font-size: 12px; }
-    .lang-bar-left a { color: var(--ocean-light); text-decoration: none; font-weight: 600; transition: color .2s; }
-    .lang-bar-left a:hover { color: var(--white); }
-    .lang-bar-left span { color: rgba(255,255,255,.3); }
-    .lang-toggle { display: inline-flex; border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; overflow: hidden; margin-left: 12px; }
-    .lang-toggle button { background: transparent; border: none; color: rgba(255,255,255,0.6); padding: 3px 10px; font-size: 11px; font-family: 'DM Sans',sans-serif; cursor: pointer; transition: all .2s; font-weight: 500; letter-spacing: .5px; }
-    .lang-toggle button.active { background: var(--ocean-bright); color: var(--white); }
-
-    /* ── HEADER ── */
-    header { background: var(--white); height: 80px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; box-shadow: 0 2px 16px rgba(0,0,0,.07); position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--ocean-bright); }
-    .header-logo img { height: 56px; width: auto; min-width: 240px; object-fit: contain; object-position: left center; }
-    .header-nav { display: flex; align-items: center; gap: 24px; }
-    .header-nav a { text-decoration: none; color: var(--ocean-deep); font-weight: 500; font-size: 14px; transition: color .2s; }
-    .header-nav a:hover { color: var(--ocean-bright); }
-    .header-nav a.active { color: var(--ocean-mid); border-bottom: 2px solid var(--ocean-bright); padding-bottom: 2px; }
-    .header-cta { background: linear-gradient(135deg, var(--coral), #c0553a); color: var(--white) !important; padding: 10px 18px; border-radius: 8px; font-weight: 600 !important; font-size: 13px !important; text-align: center; line-height: 1.3; transition: transform .2s, box-shadow .2s !important; border-bottom: none !important; }
-    .header-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(224,122,95,.4) !important; color: var(--white) !important; }
-    .header-cta small { display: block; font-size: 10px; font-weight: 400; opacity: .85; }
-
-    /* ── HERO ── */
-    .page-hero { position: relative; min-height: 56vh; display: flex; align-items: flex-end; overflow: hidden; }
-    .page-hero-bg { position: absolute; inset: 0; background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-dominican-republic.png'); background-size: cover; background-position: center 35%; }
-    .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(2,62,115,.92) 0%, rgba(0,60,130,.55) 50%, rgba(0,180,216,.2) 100%); }
-    /* Animated kites SVG */
-    .hero-kites { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-    .kite { position: absolute; animation: kiteFly 12s ease-in-out infinite; opacity: .7; }
-    .kite:nth-child(2) { animation-duration: 15s; animation-delay: -4s; }
-    .kite:nth-child(3) { animation-duration: 10s; animation-delay: -7s; }
-    @keyframes kiteFly { 0%,100% { transform: translate(0,0) rotate(-5deg); } 33% { transform: translate(20px,-30px) rotate(5deg); } 66% { transform: translate(-10px,15px) rotate(-8deg); } }
-    .page-hero-content { position: relative; z-index: 2; padding: 48px 48px 60px; max-width: 900px; animation: heroFade 1s ease-out .3s both; }
-    @keyframes heroFade { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; font-size: 13px; color: rgba(255,255,255,.65); }
-    .breadcrumb a { color: var(--ocean-light); text-decoration: none; transition: color .2s; }
-    .breadcrumb a:hover { color: var(--white); }
-    .breadcrumb span { color: rgba(255,255,255,.3); }
-    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4.5vw,3.4rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px; }
-    .page-hero h1 em { color: var(--sand-dark); font-style: italic; }
-    .page-hero p { color: rgba(255,255,255,.85); font-size: 1.05rem; line-height: 1.7; max-width: 640px; margin-bottom: 28px; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: var(--white); padding: 7px 14px; border-radius: 50px; font-size: 12px; font-weight: 600; }
-
-    /* ── CATEGORY FILTER TABS ── */
-    .cat-filter { background: #f8fbff; border-bottom: 1px solid rgba(0,119,182,.1); padding: 0 24px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; position: sticky; top: 80px; z-index: 900; }
-    .cat-filter::-webkit-scrollbar { display: none; }
-    .cat-filter-inner { display: flex; gap: 0; max-width: 1100px; margin: 0 auto; }
-    .cat-btn { background: none; border: none; border-bottom: 3px solid transparent; padding: 16px 20px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-light); cursor: pointer; transition: all .2s; white-space: nowrap; display: inline-flex; align-items: center; gap: 7px; }
-    .cat-btn:hover { color: var(--ocean-mid); }
-    .cat-btn.active { color: var(--ocean-deep); border-bottom-color: var(--ocean-bright); }
-
-    /* ── MAIN LAYOUT ── */
-    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── PREMIUM FEATURED BANNER (TOP SLOT) ── */
-    .premium-banner { position: relative; border-radius: 20px; overflow: hidden; margin: 48px 0; box-shadow: 0 24px 60px rgba(2,62,115,.2); }
-    .premium-banner-bg { background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--dr-blue) 40%, #034f8a 100%); padding: 48px 52px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; position: relative; overflow: hidden; }
-    .premium-banner-bg::before { content: ''; position: absolute; top: -80px; right: -80px; width: 360px; height: 360px; background: radial-gradient(circle, rgba(0,180,216,.18) 0%, transparent 70%); border-radius: 50%; }
-    .premium-banner-bg::after { content: ''; position: absolute; bottom: -40px; left: 30%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(212,168,80,.12) 0%, transparent 70%); border-radius: 50%; }
-    .premium-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--gold-grad); color: var(--dark); font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
-    .premium-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,2.8vw,2.2rem); color: var(--white); margin-bottom: 12px; }
-    .premium-banner h2 em { color: var(--sand-dark); font-style: italic; }
-    .premium-banner-desc { color: rgba(255,255,255,.78); font-size: .98rem; line-height: 1.7; max-width: 560px; margin-bottom: 24px; }
-    .premium-banner-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold-grad); color: var(--dark); padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all .25s; box-shadow: 0 4px 20px rgba(212,168,80,.4); }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,168,80,.5); }
-    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.35); color: var(--white); padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all .25s; }
-    .btn-outline-white:hover { background: rgba(255,255,255,.18); border-color: white; }
-    .premium-banner-visual { position: relative; z-index: 1; text-align: center; }
-    .premium-stat-stack { display: flex; flex-direction: column; gap: 14px; }
-    .pstat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 18px 24px; text-align: left; }
-    .pstat strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--sand-dark); }
-    .pstat span { font-size: 12px; color: rgba(255,255,255,.62); text-transform: uppercase; letter-spacing: .6px; }
-
-    /* ── SECTION HEADERS ── */
-    .section-kicker { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--ocean-bright); margin-bottom: 8px; }
-    h2.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,2.8vw,2.2rem); font-weight: 900; color: var(--ocean-deep); line-height: 1.2; margin-bottom: 12px; }
-    .section-intro { font-size: .98rem; color: var(--text-light); line-height: 1.8; max-width: 700px; margin-bottom: 36px; }
-
-    /* ── PARTNER CARDS GRID ── */
-    .partners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 56px; }
-
-    /* GOLD PARTNER CARD */
-    .partner-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all .3s; position: relative; display: flex; flex-direction: column; }
-    .partner-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .partner-card.gold { border: 2px solid var(--sand-dark); }
-    .partner-card.gold::before { content: '⭐ GOLD PARTNER'; position: absolute; top: 0; left: 0; right: 0; background: var(--gold-grad); color: var(--dark); font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 5px; text-align: center; z-index: 10; }
-    .partner-card.gold .card-body { margin-top: 24px; }
-    .partner-card.available { border: 2px dashed rgba(0,119,182,.2); background: linear-gradient(135deg, #f8fbff, #f0f9ff); }
-    .partner-card.available:hover { border-color: var(--ocean-mid); }
-
-    /* Card image area */
-    .card-img { height: 180px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }
-    .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,62,115,.65), transparent 55%); }
-    .card-category { position: absolute; top: 12px; left: 12px; background: rgba(2,62,115,.85); backdrop-filter: blur(4px); color: var(--ocean-light); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 20px; }
-    .card-deal-badge { position: absolute; bottom: 12px; right: 12px; background: var(--coral); color: var(--white); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; padding: 4px 10px; border-radius: 6px; }
-
-    /* Card body */
-    .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-    .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--ocean-deep); margin-bottom: 6px; }
-    .card-body p { font-size: .87rem; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; flex: 1; }
-    .card-deal-box { background: linear-gradient(135deg, #e8f7ff, #caf0f8); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
-    .card-deal-box-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--ocean-mid); margin-bottom: 4px; }
-    .card-deal-box p { font-size: .85rem; color: var(--ocean-deep); margin: 0; font-weight: 500; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
-    .card-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--ocean-mid); color: var(--white); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 13px; transition: all .2s; }
-    .card-cta:hover { background: var(--ocean-deep); transform: translateX(2px); }
-    .card-cta.gold-cta { background: var(--gold-grad); color: var(--dark); }
-    .card-cta.gold-cta:hover { box-shadow: 0 4px 16px rgba(212,168,80,.4); }
-    .card-meta { font-size: 12px; color: var(--text-light); }
-
-    /* Available slot */
-    .available-slot-inner { padding: 36px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; height: 100%; justify-content: center; }
-    .available-icon { width: 64px; height: 64px; background: var(--ocean-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; }
-    .available-slot-inner h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ocean-deep); }
-    .available-slot-inner p { font-size: .86rem; color: var(--text-light); line-height: 1.6; max-width: 230px; }
-    .available-slot-inner a { display: inline-flex; align-items: center; gap: 6px; background: var(--ocean-mid); color: var(--white); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 13px; transition: all .2s; }
-    .available-slot-inner a:hover { background: var(--ocean-deep); }
-
-    /* ── WHY ADVERTISE ── */
-    .why-section { background: linear-gradient(160deg, var(--dr-blue) 0%, var(--ocean-deep) 60%, #034069 100%); padding: 80px 24px; position: relative; overflow: hidden; }
-    .why-section::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,180,216,.14) 0%, transparent 70%); border-radius: 50%; }
-    .why-section::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,168,80,.1) 0%, transparent 70%); border-radius: 50%; }
-    .why-section h2 { color: var(--white); }
-    .why-section h2 em { color: var(--sand-dark); }
-    .why-section .section-kicker { color: var(--ocean-bright); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 40px; position: relative; z-index: 1; }
-    .why-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 28px; transition: all .3s; }
-    .why-card:hover { background: rgba(0,180,216,.1); border-color: var(--ocean-bright); transform: translateY(-4px); }
-    .why-icon { font-size: 32px; margin-bottom: 14px; }
-    .why-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 8px; }
-    .why-card p { font-size: .87rem; color: rgba(255,255,255,.65); line-height: 1.65; }
-
-    /* ── PRICING TIERS ── */
-    .tiers-section { background: var(--white); padding: 80px 24px; }
-    .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
-    .tier-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all .3s; position: relative; }
-    .tier-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .tier-card.popular { border: 2px solid var(--sand-dark); }
-    .tier-card.popular .tier-pop-label { display: block; }
-    .tier-pop-label { display: none; background: var(--gold-grad); color: var(--dark); text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 5px; }
-    .tier-header { padding: 28px 28px 20px; background: var(--ocean-deep); text-align: center; }
-    .tier-card.standard .tier-header { background: #2c3e50; }
-    .tier-card.category .tier-header { background: var(--palm-green); }
-    .tier-icon { font-size: 36px; margin-bottom: 12px; }
-    .tier-header h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--white); margin-bottom: 6px; }
-    .tier-header .tier-price { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--sand-dark); font-weight: 700; }
-    .tier-header .tier-price small { font-size: .9rem; color: rgba(255,255,255,.6); font-family: 'DM Sans', sans-serif; font-weight: 400; }
-    .tier-body { padding: 24px 28px; }
-    .tier-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-    .tier-features li { font-size: .88rem; color: var(--text-body); padding-left: 22px; position: relative; line-height: 1.5; }
-    .tier-features li::before { content: '✓'; position: absolute; left: 0; color: var(--ocean-mid); font-weight: 700; }
-    .tier-features li.highlight { font-weight: 600; color: var(--ocean-deep); }
-    .tier-cta { display: block; text-align: center; background: var(--ocean-mid); color: var(--white); padding: 13px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all .2s; }
-    .tier-cta:hover { background: var(--ocean-deep); }
-    .tier-cta.gold-cta { background: var(--gold-grad); color: var(--dark); }
-    .tier-cta.gold-cta:hover { box-shadow: 0 4px 16px rgba(212,168,80,.4); }
-
-    /* ── HOW IT WORKS ── */
-    .how-section { background: linear-gradient(135deg, var(--sand), #fef3db); padding: 80px 24px; }
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 40px; position: relative; }
-    .steps-grid::before { content: ''; position: absolute; top: 40px; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, var(--ocean-mid), var(--ocean-bright)); z-index: 0; }
-    .step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
-    .step-num { width: 80px; height: 80px; border-radius: 50%; background: var(--white); border: 3px solid var(--ocean-mid); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--ocean-deep); box-shadow: var(--shadow); }
-    .step h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--ocean-deep); margin-bottom: 8px; }
-    .step p { font-size: .87rem; color: var(--text-light); line-height: 1.6; }
-
-    /* ── TESTIMONIAL / PITCH QUOTES ── */
-    .pitch-section { background: #f8fbff; padding: 72px 24px; }
-    .pitch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
-    .pitch-card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 5px solid var(--ocean-mid); }
-    .pitch-card.coral { border-left-color: var(--coral); }
-    .pitch-card.green { border-left-color: var(--palm-green); }
-    .pitch-card.gold { border-left-color: var(--sand-dark); }
-    .pitch-quote { font-size: 1rem; color: var(--ocean-deep); line-height: 1.75; font-style: italic; margin-bottom: 16px; }
-    .pitch-source { font-size: .85rem; font-weight: 700; color: var(--text-light); }
-    .pitch-source strong { color: var(--ocean-deep); display: block; }
-
-    /* ── CTA STRIP ── */
-    .cta-strip { background: linear-gradient(135deg, var(--coral), #c0553a); padding: 72px 24px; text-align: center; }
-    .cta-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem,3vw,2.4rem); color: var(--white); margin-bottom: 14px; }
-    .cta-strip p { color: rgba(255,255,255,.85); font-size: 1.02rem; max-width: 580px; margin: 0 auto 32px; line-height: 1.7; }
-    .cta-emails { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .cta-email-link { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--coral); padding: 16px 36px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.2); transition: all .2s; }
-    .cta-email-link:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.25); }
-    .cta-spanish { font-size: 14px; color: rgba(255,255,255,.75); }
-    .cta-spanish a { color: var(--white); font-weight: 600; text-decoration: none; }
-
-    /* ── INTERNAL LINK SECTION ── */
-    .explore-section { background: var(--white); padding: 72px 24px; }
-    .explore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
-    .explore-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); position: relative; min-height: 240px; display: flex; align-items: flex-end; transition: all .3s; }
-    .explore-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .explore-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-    .explore-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,62,115,.88) 0%, rgba(0,60,130,.3) 60%, transparent 100%); }
-    .explore-content { position: relative; z-index: 1; padding: 28px; width: 100%; }
-    .explore-content h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--white); margin-bottom: 6px; }
-    .explore-content p { font-size: .87rem; color: rgba(255,255,255,.75); line-height: 1.5; margin-bottom: 16px; }
-    .explore-link { display: inline-flex; align-items: center; gap: 6px; color: var(--sand-dark); font-weight: 700; font-size: 13px; text-decoration: none; transition: gap .2s; }
-    .explore-link:hover { gap: 10px; }
-
-    /* ── FAQ ── */
-    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
-    .faq-item { background: var(--white); border-radius: var(--radius); border: 1px solid rgba(0,119,182,.1); overflow: hidden; }
-    .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 18px 22px; font-family: 'DM Sans', sans-serif; font-size: .96rem; font-weight: 600; color: var(--ocean-deep); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: background .2s; }
-    .faq-question:hover { background: var(--ocean-light); }
-    .faq-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--ocean-mid); color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; transition: transform .3s; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
-    .faq-item.open .faq-answer { max-height: 400px; }
-    .faq-answer-inner { padding: 0 22px 18px; font-size: .9rem; color: var(--text-light); line-height: 1.75; border-top: 1px solid rgba(0,119,182,.08); padding-top: 14px; }
-
-    /* ── FOOTER ── */
-    footer { background: var(--dark); padding: 52px 24px 24px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
-    .footer-brand img { height: 44px; margin-bottom: 14px; filter: invert(1) brightness(2); }
-    .footer-brand p { font-size: .85rem; line-height: 1.7; color: rgba(255,255,255,.48); margin-bottom: 12px; }
-    .footer-col h5 { color: var(--white); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .footer-col ul li a { color: rgba(255,255,255,.52); text-decoration: none; font-size: 13px; transition: color .2s; }
-    .footer-col ul li a:hover { color: var(--ocean-bright); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px; text-align: center; font-size: 12px; max-width: 1100px; margin: 0 auto; color: rgba(255,255,255,.4); }
-    .footer-bottom a { color: var(--ocean-bright); text-decoration: none; }
-    .powered-by { display: inline-flex; align-items: center; gap: 6px; margin-top: 7px; font-size: 12px; color: rgba(255,255,255,.33); }
-    .powered-by a { color: var(--sand-dark); font-weight: 600; text-decoration: none; }
-    .powered-by a:hover { color: var(--ocean-bright); }
-
-    /* ── FADE IN ── */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      header { padding: 0 16px; }
-      .header-logo img { min-width: 160px; height: 42px; }
-      .header-nav a:not(.header-cta) { display: none; }
-      .page-hero-content { padding: 32px 20px 48px; }
-      .premium-banner-bg { grid-template-columns: 1fr; }
-      .premium-stat-stack { flex-direction: row; flex-wrap: wrap; }
-      .pstat { flex: 1; min-width: 130px; }
-      .pitch-grid { grid-template-columns: 1fr; }
-      .explore-grid { grid-template-columns: 1fr; }
-      .steps-grid::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Cabarete Deals &amp; Featured Partners | Dominican Republic</title>
+<meta name="description" content="Featured kite schools, restaurants, hotels, tour operators and nightlife in Cabarete Dominican Republic. Exclusive deals for visitors and prime visibility for local businesses."/>
+<link rel="canonical" href="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<meta property="og:title" content="Cabarete Deals &amp; Featured Partners | Dominican Republic"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Cabarete Beach Dominican Republic"/>
+<link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/"/>
+<link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/ofertas-cabarete/"/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/Cabarete-beach-favicon.png"/>
+<meta name="theme-color" content="#0077b6"/>
+<!-- Eye To Ad Media | www.eyetoad.com | sales@eyetoad.com -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--od:#023e73;--om:#0077b6;--ob:#00b4d8;--ol:#caf0f8;--sd:#d4a850;--coral:#e07a5f;--db:#002d62;--pg:#1a6b3c;--wh:#fff;--dk:#0d1117;--tb:#2c3e50;--tl:#64748b;--hh:110px;--r:12px;--sh:0 8px 32px rgba(2,62,115,.12);--shl:0 20px 60px rgba(2,62,115,.18)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth;font-size:16px}*{min-width:0}
+body{font-family:"DM Sans",sans-serif;color:var(--tb);background:var(--wh)}
+.lb{background:var(--od);padding:6px 24px;display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:12px;color:rgba(255,255,255,.7)}
+.lt{display:inline-flex;border:1px solid rgba(255,255,255,.3);border-radius:20px;overflow:hidden}
+.lt button{background:transparent;border:none;color:rgba(255,255,255,.6);padding:3px 12px;font-size:11px;font-family:"DM Sans",sans-serif;cursor:pointer;font-weight:600;transition:all .2s}
+.lt button.active{background:var(--ob);color:var(--wh)}
+header{background:var(--wh);height:var(--hh);display:flex;align-items:center;justify-content:space-between;padding:0 32px;box-shadow:0 2px 16px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000;border-bottom:3px solid var(--ob)}
+.hl{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.hl img{height:96px;width:auto;max-width:480px;object-fit:contain;object-position:left center;display:block}
+nav.hn{display:flex;align-items:center;gap:24px;flex-shrink:0}
+nav.hn a{text-decoration:none;color:var(--od);font-weight:500;font-size:14px;transition:color .2s}
+nav.hn a:hover,nav.hn a.active{color:var(--ob)}
+.hcta{background:linear-gradient(135deg,var(--coral),#c0553a);color:var(--wh)!important;padding:10px 20px;border-radius:8px;font-weight:600!important;font-size:13px!important;text-align:center;line-height:1.3;text-decoration:none!important;display:inline-block;transition:transform .2s}
+.hcta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(224,122,95,.45)}
+.hcta small{display:block;font-size:10px;font-weight:400;opacity:.85}
+.bc{background:var(--ol);padding:10px 32px;font-size:13px;color:var(--tl)}
+.bc a{color:var(--om);text-decoration:none;font-weight:500}
+.bc span{margin:0 6px;opacity:.5}
+.ph{background:linear-gradient(135deg,var(--db),var(--od));padding:60px 32px 72px;text-align:center;position:relative;overflow:hidden}
+.ph h1{font-family:"Playfair Display",serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--wh);line-height:1.15;margin-bottom:16px;position:relative;z-index:1}
+.ph h1 em{font-style:italic;color:var(--ol)}
+.ph-d{font-size:1rem;color:rgba(255,255,255,.82);max-width:600px;margin:0 auto 28px;line-height:1.7;position:relative;z-index:1}
+.ph-cats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;position:relative;z-index:1}
+.ph-cat{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:var(--wh);padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
+.ph-cat:hover{background:rgba(255,255,255,.22);color:var(--wh)}
+.cat-nav{background:var(--wh);border-bottom:2px solid var(--ol);position:sticky;top:var(--hh);z-index:900;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-nav-i{display:flex;min-width:max-content;padding:0 16px}
+.cat-nav a{display:inline-flex;align-items:center;gap:5px;padding:12px 16px;font-size:13px;font-weight:600;color:var(--tl);text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s}
+.cat-nav a:hover,.cat-nav a.active{color:var(--om);border-bottom-color:var(--om)}
+.pw{max-width:1100px;margin:0 auto;padding:0 24px}
+.cg{display:grid;grid-template-columns:1fr 280px;gap:48px;padding:56px 0 72px}
+.mc{min-width:0}
+.sb{display:flex;flex-direction:column;gap:20px}
+/* PREMIUM BANNER */
+.prem{background:linear-gradient(135deg,var(--db),var(--od));border-radius:16px;padding:36px;margin-bottom:56px;text-align:center;position:relative;overflow:hidden}
+.prem::before{content:"";position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,180,216,.18) 0%,transparent 70%);border-radius:50%}
+.prem-tag{display:inline-block;background:var(--sd);color:var(--dk);font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:10px;margin-bottom:12px}
+.prem h2{font-family:"Playfair Display",serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--wh);margin-bottom:12px}
+.prem h2 em{font-style:italic;color:var(--ol)}
+.prem p{color:rgba(255,255,255,.78);font-size:.95rem;line-height:1.7;margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto}
+.prem-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.btn-gold{background:linear-gradient(135deg,var(--sd),#b8860b);color:var(--dk);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;transition:all .2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,168,80,.4)}
+.btn-ghost{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);color:var(--wh);padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+.prem-perks{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.prem-perk{text-align:center;color:rgba(255,255,255,.8)}
+.prem-perk strong{display:block;font-size:.85rem;font-weight:700;color:var(--wh);margin-bottom:2px}
+.prem-perk span{font-size:11px;color:rgba(255,255,255,.6)}
+/* SECTIONS */
+.cs{margin-bottom:64px;scroll-margin-top:calc(var(--hh) + 52px)}
+.cs-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.cs-ico{font-size:28px}
+.cs h2{font-family:"Playfair Display",serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:var(--od)}
+.cs-desc{font-size:.95rem;color:var(--tl);line-height:1.7;margin-bottom:24px}
+.cs-desc a{color:var(--om);text-decoration:none;font-weight:500}
+.cs-desc a:hover{text-decoration:underline}
+/* PARTNER CARDS */
+.partners{display:flex;flex-direction:column;gap:20px}
+.pc{background:var(--wh);border:1px solid rgba(0,119,182,.12);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:all .25s}
+.pc:hover{transform:translateY(-3px);box-shadow:var(--shl);border-color:var(--ob)}
+.pc.gold{border:2px solid var(--sd);background:linear-gradient(135deg,#fffef8,var(--wh))}
+.pc.open-slot{border:2px dashed rgba(0,119,182,.2);background:linear-gradient(135deg,#f8fbff,#f0f9ff)}
+.pc-top{padding:20px 22px 0;display:flex;gap:14px;align-items:flex-start}
+.pc-ico{font-size:28px;flex-shrink:0;margin-top:2px}
+.pc-meta{flex:1}
+.pc-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:3px 9px;border-radius:8px}
+.badge.gold{background:var(--sd);color:var(--dk)}
+.badge.blue{background:var(--ol);color:var(--om)}
+.badge.green{background:#d4f7e7;color:var(--pg)}
+.badge.open{background:rgba(0,119,182,.08);color:var(--om);border:1px dashed rgba(0,119,182,.3)}
+.pc h3{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:700;color:var(--od);margin-bottom:5px}
+.pc-body{padding:0 22px 18px}
+.pc-desc{font-size:.88rem;color:var(--tl);line-height:1.65;margin:10px 0}
+.pc-deal{background:linear-gradient(135deg,#fffdf0,#fff8e1);border:1px solid rgba(212,168,80,.3);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:.85rem;color:#7a5200}
+.pc-deal strong{display:block;font-size:.78rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sd);margin-bottom:4px}
+.pc-info{background:var(--ol);border-radius:8px;padding:12px 16px;margin:10px 0;font-size:.83rem;color:var(--od)}
+.pc-info strong{display:block;font-size:.75rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--om);margin-bottom:4px}
+.pc-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pc-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;transition:all .2s}
+.pc-btn.primary{background:var(--om);color:var(--wh)}
+.pc-btn.primary:hover{background:var(--od)}
+.pc-btn.gold{background:linear-gradient(135deg,var(--sd),#b8860b);color:var(--dk)}
+.pc-btn.gold:hover{transform:translateY(-1px)}
+.pc-btn.outline{background:transparent;border:2px solid var(--om);color:var(--om)}
+.pc-btn.outline:hover{background:var(--om);color:var(--wh)}
+.pc-loc{font-size:11px;color:var(--tl);margin-top:10px;display:flex;align-items:center;gap:5px}
+/* TIERS SECTION */
+.tiers{background:linear-gradient(135deg,#f8fbff,#f0f9ff);border-radius:16px;padding:48px 40px;margin-bottom:56px;scroll-margin-top:calc(var(--hh) + 52px)}
+.tiers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.tier{background:var(--wh);border-radius:var(--r);padding:24px;border:1px solid rgba(0,119,182,.12);box-shadow:var(--sh);position:relative}
+.tier.popular{border:2px solid var(--sd)}
+.tier.popular::before{content:"Most Popular";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--sd);color:var(--dk);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:2px 10px;border-radius:10px;white-space:nowrap}
+.tier-ico{font-size:28px;margin-bottom:10px}
+.tier h3{font-family:"Playfair Display",serif;font-size:1.1rem;color:var(--od);margin-bottom:4px}
+.tier-price{font-size:.85rem;font-weight:700;color:var(--om);margin-bottom:12px}
+.tier ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.tier ul li{font-size:.8rem;color:var(--tl);padding-left:16px;position:relative;line-height:1.5}
+.tier ul li::before{content:"\2713";position:absolute;left:0;color:var(--pg);font-weight:700}
+.tier .pc-btn{width:100%;justify-content:center;font-size:12px;padding:8px}
+/* WHY SECTION */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.why-card{background:var(--wh);border-radius:var(--r);padding:22px;border:1px solid rgba(0,119,182,.1);box-shadow:var(--sh)}
+.why-ico{font-size:28px;margin-bottom:10px}
+.why-card h4{font-family:"Playfair Display",serif;font-size:1rem;color:var(--od);margin-bottom:6px}
+.why-card p{font-size:.83rem;color:var(--tl);line-height:1.6}
+/* HOW IT WORKS */
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px}
+.step{text-align:center;padding:20px}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--od);color:var(--wh);font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step h4{font-family:"Playfair Display",serif;font-size:.97rem;color:var(--od);margin-bottom:6px}
+.step p{font-size:.82rem;color:var(--tl);line-height:1.55}
+/* TESTIMONIALS */
+.quotes{display:flex;flex-direction:column;gap:16px;margin:20px 0}
+.quote{background:var(--wh);border-left:4px solid var(--ob);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;box-shadow:var(--sh)}
+.quote p{font-size:.9rem;color:var(--tb);line-height:1.65;font-style:italic;margin-bottom:6px}
+.quote-attr{font-size:.78rem;font-weight:700;color:var(--om);text-transform:uppercase;letter-spacing:.8px}
+/* EXPLORE MORE */
+.explore-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.explore-card{background:linear-gradient(135deg,var(--od),var(--om));border-radius:var(--r);padding:24px;text-decoration:none;transition:all .25s;display:block}
+.explore-card:hover{transform:translateY(-3px);box-shadow:var(--shl)}
+.explore-card h3{font-family:"Playfair Display",serif;font-size:1.1rem;color:var(--wh);margin-bottom:6px}
+.explore-card p{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.55;margin-bottom:10px}
+.explore-card span{font-size:12px;font-weight:700;color:var(--sd)}
+/* FAQ */
+.fqs{scroll-margin-top:calc(var(--hh) + 52px)}
+.fql{display:flex;flex-direction:column;gap:8px}
+.fi{background:var(--wh);border-radius:var(--r);border:1px solid rgba(0,119,182,.1);overflow:hidden}
+.fq{width:100%;background:none;border:none;text-align:left;padding:16px 18px;font-family:"DM Sans",sans-serif;font-size:.93rem;font-weight:600;color:var(--od);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
+.fq:hover{background:var(--ol)}
+.fic{width:20px;height:20px;border-radius:50%;background:var(--om);color:var(--wh);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:transform .3s}
+.fi.open .fic{transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.fi.open .fa{max-height:300px}
+.fai{padding:12px 18px 16px;font-size:.88rem;color:var(--tl);line-height:1.7;border-top:1px solid rgba(0,119,182,.08)}
+/* FINAL CTA */
+.fcta{background:linear-gradient(135deg,var(--coral),#c0553a);border-radius:var(--r);padding:32px;text-align:center;margin-bottom:48px}
+.fcta h2{font-family:"Playfair Display",serif;font-size:1.6rem;color:var(--wh);margin-bottom:8px}
+.fcta p{color:rgba(255,255,255,.85);font-size:.93rem;margin-bottom:20px;line-height:1.6}
+/* SIDEBAR */
+.sbc{background:var(--wh);border-radius:var(--r);border:1px solid rgba(0,119,182,.12);box-shadow:var(--sh);overflow:hidden}
+.sbh{background:var(--od);padding:14px 16px}
+.sbh h4{font-family:"Playfair Display",serif;font-size:.95rem;color:var(--wh)}
+.sbh p{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+.sbb{padding:14px 16px}
+.sbl{list-style:none;display:flex;flex-direction:column;gap:7px}
+.sbl li a{display:flex;align-items:center;gap:7px;color:var(--om);text-decoration:none;font-size:12px;font-weight:500;transition:gap .2s}
+.sbl li a:hover{gap:11px}
+.sba{background:linear-gradient(135deg,var(--sd),#b8860b);border-radius:var(--r);padding:20px;text-align:center}
+.sba h4{font-family:"Playfair Display",serif;font-size:.95rem;color:var(--dk);margin-bottom:6px}
+.sba p{font-size:11px;color:rgba(0,0,0,.65);line-height:1.5;margin-bottom:12px}
+.sba a{display:inline-block;background:var(--dk);color:var(--wh);padding:8px 16px;border-radius:8px;text-decoration:none;font-size:11px;font-weight:700}
+/* FOOTER */
+footer{background:var(--dk);padding:48px 24px 24px;color:rgba(255,255,255,.6)}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;max-width:1100px;margin:0 auto 32px}
+.fbl{display:block;height:60px;width:auto;max-width:260px;object-fit:contain;object-position:left center;margin-bottom:12px;filter:brightness(0) invert(1)}
+.fp{font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.45);margin-bottom:12px}
+.fc h5{color:var(--wh);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.fc ul li a{color:rgba(255,255,255,.5);text-decoration:none;font-size:12px;transition:color .2s}
+.fc ul li a:hover{color:var(--ob)}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;text-align:center;font-size:11px;max-width:1100px;margin:0 auto}
+.fbot a{color:var(--ob);text-decoration:none}
+.pby{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:11px;color:rgba(255,255,255,.3)}
+.pby a{color:var(--sd);font-weight:600;text-decoration:none}
+.pby a:hover{color:var(--ob)}
+.fi2{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.fi2.vis{opacity:1;transform:translateY(0)}
+@media(max-width:960px){.cg{grid-template-columns:1fr}.sb{display:grid;grid-template-columns:1fr 1fr;gap:14px}.tiers-grid,.how-steps{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.hl img{height:72px;max-width:320px}}
+@media(max-width:768px){
+:root{--hh:80px}
+header{padding:0 14px}
+.hl img{height:60px;max-width:230px}
+nav.hn{gap:8px}
+nav.hn a:not(.hcta){display:none}
+.hcta{padding:8px 10px;font-size:11px!important}
+.hcta small{display:none}
+.bc{padding:8px 16px}
+.ph{padding:40px 16px 56px}
+.pw{padding:0 14px}
+.cg{padding:28px 0 40px}
+.sb{grid-template-columns:1fr}
+.tiers-grid,.how-steps,.why-grid,.explore-grid{grid-template-columns:1fr}
+.fg{grid-template-columns:1fr 1fr;gap:20px}
+.fbl{height:46px}
+.prem{padding:24px 16px}
+.tiers{padding:28px 16px}
+}
+@media(max-width:390px){.hl img{height:46px;max-width:180px}.ph h1{font-size:1.75rem}}
+</style>
 </head>
 <body>
+<div class="lb">
+  <span>&#127465;&#127476; Cabarete Beach Dominican Republic</span>
+  <div class="lt">
+    <button class="active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('es')" id="btn-es">ES</button>
+  </div>
+</div>
+<header>
+  <a href="https://cabaretebeachdominicanrepublic.com/" class="hl">
+    <img src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png" alt="Cabarete Beach Dominican Republic" width="480" height="96"/>
+  </a>
+  <nav class="hn">
+    <a href="https://cabaretebeachdominicanrepublic.com/" data-en="Home" data-es="Inicio">Home</a>
+    <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/" data-en="Things To Do" data-es="Que Hacer">Things To Do</a>
+    <a href="https://cabaretebeachdominicanrepublic.com/cabarete-deals/" class="active" data-en="Featured Partners" data-es="Socios Destacados">Featured Partners</a>
+    <a href="mailto:sales@eyetoad.com?subject=Advertise%20on%20Cabarete%20Beach%20Guide" class="hcta">
+      &#127796; <span data-en="Advertise Here" data-es="Anunciate Aqui">Advertise Here</span>
+      <small data-en="Get Your Business Featured" data-es="Destaca tu Negocio">Get Your Business Featured</small>
+    </a>
+  </nav>
+</header>
+<nav class="bc">
+  <a href="https://cabaretebeachdominicanrepublic.com/" data-en="Home" data-es="Inicio">Home</a>
+  <span>&rsaquo;</span>
+  <span data-en="Featured Partners &amp; Deals" data-es="Socios Destacados y Ofertas">Featured Partners &amp; Deals</span>
+</nav>
+<div class="ph">
+  <h1 data-en="Cabarete's Best &lt;em&gt;Featured Partners &amp; Deals&lt;/em&gt;" data-es="Los Mejores &lt;em&gt;Socios Destacados y Ofertas&lt;/em&gt; de Cabarete">Cabarete's Best <em>Featured Partners &amp; Deals</em></h1>
+  <p class="ph-d" data-en="Handpicked kite schools, restaurants, hotels, and tour operators in Cabarete, Dominican Republic. Exclusive offers for visitors &mdash; and prime visibility for local businesses." data-es="Escuelas de kite, restaurantes, hoteles y operadores de tours seleccionados en Cabarete, Republica Dominicana. Ofertas exclusivas para visitantes &mdash; y visibilidad privilegiada para negocios locales.">Handpicked kite schools, restaurants, hotels, and tour operators in Cabarete, Dominican Republic. Exclusive offers for visitors &mdash; and prime visibility for local businesses.</p>
+  <div class="ph-cats">
+    <a href="#kite-section" class="ph-cat">&#129745; <span data-en="Kite Schools" data-es="Escuelas Kite">Kite Schools</span></a>
+    <a href="#food-section" class="ph-cat">&#127869; <span data-en="Restaurants" data-es="Restaurantes">Restaurants</span></a>
+    <a href="#hotel-section" class="ph-cat">&#127968; <span data-en="Hotels" data-es="Hoteles">Hotels</span></a>
+    <a href="#tours-section" class="ph-cat">&#127807; <span data-en="Tours" data-es="Tours">Tours</span></a>
+    <a href="#nightlife-section" class="ph-cat">&#127769; <span data-en="Nightlife" data-es="Nocturna">Nightlife</span></a>
+  </div>
+</div>
+<nav class="cat-nav"><div class="cat-nav-i">
+  <a href="#top">&#127796; <span data-en="All Partners" data-es="Todos los Socios">All Partners</span></a>
+  <a href="#kite-section">&#129745; <span data-en="Kite &amp; Wind" data-es="Kite y Viento">Kite &amp; Wind</span></a>
+  <a href="#surf-section">&#127940; <span data-en="Surf &amp; Water" data-es="Surf y Agua">Surf &amp; Water</span></a>
+  <a href="#food-section">&#127869; <span data-en="Food &amp; Drink" data-es="Comida y Bebida">Food &amp; Drink</span></a>
+  <a href="#hotel-section">&#127968; <span data-en="Hotels &amp; Stays" data-es="Hoteles y Estadias">Hotels &amp; Stays</span></a>
+  <a href="#tours-section">&#127807; <span data-en="Tours &amp; Excursions" data-es="Tours y Excursiones">Tours &amp; Excursions</span></a>
+  <a href="#wellness-section">&#129496; <span data-en="Wellness &amp; Spa" data-es="Bienestar y Spa">Wellness &amp; Spa</span></a>
+  <a href="#nightlife-section">&#127769; <span data-en="Nightlife" data-es="Vida Nocturna">Nightlife</span></a>
+</div></nav>
 
-  <!-- LANGUAGE BAR -->
-  <div class="lang-bar">
-    <div class="lang-bar-left">
-      <span>🇩🇴 Cabarete Beach Dominican Republic</span>
-      <span>|</span>
-      <a href="/">🏠 Home</a>
-      <span>·</span>
-      <a href="/things-to-do-cabarete/">🗺️ Things To Do</a>
-      <span>·</span>
-      <a href="/cabarete-deals/">⭐ Featured Partners</a>
+<div class="pw" id="top"><div class="cg">
+<main class="mc">
+
+<!-- PREMIUM BANNER -->
+<div class="prem fi2">
+  <div class="prem-tag">&#11088; <span data-en="Premium Featured Partner" data-es="Socio Destacado Premium">Premium Featured Partner</span></div>
+  <h2 data-en="Your Business &lt;em&gt;Right Here &mdash; Top of the Guide&lt;/em&gt;" data-es="Tu Negocio &lt;em&gt;Aqui Mismo &mdash; Lo Primero de la Guia&lt;/em&gt;">Your Business <em>Right Here &mdash; Top of the Guide</em></h2>
+  <p data-en="This is the most visible advertising position on the entire site &mdash; seen by every visitor, on every page load, before anything else. Ideal for kite schools, hotels, tour operators, or any business that wants to be the first thing tourists find when researching Cabarete." data-es="Esta es la posicion publicitaria mas visible de todo el sitio &mdash; vista por cada visitante, en cada carga de pagina, antes que cualquier otra cosa. Ideal para escuelas de kite, hoteles, operadores de tours, o cualquier negocio que quiera ser lo primero que los turistas encuentren al investigar Cabarete.">This is the most visible advertising position on the entire site &mdash; seen by every visitor, on every page load, before anything else. Ideal for kite schools, hotels, tour operators, or any business that wants to be the first thing tourists find when researching Cabarete.</p>
+  <div class="prem-btns">
+    <a href="mailto:sales@eyetoad.com?subject=Premium%20Featured%20Partner%20Inquiry" class="btn-gold">&#128231; <span data-en="Claim This Spot" data-es="Reserva Este Espacio">Claim This Spot</span></a>
+    <a href="#tiers" class="btn-ghost" data-en="View Listing Options" data-es="Ver Opciones de Listado">View Listing Options</a>
+  </div>
+  <div class="prem-perks">
+    <div class="prem-perk"><strong data-en="Pre-Trip" data-es="Pre-Viaje">Pre-Trip</strong><span data-en="Tourists arrive with your business already in mind" data-es="Los turistas llegan con tu negocio ya en mente">Tourists arrive with your business already in mind</span></div>
+    <div class="prem-perk"><strong data-en="SEO-Driven" data-es="Impulsado por SEO">SEO-Driven</strong><span data-en="Page ranks for Cabarete travel searches" data-es="La pagina posiciona en busquedas de viajes a Cabarete">Page ranks for Cabarete travel searches</span></div>
+    <div class="prem-perk"><strong data-en="All 3 Pages" data-es="Las 3 Paginas">All 3 Pages</strong><span data-en="Exposure across homepage, activities &amp; deals" data-es="Exposicion en inicio, actividades y ofertas">Exposure across homepage, activities &amp; deals</span></div>
+  </div>
+</div>
+
+<!-- KITE SECTION -->
+<section class="cs fi2" id="kite-section">
+  <div class="cs-head"><div class="cs-ico">&#129745;</div><h2 data-en="Featured Kite Schools &amp; Wind Sports" data-es="Escuelas de Kite y Deportes de Viento Destacadas">Featured Kite Schools &amp; Wind Sports</h2></div>
+  <p class="cs-desc" data-en="Cabarete has 10+ IKO-certified kite schools &mdash; the highest concentration in the Caribbean. These featured partners are trusted by thousands of visitors every year." data-es="Cabarete tiene mas de 10 escuelas de kite certificadas IKO &mdash; la mayor concentracion en el Caribe. Estos socios destacados son de confianza de miles de visitantes cada ano.">Cabarete has <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#kitesurfing">10+ IKO-certified kite schools</a> &mdash; the highest concentration in the Caribbean. These featured partners are trusted by thousands of visitors every year.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#129745;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#129353; <span data-en="Kite School" data-es="Escuela de Kite">Kite School</span></span><span class="badge gold">EXCLUSIVE DEAL</span></div><h3 data-en="Your Kite School &mdash; Gold Partner" data-es="Tu Escuela de Kite &mdash; Socio Gold">Your Kite School &mdash; Gold Partner</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="This Gold Partner slot is reserved for a premier kite school ready to be featured at the top of Cabarete's highest-ranking wind sports guide. Get your school in front of thousands of pre-trip tourists actively searching for lessons." data-es="Este espacio de Socio Gold esta reservado para una escuela de kite premier lista para ser destacada en la parte superior de la guia de deportes de viento mejor posicionada de Cabarete.">This Gold Partner slot is reserved for a premier kite school ready to be featured at the top of Cabarete's highest-ranking wind sports guide. Get your school in front of thousands of pre-trip tourists actively searching for lessons.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Exclusive Offer Here" data-es="Tu Oferta Exclusiva Aqui">Your Exclusive Offer Here</span></strong><span data-en='e.g. "First hour free with 3-hour booking" &middot; "10% off all lesson packages"' data-es='ej. "Primera hora gratis con reserva de 3 horas" &middot; "10% de descuento en todos los paquetes"'>e.g. "First hour free with 3-hour booking" &middot; "10% off all lesson packages"</span></div>
+        <div class="pc-btns">
+          <a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Kite%20School" class="pc-btn gold">&#11088; <span data-en="Claim Gold Spot" data-es="Reserva el Espacio Gold">Claim Gold Spot</span></a>
+        </div>
+        <div class="pc-loc">&#128205; <span data-en="Limited availability" data-es="Disponibilidad limitada">Limited availability</span></div>
+      </div>
     </div>
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-size:12px;">Language:</span>
-      <span class="lang-toggle">
-        <button class="active">EN</button>
-        <button>ES</button>
-      </span>
+    <div class="pc fi2">
+      <div class="pc-top"><div class="pc-ico">&#129745;</div><div class="pc-meta"><div class="pc-badges"><span class="badge blue">&#129745; <span data-en="Kite School" data-es="Escuela de Kite">Kite School</span></span></div><h3>Cabarete Kite Point</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="One of Cabarete's most highly reviewed schools, located right on Kite Beach. Led by local professionals and the legendary Corniel family. You only pay for hours you actually use &mdash; no package lock-ins." data-es="Una de las escuelas mejor valoradas de Cabarete, ubicada justo en Kite Beach. Dirigida por profesionales locales y la legendaria familia Corniel. Solo pagas por las horas que realmente usas &mdash; sin bloqueos de paquetes.">One of Cabarete's most highly reviewed schools, located right on Kite Beach. Led by local professionals and the legendary Corniel family. You only pay for hours you actually use &mdash; no package lock-ins.</p>
+        <div class="pc-info"><strong>&#8505;&#65039; <span data-en="About This School" data-es="Sobre Esta Escuela">About This School</span></strong><span data-en="Beginner through advanced &middot; private &amp; group &middot; IKO certified &middot; all equipment included" data-es="Principiante hasta avanzado &middot; privado y grupal &middot; certificado IKO &middot; todo el equipo incluido">Beginner through advanced &middot; private &amp; group &middot; IKO certified &middot; all equipment included</span></div>
+        <div class="pc-btns">
+          <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#kitesurfing" class="pc-btn primary" data-en="Learn More" data-es="Saber Mas">Learn More</a>
+        </div>
+        <div class="pc-loc">&#128205; Kite Beach, Cabarete</div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#129745;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Kite School &mdash; Open Slot" data-es="Escuela de Kite &mdash; Espacio Disponible">Kite School &mdash; Open Slot</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Standard partner listing for a kite or wind sports school. Photo, description, deal, and direct contact link." data-es="Listado estandar de socio para una escuela de kite o deportes de viento. Foto, descripcion, oferta y enlace de contacto directo.">Standard partner listing for a kite or wind sports school. Photo, description, deal, and direct contact link.</p>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Kite%20School" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- HEADER -->
-  <header>
-    <a href="/" class="header-logo">
-      <img src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png" alt="Cabarete Beach Dominican Republic — Official Travel Guide" width="260" height="56" />
+<!-- SURF SECTION -->
+<section class="cs fi2" id="surf-section">
+  <div class="cs-head"><div class="cs-ico">&#127940;</div><h2 data-en="Surf Schools &amp; Water Activities" data-es="Escuelas de Surf y Actividades Acuaticas">Surf Schools &amp; Water Activities</h2></div>
+  <p class="cs-desc" data-en="From Playa Encuentro surf lessons to scuba diving in Sosua &mdash; feature your water sports business here." data-es="Desde lecciones de surf en Playa Encuentro hasta buceo en Sosua &mdash; destaca tu negocio de deportes acuaticos aqui.">From <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#surfing">Playa Encuentro surf lessons</a> to scuba diving in Sosua &mdash; feature your water sports business here.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#127940;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#127940; <span data-en="Surf School" data-es="Escuela de Surf">Surf School</span></span><span class="badge gold">FEATURED</span></div><h3 data-en="Surf School &mdash; Gold Partner Slot" data-es="Escuela de Surf &mdash; Espacio Socio Gold">Surf School &mdash; Gold Partner Slot</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Playa Encuentro sees 350 rideable days per year and draws surf learners from around the world. Be the featured school tourists book before they board their flight." data-es="Playa Encuentro tiene 350 dias surfeables al ano y atrae a aprendices de surf de todo el mundo. Se la escuela destacada que los turistas reservan antes de abordar su vuelo.">Playa Encuentro sees 350 rideable days per year and draws surf learners from around the world. Be the featured school tourists book before they board their flight.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Exclusive Deal Here" data-es="Tu Oferta Exclusiva Aqui">Your Exclusive Deal Here</span></strong><span data-en='e.g. "Book online, get board rental included" &middot; "Beginner package from $60"' data-es='ej. "Reserva online, alquiler de tabla incluido" &middot; "Paquete principiante desde $60"'>e.g. "Book online, get board rental included" &middot; "Beginner package from $60"</span></div>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Surf%20School" class="pc-btn gold">&#11088; <span data-en="Claim This Spot" data-es="Reserva Este Espacio">Claim This Spot</span></a></div>
+        <div class="pc-loc">&#128205; Playa Encuentro, Cabarete</div>
+      </div>
+    </div>
+    <div class="pc fi2">
+      <div class="pc-top"><div class="pc-ico">&#129374;</div><div class="pc-meta"><div class="pc-badges"><span class="badge blue">&#129374; <span data-en="Scuba Diving" data-es="Buceo">Scuba Diving</span></span></div><h3 data-en="Dive Cabarete &mdash; Sosua" data-es="Dive Cabarete &mdash; Sosua">Dive Cabarete &mdash; Sosua</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="The North Coast's premier PADI dive center, based in Sosua &mdash; 15 minutes from Cabarete. The Canyon reef site is legendary. Discovery dives available for complete beginners." data-es="El principal centro de buceo PADI de la Costa Norte, ubicado en Sosua &mdash; a 15 minutos de Cabarete. El arrecife del Canon es legendario. Inmersiones de descubrimiento para principiantes completos.">The North Coast's premier PADI dive center, based in Sosua &mdash; 15 minutes from Cabarete. The Canyon reef site is legendary. Discovery dives available for complete beginners.</p>
+        <div class="pc-info"><strong>&#8505;&#65039; <span data-en="About This Operator" data-es="Sobre Este Operador">About This Operator</span></strong><span data-en="PADI certified &middot; beginner discovery dives &middot; multiple reef sites &middot; Sosua, 15 min from Cabarete" data-es="Certificado PADI &middot; inmersiones de descubrimiento para principiantes &middot; multiples sitios de arrecife &middot; Sosua, 15 min de Cabarete">PADI certified &middot; beginner discovery dives &middot; multiple reef sites &middot; Sosua, 15 min from Cabarete</span></div>
+        <div class="pc-btns"><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#water" class="pc-btn primary" data-en="Learn More" data-es="Saber Mas">Learn More</a></div>
+        <div class="pc-loc">&#128205; <span data-en="Sosua Beach" data-es="Playa de Sosua">Sosua Beach</span></div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#127754;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Water Sports &mdash; Open Slot" data-es="Deportes Acuaticos &mdash; Espacio Disponible">Water Sports &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="SUP, wing foiling, boat tours, snorkeling, kayaking, fishing. Get your water activity business listed." data-es="SUP, wing foil, tours en barco, esnorquel, kayak, pesca. Registra tu negocio de actividades acuaticas.">SUP, wing foiling, boat tours, snorkeling, kayaking, fishing. Get your water activity business listed.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Water%20Sports" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD SECTION -->
+<section class="cs fi2" id="food-section">
+  <div class="cs-head"><div class="cs-ico">&#127869;</div><h2 data-en="Featured Restaurants &amp; Beach Bars" data-es="Restaurantes y Bares de Playa Destacados">Featured Restaurants &amp; Beach Bars</h2></div>
+  <p class="cs-desc" data-en="Cabarete's beachfront dining scene is one of the Caribbean's most diverse &mdash; Italian, Dominican, Mexican, Japanese, all with sand between your toes. Get your restaurant found first." data-es="La escena de restaurantes frente al mar de Cabarete es una de las mas diversas del Caribe &mdash; italiana, dominicana, mexicana, japonesa, todo con arena entre los dedos. Que tu restaurante sea encontrado primero.">Cabarete's <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#restaurants">beachfront dining scene</a> is one of the Caribbean's most diverse &mdash; Italian, Dominican, Mexican, Japanese, all with sand between your toes.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#127869;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#127869; <span data-en="Restaurant" data-es="Restaurante">Restaurant</span></span><span class="badge gold">GOLD SPOT OPEN</span></div><h3 data-en="Your Restaurant &mdash; Gold Partner" data-es="Tu Restaurante &mdash; Socio Gold">Your Restaurant &mdash; Gold Partner</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Tourists research Cabarete restaurants extensively before they arrive. Be the first establishment they see when they search 'best restaurants Cabarete Dominican Republic' &mdash; and the first they visit when they land." data-es="Los turistas investigan los restaurantes de Cabarete extensamente antes de llegar. Se el primer establecimiento que vean cuando buscan 'mejores restaurantes Cabarete Republica Dominicana' &mdash; y el primero que visiten cuando lleguen.">Tourists research Cabarete restaurants extensively before they arrive. Be the first establishment they see when they search &ldquo;best restaurants Cabarete Dominican Republic&rdquo; &mdash; and the first they visit when they land.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Exclusive Offer Here" data-es="Tu Oferta Exclusiva Aqui">Your Exclusive Offer Here</span></strong><span data-en='e.g. "Show this page for a complimentary appetizer" &middot; "Free Presidente with any entree"' data-es='ej. "Muestra esta pagina para un aperitivo de cortesia" &middot; "Presidente gratis con cualquier plato principal"'>e.g. "Show this page for a complimentary appetizer" &middot; "Free Presidente with any entree"</span></div>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Restaurant" class="pc-btn gold">&#11088; <span data-en="Claim Gold Spot" data-es="Reserva el Espacio Gold">Claim Gold Spot</span></a></div>
+        <div class="pc-loc"><span data-en="Limited to 2 per category" data-es="Limitado a 2 por categoria">Limited to 2 per category</span></div>
+      </div>
+    </div>
+    <div class="pc fi2">
+      <div class="pc-top"><div class="pc-ico">&#9749;</div><div class="pc-meta"><div class="pc-badges"><span class="badge blue">&#9749; <span data-en="Cafe" data-es="Cafe">Cafe</span></span><span class="badge green">&#127775; Community Champion</span></div><h3>Cabarete Coffee Company</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="A social enterprise and Cabarete institution. Exceptional coffee, incredible breakfast bowls, and the legendary Kite Loop Panini. Run by the Mariposa DR Foundation &mdash; supporting this business funds community education programs." data-es="Una empresa social e institucion de Cabarete. Cafe excepcional, increibles tazones de desayuno y el legendario Kite Loop Panini. Dirigida por la Fundacion Mariposa DR &mdash; apoyar este negocio financia programas de educacion comunitaria.">A social enterprise and Cabarete institution. Exceptional coffee, incredible breakfast bowls, and the legendary Kite Loop Panini. Run by the Mariposa DR Foundation &mdash; supporting this business funds community education programs.</p>
+        <div class="pc-info"><strong>&#127775; Community Champion</strong><span data-en="Every purchase supports the Mariposa DR Foundation's community programs" data-es="Cada compra apoya los programas comunitarios de la Fundacion Mariposa DR">Every purchase supports the Mariposa DR Foundation's community programs</span></div>
+        <div class="pc-btns"><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#restaurants" class="pc-btn primary" data-en="See All Restaurants" data-es="Ver Todos los Restaurantes">See All Restaurants</a></div>
+        <div class="pc-loc">&#11088; 4.8 &middot; 426 reviews</div>
+      </div>
+    </div>
+    <div class="pc fi2">
+      <div class="pc-top"><div class="pc-ico">&#127790;</div><div class="pc-meta"><div class="pc-badges"><span class="badge blue">&#127790; Mexican</span></div><h3>Gordito's Fresh Mex</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Cabarete's most beloved casual restaurant. 4.7 stars across 1,333 reviews. Fresh Mexican-inspired food, legendary Taco Tuesday, and a local following that speaks for itself. Consistently packed &mdash; and deservedly so." data-es="El restaurante casual mas querido de Cabarete. 4.7 estrellas en 1.333 resenas. Comida fresca de inspiracion mexicana, legendario Taco Tuesday y una clientela local que habla por si misma.">Cabarete's most beloved casual restaurant. 4.7 stars across 1,333 reviews. Fresh Mexican-inspired food, legendary Taco Tuesday, and a local following that speaks for itself.</p>
+        <div class="pc-info"><strong>&#127873; <span data-en="Local Favorite" data-es="Favorito Local">Local Favorite</span></strong><span data-en="Taco Tuesdays &middot; massive portions &middot; budget-friendly &middot; always fresh" data-es="Taco Tuesdays &middot; porciones generosas &middot; economico &middot; siempre fresco">Taco Tuesdays &middot; massive portions &middot; budget-friendly &middot; always fresh</span></div>
+        <div class="pc-btns"><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#restaurants" class="pc-btn primary" data-en="Full Restaurant Guide" data-es="Guia Completa de Restaurantes">Full Restaurant Guide</a></div>
+        <div class="pc-loc">&#11088; 4.7 &middot; 1,333 reviews</div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#127865;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Bar / Beach Club &mdash; Open Slot" data-es="Bar / Beach Club &mdash; Espacio Disponible">Bar / Beach Club &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Beach bars, nightlife spots, cocktail lounges. Feature your venue here with photo, deal, and direct link." data-es="Bares de playa, locales de vida nocturna, lounges de cockteles. Destaca tu local aqui con foto, oferta y enlace directo.">Beach bars, nightlife spots, cocktail lounges. Feature your venue here with photo, deal, and direct link.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Bar%20or%20Beach%20Club" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTELS SECTION -->
+<section class="cs fi2" id="hotel-section">
+  <div class="cs-head"><div class="cs-ico">&#127968;</div><h2 data-en="Featured Hotels &amp; Accommodations" data-es="Hoteles y Alojamientos Destacados">Featured Hotels &amp; Accommodations</h2></div>
+  <p class="cs-desc" data-en="From eco-luxury boutique retreats to kite-side resort rooms &mdash; Cabarete's accommodation scene spans every style and budget. Feature your property where tourists book their stays." data-es="Desde retiros boutique de eco-lujo hasta habitaciones de resort al lado del kite &mdash; la escena de alojamiento de Cabarete abarca todos los estilos y presupuestos.">From eco-luxury boutique retreats to kite-side resort rooms &mdash; Cabarete's accommodation scene spans every style and budget. Feature your property where tourists book their stays.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#127968;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#127968; <span data-en="Hotel / Resort" data-es="Hotel / Resort">Hotel / Resort</span></span><span class="badge gold">FEATURED STAY</span></div><h3 data-en="Your Hotel &mdash; Gold Partner" data-es="Tu Hotel &mdash; Socio Gold">Your Hotel &mdash; Gold Partner</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Travelers researching Cabarete hotels land on this guide. A Gold Partner placement puts your property in the most prominent position &mdash; complete with photos, your unique selling points, and a direct booking link or special offer." data-es="Los viajeros que investigan hoteles en Cabarete llegan a esta guia. Un posicionamiento de Socio Gold pone tu propiedad en la posicion mas prominente &mdash; con fotos, tus puntos de venta unicos y un enlace de reserva directo.">Travelers researching Cabarete hotels land on this guide. A Gold Partner placement puts your property in the most prominent position &mdash; complete with photos, your unique selling points, and a direct booking link or special offer.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Exclusive Rate Here" data-es="Tu Tarifa Exclusiva Aqui">Your Exclusive Rate Here</span></strong><span data-en='e.g. "Book direct &mdash; free airport pickup included" &middot; "Stay 5 nights, pay 4"' data-es='ej. "Reserva directo &mdash; recogida en aeropuerto gratis" &middot; "Estay 5 noches, paga 4"'>e.g. "Book direct &mdash; free airport pickup included" &middot; "Stay 5 nights, pay 4"</span></div>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Hotel" class="pc-btn gold">&#11088; <span data-en="Claim Hotel Spot" data-es="Reserva el Espacio de Hotel">Claim Hotel Spot</span></a></div>
+        <div class="pc-loc">&#128205; <span data-en="Cabarete beachfront" data-es="Frente al mar de Cabarete">Cabarete beachfront</span></div>
+      </div>
+    </div>
+    <div class="pc fi2">
+      <div class="pc-top"><div class="pc-ico">&#127807;</div><div class="pc-meta"><div class="pc-badges"><span class="badge green">&#127807; Eco-Luxury</span></div><h3>Natura Cabana Boutique Hotel &amp; Spa</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Cabarete's most serene retreat. Lush tropical gardens, private beach access, the Attabeyra Spa with local-ingredient treatments, morning beachfront yoga, and an oceanfront restaurant. The Dominican Republic's most thoughtful eco-luxury stay." data-es="El retiro mas sereno de Cabarete. Exuberantes jardines tropicales, acceso a playa privada, el Spa Attabeyra con tratamientos de ingredientes locales, yoga matutino frente al mar y un restaurante frente al oceano.">Cabarete's most serene retreat. Lush tropical gardens, private beach access, the Attabeyra Spa with local-ingredient treatments, morning beachfront yoga, and an oceanfront restaurant.</p>
+        <div class="pc-info"><strong>&#10024; <span data-en="Why Stay Here" data-es="Por Que Hospedarse Aqui">Why Stay Here</span></strong><span data-en="Spa &middot; yoga &middot; private beach &middot; eco-luxury &middot; monthly artisan market on-site" data-es="Spa &middot; yoga &middot; playa privada &middot; eco-lujo &middot; mercado artesanal mensual en el lugar">Spa &middot; yoga &middot; private beach &middot; eco-luxury &middot; monthly artisan market on-site</span></div>
+        <div class="pc-btns"><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#wellness" class="pc-btn primary" data-en="See Wellness Guide" data-es="Ver Guia de Bienestar">See Wellness Guide</a></div>
+        <div class="pc-loc">&#128205; <span data-en="Cabarete beachfront" data-es="Frente al mar de Cabarete">Cabarete beachfront</span></div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#127968;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Vacation Rental &mdash; Open Slot" data-es="Alquiler Vacacional &mdash; Espacio Disponible">Vacation Rental &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Condos, villas, apartments, guesthouses. Reach tourists before they book on Airbnb or Booking.com." data-es="Condominios, villas, apartamentos, pensiones. Llega a los turistas antes de que reserven en Airbnb o Booking.com.">Condos, villas, apartments, guesthouses. Reach tourists before they book on Airbnb or Booking.com.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Accommodation" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOURS SECTION -->
+<section class="cs fi2" id="tours-section">
+  <div class="cs-head"><div class="cs-ico">&#127807;</div><h2 data-en="Featured Tour Operators &amp; Excursions" data-es="Operadores de Tours y Excursiones Destacados">Featured Tour Operators &amp; Excursions</h2></div>
+  <p class="cs-desc" data-en="Cabarete is the gateway to some of the Caribbean's best adventures &mdash; 27 Damajagua Waterfalls, Cayo Arena, El Choco caves, Laguna Gri Gri and more. Feature your tour company where adventurous tourists are planning their itineraries." data-es="Cabarete es la puerta de entrada a algunas de las mejores aventuras del Caribe &mdash; 27 Cascadas de Damajagua, Cayo Arena, cuevas de El Choco, Laguna Gri Gri y mas.">Cabarete is the gateway to some of the Caribbean's best adventures &mdash; <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#daytrips">27 Damajagua Waterfalls, Cayo Arena, El Choco caves</a> and more. Feature your tour company where adventurous tourists are planning their itineraries.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#127807;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#127807; <span data-en="Tour Operator" data-es="Operador de Tours">Tour Operator</span></span><span class="badge gold">GOLD SPOT OPEN</span></div><h3 data-en="Tour Operator &mdash; Gold Partner" data-es="Operador de Tours &mdash; Socio Gold">Tour Operator &mdash; Gold Partner</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Tourists researching Cabarete day trips and excursions land here actively looking to book. A Gold Partner listing puts your tours in front of the most motivated buyers." data-es="Los turistas que investigan excursiones de un dia desde Cabarete llegan aqui activamente buscando reservar. Un listado de Socio Gold pone tus tours frente a los compradores mas motivados.">Tourists researching Cabarete day trips and excursions land here actively looking to book. A Gold Partner listing puts your tours in front of the most motivated buyers.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Deal or Highlight Here" data-es="Tu Oferta o Destaque Aqui">Your Deal or Highlight Here</span></strong><span data-en='e.g. "Book Damajagua + Cayo Arena combo, save 20%" &middot; "Free hotel pickup included"' data-es='ej. "Reserva combo Damajagua + Cayo Arena, ahorra 20%" &middot; "Recogida en hotel gratis incluida"'>e.g. "Book Damajagua + Cayo Arena combo, save 20%" &middot; "Free hotel pickup included"</span></div>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Tour%20Operator" class="pc-btn gold">&#11088; <span data-en="Claim Tour Spot" data-es="Reserva el Espacio de Tours">Claim Tour Spot</span></a></div>
+        <div class="pc-loc"><span data-en="All excursions welcome" data-es="Todas las excursiones bienvenidas">All excursions welcome</span></div>
+      </div>
+    </div>
+    <div class="pc fi2">
+      <div class="pc-top"><div class="pc-ico">&#128167;</div><div class="pc-meta"><div class="pc-badges"><span class="badge blue">&#128167; <span data-en="Waterfalls" data-es="Cascadas">Waterfalls</span></span></div><h3 data-en="27 Damajagua Waterfalls Tour" data-es="Tour a las 27 Cascadas de Damajagua">27 Damajagua Waterfalls Tour</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="One of the Dominican Republic's most spectacular natural attractions &mdash; trek through jungle then jump, slide, and swim down 27 natural limestone cascades. About 1 hour from Cabarete. Guided tours with equipment, safety gear, and local knowledge." data-es="Una de las atracciones naturales mas espectaculares de la Republica Dominicana &mdash; camina por la jungla luego salta, deslizate y nada por 27 cascadas naturales de caliza. A 1 hora de Cabarete.">One of the Dominican Republic's most spectacular natural attractions &mdash; trek through jungle then jump, slide, and swim down 27 natural limestone cascades. About 1 hour from Cabarete.</p>
+        <div class="pc-info"><strong>&#128205; <span data-en="Day Trip Essential" data-es="Excursion Esencial">Day Trip Essential</span></strong><span data-en="~1 hour from Cabarete &middot; helmets &amp; life vests provided &middot; family-friendly (older kids)" data-es="~1 hora de Cabarete &middot; cascos y chalecos salvavidas incluidos &middot; apto para familias (ninos mayores)">~1 hour from Cabarete &middot; helmets &amp; life vests provided &middot; family-friendly (older kids)</span></div>
+        <div class="pc-btns"><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#daytrips" class="pc-btn primary" data-en="Full Day Trip Guide" data-es="Guia Completa de Excursiones">Full Day Trip Guide</a></div>
+        <div class="pc-loc"><span data-en="From ~$40-$60/person" data-es="Desde ~$40-$60/persona">From ~$40-$60/person</span></div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#128506;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Tour / Excursion &mdash; Open Slot" data-es="Tour / Excursion &mdash; Espacio Disponible">Tour / Excursion &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Horseback, cave tours, boat trips, zip-lining, whale watching, cultural tours. All welcome." data-es="Paseos a caballo, tours de cuevas, excursiones en barco, tirolinas, avistamiento de ballenas, tours culturales. Todos bienvenidos.">Horseback, cave tours, boat trips, zip-lining, whale watching, cultural tours. All welcome.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Tour%20Excursion" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WELLNESS SECTION -->
+<section class="cs fi2" id="wellness-section">
+  <div class="cs-head"><div class="cs-ico">&#129496;</div><h2 data-en="Wellness, Yoga &amp; Spa Partners" data-es="Socios de Bienestar, Yoga y Spa">Wellness, Yoga &amp; Spa Partners</h2></div>
+  <p class="cs-desc" data-en="Cabarete's wellness scene is genuine and growing. Feature your studio, spa, retreat, or healing practice here." data-es="La escena de bienestar de Cabarete es genuina y esta creciendo. Destaca tu estudio, spa, retiro o practica de sanacion aqui.">Cabarete's <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#wellness">wellness scene</a> is genuine and growing. Feature your studio, spa, retreat, or healing practice here.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#129496;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#129496; Wellness</span><span class="badge gold">FEATURED</span></div><h3 data-en="Yoga Studio or Spa &mdash; Gold Partner" data-es="Estudio de Yoga o Spa &mdash; Socio Gold">Yoga Studio or Spa &mdash; Gold Partner</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Wellness travelers are one of Cabarete's fastest-growing visitor segments. A Gold Partner listing puts your studio, retreat, or spa in front of exactly the people actively searching for oceanside wellness experiences." data-es="Los viajeros de bienestar son uno de los segmentos de visitantes de mas rapido crecimiento de Cabarete. Un listado de Socio Gold pone tu estudio, retiro o spa frente exactamente a las personas que buscan activamente experiencias de bienestar junto al oceano.">Wellness travelers are one of Cabarete's fastest-growing visitor segments. A Gold Partner listing puts your studio, retreat, or spa in front of exactly the people actively searching for oceanside wellness experiences.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Offer Here" data-es="Tu Oferta Aqui">Your Offer Here</span></strong><span data-en='e.g. "First yoga class free for guide visitors" &middot; "Spa package: 60-min massage + facial"' data-es='ej. "Primera clase de yoga gratis para visitantes de la guia" &middot; "Paquete spa: masaje 60 min + facial"'>e.g. "First yoga class free for guide visitors" &middot; "Spa package: 60-min massage + facial"</span></div>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Wellness" class="pc-btn gold">&#11088; <span data-en="Claim Wellness Spot" data-es="Reserva el Espacio de Bienestar">Claim Wellness Spot</span></a></div>
+        <div class="pc-loc"><span data-en="Yoga &middot; Spa &middot; Retreats" data-es="Yoga &middot; Spa &middot; Retiros">Yoga &middot; Spa &middot; Retreats</span></div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#127812;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Wellness &mdash; Open Slot" data-es="Bienestar &mdash; Espacio Disponible">Wellness &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Yoga, massage, meditation, breathwork, holistic healing, dance, cacao ceremonies. All welcome." data-es="Yoga, masaje, meditacion, respiracion, sanacion holistica, danza, ceremonias de cacao. Todos bienvenidos.">Yoga, massage, meditation, breathwork, holistic healing, dance, cacao ceremonies. All welcome.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Wellness" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#128131;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Dance School &mdash; Open Slot" data-es="Escuela de Baile &mdash; Espacio Disponible">Dance School &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Bachata, merengue, salsa instruction. Private and group lessons. Reach tourists looking for authentic cultural experiences." data-es="Instruccion de bachata, merengue, salsa. Lecciones privadas y grupales. Llega a turistas que buscan experiencias culturales autenticas.">Bachata, merengue, salsa instruction. Private and group lessons. Reach tourists looking for authentic cultural experiences.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Dance%20School" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NIGHTLIFE SECTION -->
+<section class="cs fi2" id="nightlife-section">
+  <div class="cs-head"><div class="cs-ico">&#127769;</div><h2 data-en="Featured Nightlife &amp; Entertainment" data-es="Vida Nocturna y Entretenimiento Destacados">Featured Nightlife &amp; Entertainment</h2></div>
+  <p class="cs-desc" data-en="Cabarete's nightlife is entirely beachfront &mdash; bars, clubs, live music, and markets all within walking distance. Feature your venue here." data-es="La vida nocturna de Cabarete es completamente frente al mar &mdash; bares, clubs, musica en vivo y mercados todos a pie. Destaca tu local aqui.">Cabarete's <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/#nightlife">nightlife is entirely beachfront</a> &mdash; bars, clubs, live music, and markets all within walking distance. Feature your venue here.</p>
+  <div class="partners">
+    <div class="pc gold fi2">
+      <div class="pc-top"><div class="pc-ico">&#127769;</div><div class="pc-meta"><div class="pc-badges"><span class="badge gold">&#127769; <span data-en="Nightlife Venue" data-es="Local Nocturno">Nightlife Venue</span></span><span class="badge gold">GOLD SPOT OPEN</span></div><h3 data-en="Nightlife Venue &mdash; Gold Partner" data-es="Local Nocturno &mdash; Socio Gold">Nightlife Venue &mdash; Gold Partner</h3></div></div>
+      <div class="pc-body">
+        <p class="pc-desc" data-en="Tourists planning their Cabarete evenings consult this guide. Get your bar, club, or entertainment venue listed at the top of the nightlife section &mdash; complete with your weekly lineup, specials, and atmosphere description." data-es="Los turistas que planifican sus veladas en Cabarete consultan esta guia. Consigue que tu bar, club o local de entretenimiento aparezca en la parte superior de la seccion de vida nocturna.">Tourists planning their Cabarete evenings consult this guide. Get your bar, club, or entertainment venue listed at the top of the nightlife section.</p>
+        <div class="pc-deal"><strong>&#127873; <span data-en="Your Special Here" data-es="Tu Especial Aqui">Your Special Here</span></strong><span data-en='e.g. "Happy hour 5-7 PM, buy one get one" &middot; "Thursday Latin Night - free cover before 11 PM"' data-es='ej. "Happy hour 5-7 PM, compra uno lleva otro" &middot; "Noche Latina Jueves - entrada gratis antes de las 11 PM"'>e.g. "Happy hour 5-7 PM, buy one get one" &middot; "Thursday Latin Night - free cover before 11 PM"</span></div>
+        <div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20-%20Nightlife" class="pc-btn gold">&#11088; <span data-en="Claim Nightlife Spot" data-es="Reserva el Espacio de Vida Nocturna">Claim Nightlife Spot</span></a></div>
+        <div class="pc-loc"><span data-en="Bars &middot; Clubs &middot; Live Music" data-es="Bares &middot; Clubs &middot; Musica en Vivo">Bars &middot; Clubs &middot; Live Music</span></div>
+      </div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#127926;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Entertainment &mdash; Open Slot" data-es="Entretenimiento &mdash; Espacio Disponible">Entertainment &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Live music venues, karaoke bars, beach clubs, casino, open mic, events. All welcome." data-es="Locales de musica en vivo, bares de karaoke, beach clubs, casino, microfono abierto, eventos. Todos bienvenidos.">Live music venues, karaoke bars, beach clubs, casino, open mic, events. All welcome.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Entertainment" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+    <div class="pc open-slot fi2">
+      <div class="pc-top"><div class="pc-ico">&#128717;</div><div class="pc-meta"><div class="pc-badges"><span class="badge open" data-en="Open Slot" data-es="Espacio Disponible">Open Slot</span></div><h3 data-en="Market / Event &mdash; Open Slot" data-es="Mercado / Evento &mdash; Espacio Disponible">Market / Event &mdash; Open Slot</h3></div></div>
+      <div class="pc-body"><p class="pc-desc" data-en="Weekly markets, pop-up events, festivals, cultural nights. Drive foot traffic through our guide." data-es="Mercados semanales, eventos emergentes, festivales, noches culturales. Genera trafico peatonal a traves de nuestra guia.">Weekly markets, pop-up events, festivals, cultural nights. Drive foot traffic through our guide.</p><div class="pc-btns"><a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20-%20Market%20or%20Event" class="pc-btn outline" data-en="Get Listed" data-es="Registrate">Get Listed</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LIST WITH US -->
+<section class="cs fi2">
+  <h2 style="font-family:'Playfair Display',serif;color:var(--od);margin-bottom:8px;" data-en="Why Cabarete Businesses &lt;em style='font-style:italic;color:var(--ob);'&gt;Get Featured Here&lt;/em&gt;" data-es="Por Que los Negocios de Cabarete &lt;em style='font-style:italic;color:var(--ob);'&gt;Se Destacan Aqui&lt;/em&gt;">Why Cabarete Businesses <em style="font-style:italic;color:var(--ob);">Get Featured Here</em></h2>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-ico">&#127919;</div><h4 data-en="Pre-Trip Intent" data-es="Intencion Pre-Viaje">Pre-Trip Intent</h4><p data-en="Tourists find this guide while actively planning their Cabarete trip &mdash; not while scrolling social media. They arrive with your business name already written down. That's the highest-value advertising moment that exists." data-es="Los turistas encuentran esta guia mientras planifican activamente su viaje a Cabarete &mdash; no mientras hacen scroll en redes sociales. Llegan con el nombre de tu negocio ya anotado.">Tourists find this guide while actively planning their Cabarete trip &mdash; not while scrolling social media. They arrive with your business name already written down.</p></div>
+    <div class="why-card"><div class="why-ico">&#128269;</div><h4 data-en="SEO-First Platform" data-es="Plataforma SEO-First">SEO-First Platform</h4><p data-en="This site is built from the ground up to rank for 'Cabarete Beach Dominican Republic' and every related search term. The better we rank, the more tourists see your listing &mdash; and we are actively optimizing." data-es="Este sitio esta construido desde cero para posicionarse en 'Cabarete Beach Dominican Republic' y todos los terminos de busqueda relacionados. Cuanto mejor posicionemos, mas turistas veran tu listado.">This site is built from the ground up to rank for "Cabarete Beach Dominican Republic" and every related search term. We are actively optimizing.</p></div>
+    <div class="why-card"><div class="why-ico">&#127758;</div><h4 data-en="International Audience" data-es="Audiencia Internacional">International Audience</h4><p data-en="Cabarete draws visitors from 50+ countries. This guide reaches North American, European, and international travelers &mdash; in English with Spanish language support. Broader reach than any local flyer or Facebook post." data-es="Cabarete atrae visitantes de mas de 50 paises. Esta guia llega a viajeros norteamericanos, europeos e internacionales &mdash; en ingles con soporte en espanol.">Cabarete draws visitors from 50+ countries. This guide reaches North American, European, and international travelers in English with Spanish language support.</p></div>
+    <div class="why-card"><div class="why-ico">&#9889;</div><h4 data-en="Go Live Fast" data-es="Publica Rapido">Go Live Fast</h4><p data-en="No lengthy setup. Email us your business info, deal, and photo &mdash; we get you listed fast. You can update your offer anytime. No tech skills required. We handle everything." data-es="Sin configuracion complicada. Envianos la informacion de tu negocio, oferta y foto &mdash; te listamos rapidamente. Puedes actualizar tu oferta en cualquier momento.">No lengthy setup. Email us your business info, deal, and photo &mdash; we get you listed fast. You can update your offer anytime. No tech skills required.</p></div>
+    <div class="why-card"><div class="why-ico">&#128176;</div><h4 data-en="Better Than Flyers" data-es="Mejor que los Folletos">Better Than Flyers</h4><p data-en="A business card handed to someone who just landed gets lost by day two. A listing on a search-optimized travel guide works for you 24/7, before tourists ever board their plane. Compounding value." data-es="Una tarjeta de visita entregada a alguien que acaba de llegar se pierde para el segundo dia. Un listado en una guia de viaje optimizada para busquedas trabaja para ti 24/7, antes de que los turistas aborden su avion.">A listing on a search-optimized travel guide works for you 24/7, before tourists ever board their plane. Compounding value.</p></div>
+    <div class="why-card"><div class="why-ico">&#129309;</div><h4 data-en="Barter Welcome" data-es="Trueque Bienvenido">Barter Welcome</h4><p data-en="Not ready to pay cash? We're open to conversations about barter arrangements &mdash; lessons, meals, stays, excursions in exchange for featured placement. Talk to us. Cabarete runs on relationships." data-es="No estas listo para pagar en efectivo? Estamos abiertos a conversaciones sobre arreglos de trueque &mdash; lecciones, comidas, estadias, excursiones a cambio de posicionamiento destacado.">Not ready to pay cash? We're open to barter arrangements &mdash; lessons, meals, stays, excursions in exchange for featured placement. Talk to us. Cabarete runs on relationships.</p></div>
+  </div>
+</section>
+
+<!-- LISTING TIERS -->
+<section class="tiers fi2" id="tiers">
+  <h2 style="font-family:'Playfair Display',serif;color:var(--od);" data-en="Choose Your Listing Level" data-es="Elige tu Nivel de Listado">Choose Your Listing Level</h2>
+  <p style="font-size:.95rem;color:var(--tl);margin-top:8px;" data-en="Every listing includes real content, a photo, your deal or offer, and a direct link. Pricing is flexible &mdash; contact us to discuss what works for your business." data-es="Cada listado incluye contenido real, una foto, tu oferta y un enlace directo. Los precios son flexibles &mdash; contactanos para hablar sobre lo que funciona para tu negocio.">Every listing includes real content, a photo, your deal or offer, and a direct link. Pricing is flexible &mdash; contact us to discuss what works for your business.</p>
+  <div class="tiers-grid">
+    <div class="tier popular">
+      <div class="tier-ico">&#129353;</div>
+      <h3 data-en="Gold Partner" data-es="Socio Gold">Gold Partner</h3>
+      <div class="tier-price" data-en="Contact Us / month" data-es="Contactanos / mes">Contact Us / month</div>
+      <ul>
+        <li data-en="Top position in your category" data-es="Posicion principal en tu categoria">Top position in your category</li>
+        <li data-en="Gold badge + border highlighting" data-es="Insignia Gold + borde destacado">Gold badge + border highlighting</li>
+        <li data-en="Full business photo + description" data-es="Foto completa del negocio + descripcion">Full business photo + description</li>
+        <li data-en="Exclusive deal / offer box" data-es="Caja de oferta / trato exclusivo">Exclusive deal / offer box</li>
+        <li data-en="Direct link to your site or booking" data-es="Enlace directo a tu sitio o reserva">Direct link to your site or booking</li>
+        <li data-en="Listed across all 3 site pages" data-es="Listado en las 3 paginas del sitio">Listed across all 3 site pages</li>
+        <li data-en="Priority email contact from tourists" data-es="Contacto prioritario de turistas por email">Priority email contact from tourists</li>
+      </ul>
+      <a href="mailto:sales@eyetoad.com?subject=Gold%20Partner%20Inquiry" class="pc-btn gold" style="display:block;text-align:center;" data-en="Get Gold Listing" data-es="Obtener Listado Gold">Get Gold Listing</a>
+    </div>
+    <div class="tier">
+      <div class="tier-ico">&#129352;</div>
+      <h3 data-en="Standard Partner" data-es="Socio Estandar">Standard Partner</h3>
+      <div class="tier-price" data-en="Contact Us / month" data-es="Contactanos / mes">Contact Us / month</div>
+      <ul>
+        <li data-en="Listed in your category section" data-es="Listado en tu seccion de categoria">Listed in your category section</li>
+        <li data-en="Business photo + description" data-es="Foto del negocio + descripcion">Business photo + description</li>
+        <li data-en="Deal or offer box" data-es="Caja de oferta o trato">Deal or offer box</li>
+        <li data-en="Direct link to your website" data-es="Enlace directo a tu sitio web">Direct link to your website</li>
+        <li data-en="Listed on deals page" data-es="Listado en la pagina de ofertas">Listed on deals page</li>
+      </ul>
+      <a href="mailto:sales@eyetoad.com?subject=Standard%20Partner%20Inquiry" class="pc-btn primary" style="display:block;text-align:center;" data-en="Get Standard Listing" data-es="Obtener Listado Estandar">Get Standard Listing</a>
+    </div>
+    <div class="tier">
+      <div class="tier-ico">&#128226;</div>
+      <h3 data-en="Category Sponsor" data-es="Patrocinador de Categoria">Category Sponsor</h3>
+      <div class="tier-price" data-en="Contact Us / month" data-es="Contactanos / mes">Contact Us / month</div>
+      <ul>
+        <li data-en="'Presented by' banner in category" data-es="Banner 'Presentado por' en categoria">'Presented by' banner in category</li>
+        <li data-en="Appears on the Things To Do page" data-es="Aparece en la pagina de Actividades">Appears on the Things To Do page</li>
+        <li data-en="Logo + tagline + link" data-es="Logo + eslogan + enlace">Logo + tagline + link</li>
+        <li data-en="Exclusive per category &mdash; one sponsor only" data-es="Exclusivo por categoria &mdash; solo un patrocinador">Exclusive per category &mdash; one sponsor only</li>
+        <li data-en="Maximum category-specific visibility" data-es="Maxima visibilidad especifica de categoria">Maximum category-specific visibility</li>
+      </ul>
+      <a href="mailto:sales@eyetoad.com?subject=Category%20Sponsor%20Inquiry" class="pc-btn outline" style="display:block;text-align:center;" data-en="Sponsor a Category" data-es="Patrocinar una Categoria">Sponsor a Category</a>
+    </div>
+    <div class="tier">
+      <div class="tier-ico">&#127796;</div>
+      <h3 data-en="Premium Banner" data-es="Banner Premium">Premium Banner</h3>
+      <div class="tier-price" data-en="Contact Us / month" data-es="Contactanos / mes">Contact Us / month</div>
+      <ul>
+        <li data-en="Top-of-page banner placement" data-es="Posicionamiento de banner en la parte superior">Top-of-page banner placement</li>
+        <li data-en="Above all other content" data-es="Por encima de todo el contenido">Above all other content</li>
+        <li data-en="Custom headline + description" data-es="Titular personalizado + descripcion">Custom headline + description</li>
+        <li data-en="Visible on homepage too" data-es="Visible tambien en la pagina de inicio">Visible on homepage too</li>
+        <li data-en="One slot only &mdash; first come, first served" data-es="Un solo espacio &mdash; primer llegado, primer servido">One slot only &mdash; first come, first served</li>
+      </ul>
+      <a href="mailto:sales@eyetoad.com?subject=Premium%20Banner%20Inquiry" class="pc-btn primary" style="display:block;text-align:center;" data-en="Inquire About Banner" data-es="Consultar Sobre Banner">Inquire About Banner</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="cs fi2">
+  <h2 style="font-family:'Playfair Display',serif;color:var(--od);" data-en="How Getting Featured Works" data-es="Como Funciona Destacarse">How Getting Featured Works</h2>
+  <p style="font-size:.95rem;color:var(--tl);margin-top:8px;margin-bottom:0;" data-en="We keep it simple. No complicated tech. No long-term contracts. Just your business in front of the right tourists at the right time." data-es="Lo mantenemos simple. Sin tecnologia complicada. Sin contratos a largo plazo. Solo tu negocio frente a los turistas correctos en el momento correcto.">We keep it simple. No complicated tech. No long-term contracts. Just your business in front of the right tourists at the right time.</p>
+  <div class="how-steps">
+    <div class="step"><div class="step-num">1</div><h4 data-en="Contact Us" data-es="Contactanos">Contact Us</h4><p data-en="Email sales@eyetoad.com with your business name, category, and what you'd like to offer visitors. We respond within 24 hours." data-es="Envia un email a sales@eyetoad.com con el nombre de tu negocio, categoria y lo que te gustaria ofrecer a los visitantes. Respondemos en 24 horas.">Email <a href="mailto:sales@eyetoad.com" style="color:var(--om);">sales@eyetoad.com</a> with your business name, category, and what you'd like to offer visitors. We respond within 24 hours.</p></div>
+    <div class="step"><div class="step-num">2</div><h4 data-en="We Build Your Listing" data-es="Construimos tu Listado">We Build Your Listing</h4><p data-en="Send us a photo, your description, and your exclusive deal or offer. We write it up, format it, and make it look great &mdash; no tech work on your end." data-es="Envianos una foto, tu descripcion y tu oferta exclusiva. Lo redactamos, formateamos y hacemos que se vea genial &mdash; sin trabajo tecnico de tu parte.">Send us a photo, your description, and your exclusive deal or offer. We write it up, format it, and make it look great &mdash; no tech work on your end.</p></div>
+    <div class="step"><div class="step-num">3</div><h4 data-en="Go Live" data-es="Publicar">Go Live</h4><p data-en="Your listing goes live within 48 hours. Tourists searching Cabarete before their trip start finding your business. Pre-trip awareness = more bookings." data-es="Tu listado se publica en 48 horas. Los turistas que buscan Cabarete antes de su viaje comienzan a encontrar tu negocio. Conciencia pre-viaje = mas reservas.">Your listing goes live within 48 hours. Tourists searching Cabarete before their trip start finding your business. Pre-trip awareness = more bookings.</p></div>
+    <div class="step"><div class="step-num">4</div><h4 data-en="Tourists Arrive Ready" data-es="Turistas Llegan Preparados">Tourists Arrive Ready</h4><p data-en="Visitors land in Cabarete with your business already on their list. Show them the guide when they walk in &mdash; many will recognize it and feel confident booking." data-es="Los visitantes llegan a Cabarete con tu negocio ya en su lista. Muestrale la guia cuando entren &mdash; muchos la reconoceran y se sentiran seguros al reservar.">Visitors land in Cabarete with your business already on their list. Show them the guide when they walk in &mdash; many will recognize it and feel confident booking.</p></div>
+  </div>
+</section>
+
+<!-- EXPLORE MORE -->
+<section class="cs fi2">
+  <h2 style="font-family:'Playfair Display',serif;color:var(--od);margin-bottom:8px;" data-en="More From Our Cabarete Guide" data-es="Mas de Nuestra Guia de Cabarete">More From Our Cabarete Guide</h2>
+  <p style="font-size:.95rem;color:var(--tl);margin-bottom:0;" data-en="Three pages of real, detailed, SEO-optimized content about Cabarete &mdash; built to rank and built to convert tourists into customers for local businesses." data-es="Tres paginas de contenido real, detallado y optimizado para SEO sobre Cabarete &mdash; construido para posicionar y convertir turistas en clientes para negocios locales.">Three pages of real, detailed, SEO-optimized content about Cabarete &mdash; built to rank and built to convert tourists into customers for local businesses.</p>
+  <div class="explore-grid">
+    <a href="https://cabaretebeachdominicanrepublic.com/" class="explore-card">
+      <h3 data-en="Cabarete Beach Guide &mdash; Homepage" data-es="Guia de Cabarete Beach &mdash; Inicio">Cabarete Beach Guide &mdash; Homepage</h3>
+      <p data-en="The full destination overview &mdash; kitesurfing, nightlife, restaurants, hotels, best time to visit and the interactive trip planner." data-es="El panorama completo del destino &mdash; kitesurf, vida nocturna, restaurantes, hoteles, mejor epoca para visitar y el planificador de viaje interactivo.">The full destination overview &mdash; kitesurfing, nightlife, restaurants, hotels, best time to visit and the interactive trip planner.</p>
+      <span data-en="Visit Homepage &rarr;" data-es="Visitar Inicio &rarr;">Visit Homepage &rarr;</span>
     </a>
-    <nav class="header-nav" aria-label="Main navigation">
-      <a href="/">Home</a>
-      <a href="/things-to-do-cabarete/">Things To Do</a>
-      <a href="/cabarete-deals/" class="active">Featured Partners</a>
-      <a href="mailto:sales@eyetoad.com" class="header-cta">🌴 Get Featured<small>sales@eyetoad.com</small></a>
-    </nav>
-  </header>
+    <a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/" class="explore-card">
+      <h3 data-en="Things To Do in Cabarete" data-es="Que Hacer en Cabarete">Things To Do in Cabarete</h3>
+      <p data-en="The complete activity guide &mdash; 9 full sections covering every experience from kitesurfing to cave swimming to the 27 Damajagua Waterfalls." data-es="La guia completa de actividades &mdash; 9 secciones completas que cubren cada experiencia desde el kitesurf hasta nadar en cuevas y las 27 Cascadas de Damajagua.">The complete activity guide &mdash; 9 full sections covering every experience from kitesurfing to cave swimming to the 27 Damajagua Waterfalls.</p>
+      <span data-en="See All Activities &rarr;" data-es="Ver Todas las Actividades &rarr;">See All Activities &rarr;</span>
+    </a>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="page-hero" aria-label="Cabarete Featured Partners and Deals">
-    <div class="page-hero-bg" role="img" aria-label="Cabarete Beach Dominican Republic aerial view"></div>
-    <div class="page-hero-overlay"></div>
-    <!-- Animated kite SVGs -->
-    <div class="hero-kites" aria-hidden="true">
-      <svg class="kite" style="top:15%;left:65%;width:48px;" viewBox="0 0 40 40" fill="none"><polygon points="20,2 38,20 20,38 2,20" fill="#00b4d8" opacity=".8"/><line x1="20" y1="38" x2="20" y2="60" stroke="#fff" stroke-width="1" opacity=".5"/></svg>
-      <svg class="kite" style="top:30%;left:78%;width:36px;" viewBox="0 0 40 40" fill="none"><polygon points="20,2 38,20 20,38 2,20" fill="#d4a850" opacity=".8"/><line x1="20" y1="38" x2="20" y2="55" stroke="#fff" stroke-width="1" opacity=".5"/></svg>
-      <svg class="kite" style="top:8%;left:72%;width:28px;" viewBox="0 0 40 40" fill="none"><polygon points="20,2 38,20 20,38 2,20" fill="#e07a5f" opacity=".75"/><line x1="20" y1="38" x2="20" y2="48" stroke="#fff" stroke-width="1" opacity=".5"/></svg>
-    </div>
-    <div class="page-hero-content">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span>›</span>
-        <span>Featured Partners &amp; Deals</span>
-      </nav>
-      <h1>Cabarete's Best<br/><em>Featured Partners &amp; Deals</em></h1>
-      <p>Handpicked kite schools, restaurants, hotels, and tour operators in Cabarete, Dominican Republic. Exclusive offers for visitors — and prime visibility for local businesses.</p>
-      <div class="hero-badges">
-        <span class="hero-badge">🪁 Kite Schools</span>
-        <span class="hero-badge">🍽️ Restaurants</span>
-        <span class="hero-badge">🏨 Hotels</span>
-        <span class="hero-badge">🌿 Tours & Excursions</span>
-        <span class="hero-badge">🌙 Nightlife</span>
-      </div>
-    </div>
-  </section>
+<!-- FAQ -->
+<section class="fqs fi2" id="faq">
+  <h2 style="font-family:'Playfair Display',serif;color:var(--od);margin-bottom:8px;" data-en="Partner &amp; Deals FAQ" data-es="FAQ de Socios y Ofertas">Partner &amp; Deals FAQ</h2>
+  <div class="fql" id="fql"></div>
+</section>
 
-  <!-- CATEGORY FILTER -->
-  <nav class="cat-filter" aria-label="Filter by category">
-    <div class="cat-filter-inner">
-      <button class="cat-btn active" onclick="filterCat('all', this)">🌴 All Partners</button>
-      <button class="cat-btn" onclick="filterCat('kite', this)">🪁 Kite &amp; Wind</button>
-      <button class="cat-btn" onclick="filterCat('surf', this)">🏄 Surf &amp; Water</button>
-      <button class="cat-btn" onclick="filterCat('food', this)">🍽️ Food &amp; Drink</button>
-      <button class="cat-btn" onclick="filterCat('hotel', this)">🏨 Hotels &amp; Stays</button>
-      <button class="cat-btn" onclick="filterCat('tours', this)">🌿 Tours &amp; Excursions</button>
-      <button class="cat-btn" onclick="filterCat('wellness', this)">🧘 Wellness &amp; Spa</button>
-      <button class="cat-btn" onclick="filterCat('nightlife', this)">🌙 Nightlife</button>
-    </div>
-  </nav>
+<!-- FINAL CTA -->
+<div class="fcta fi2">
+  <h2 data-en="Ready To Get Your Business Featured?" data-es="Listo Para Destacar tu Negocio?">Ready To Get Your Business Featured?</h2>
+  <p data-en="One email is all it takes. Tell us your business, your category, and what deal you'd like to offer &mdash; we'll handle the rest and have you live within 48 hours." data-es="Un email es todo lo que necesitas. Dinos tu negocio, tu categoria y que oferta te gustaria hacer &mdash; nosotros nos encargamos del resto y te publicamos en 48 horas.">One email is all it takes. Tell us your business, your category, and what deal you'd like to offer &mdash; we'll handle the rest and have you live within 48 hours.</p>
+  <a href="mailto:sales@eyetoad.com?subject=Cabarete%20Business%20Listing%20Inquiry" class="ctab" style="display:inline-flex;">&#128231; <span data-en="sales@eyetoad.com &mdash; Contact Us Now" data-es="sales@eyetoad.com &mdash; Contactanos Ahora">sales@eyetoad.com &mdash; Contact Us Now</span></a>
+  <p style="font-size:12px;margin-top:12px;opacity:.8;">&#191;Tienes un negocio en Cabarete? <a href="mailto:sales@eyetoad.com?subject=Negocio%20en%20Cabarete%20-%20Publicidad" style="color:var(--wh);font-weight:600;">Esc&#237;benos en espa&#241;ol &rarr;</a></p>
+</div>
 
-  <div class="page-wrap">
+</main>
 
-    <!-- PREMIUM BANNER SLOT -->
-    <div class="premium-banner fade-in" id="section-premium">
-      <div class="premium-banner-bg">
-        <div>
-          <div class="premium-tag">⭐ Premium Featured Partner</div>
-          <h2>Your Business<br/><em>Right Here — Top of the Guide</em></h2>
-          <p class="premium-banner-desc">
-            This is the most visible advertising position on the entire site — seen by every visitor, on every page load, before anything else. Ideal for kite schools, hotels, tour operators, or any business that wants to be the first thing tourists find when researching Cabarete.
-          </p>
-          <div class="premium-banner-ctas">
-            <a href="mailto:sales@eyetoad.com?subject=Premium Featured Partner Inquiry" class="btn-gold">📧 Claim This Spot</a>
-            <a href="#tiers" class="btn-outline-white">View Listing Options</a>
-          </div>
-        </div>
-        <div class="premium-banner-visual">
-          <div class="premium-stat-stack">
-            <div class="pstat"><strong>Pre-Trip</strong><span>Tourists arrive with your business already in mind</span></div>
-            <div class="pstat"><strong>SEO-Driven</strong><span>Page ranks for "Cabarete" travel searches</span></div>
-            <div class="pstat"><strong>All 3 Pages</strong><span>Exposure across homepage, activities &amp; deals</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- SIDEBAR -->
+<aside class="sb">
+  <div class="sbc"><div class="sbh"><h4>&#127796; <span data-en="Quick Links" data-es="Enlaces Rapidos">Quick Links</span></h4><p data-en="Jump to any category" data-es="Ir a cualquier categoria">Jump to any category</p></div><div class="sbb"><ul class="sbl">
+    <li><a href="#kite-section">&#129745; <span data-en="Kite &amp; Wind Sports" data-es="Kite y Deportes de Viento">Kite &amp; Wind Sports</span></a></li>
+    <li><a href="#surf-section">&#127940; <span data-en="Surf &amp; Water" data-es="Surf y Agua">Surf &amp; Water</span></a></li>
+    <li><a href="#food-section">&#127869; <span data-en="Restaurants &amp; Bars" data-es="Restaurantes y Bares">Restaurants &amp; Bars</span></a></li>
+    <li><a href="#hotel-section">&#127968; <span data-en="Hotels &amp; Stays" data-es="Hoteles y Estadias">Hotels &amp; Stays</span></a></li>
+    <li><a href="#tours-section">&#127807; <span data-en="Tours &amp; Excursions" data-es="Tours y Excursiones">Tours &amp; Excursions</span></a></li>
+    <li><a href="#wellness-section">&#129496; <span data-en="Wellness &amp; Spa" data-es="Bienestar y Spa">Wellness &amp; Spa</span></a></li>
+    <li><a href="#nightlife-section">&#127769; <span data-en="Nightlife" data-es="Vida Nocturna">Nightlife</span></a></li>
+    <li><a href="#tiers">&#128202; <span data-en="Listing Options" data-es="Opciones de Listado">Listing Options</span></a></li>
+    <li><a href="#faq">&#10067; FAQ</a></li>
+  </ul></div></div>
+  <div class="sba">
+    <h4>&#127796; <span data-en="Get Featured Now" data-es="Destacate Ahora">Get Featured Now</span></h4>
+    <p data-en="Email us your business info and we'll have you live within 48 hours. No tech required." data-es="Envianos la informacion de tu negocio y te publicaremos en 48 horas. Sin tecnologia requerida.">Email us your business info and we'll have you live within 48 hours. No tech required.</p>
+    <a href="mailto:sales@eyetoad.com?subject=Get%20Featured%20Cabarete">&#128231; sales@eyetoad.com</a>
+  </div>
+  <div class="sbc"><div class="sbh"><h4>&#128279; <span data-en="Explore The Guide" data-es="Explorar la Guia">Explore The Guide</span></h4></div><div class="sbb"><ul class="sbl">
+    <li><a href="https://cabaretebeachdominicanrepublic.com/">&#127968; <span data-en="Cabarete Beach Home" data-es="Inicio Cabarete Beach">Cabarete Beach Home</span></a></li>
+    <li><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/">&#128506; <span data-en="Things To Do" data-es="Que Hacer">Things To Do</span></a></li>
+  </ul></div></div>
+</aside>
 
-    <!-- ── FEATURED PARTNERS: KITE & WIND ── -->
-    <section style="padding: 56px 0 0;" id="kite-section">
-      <div class="section-kicker">🪁 Kite &amp; Wind Sports</div>
-      <h2 class="section-title">Featured Kite Schools &amp; Wind Sports</h2>
-      <p class="section-intro">
-        Cabarete has <a href="/things-to-do-cabarete/#kitesurfing" style="color:var(--ocean-mid);font-weight:600;">10+ IKO-certified kite schools</a> — the highest concentration in the Caribbean. These featured partners are trusted by thousands of visitors every year.
-      </p>
-      <div class="partners-grid" data-category="kite">
+</div></div>
 
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/beach-cabarete.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🪁 Kite School</div>
-            <div class="card-deal-badge">EXCLUSIVE DEAL</div>
-          </div>
-          <div class="card-body">
-            <h3>Your Kite School — Gold Partner</h3>
-            <p>This Gold Partner slot is reserved for a premier kite school ready to be featured at the top of Cabarete's highest-ranking wind sports guide. Get your school in front of thousands of pre-trip tourists actively searching for lessons.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Exclusive Offer Here</div>
-              <p>e.g. "First hour free with 3-hour booking" · "10% off all lesson packages"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Kite School" class="card-cta gold-cta">⭐ Claim Gold Spot</a>
-              <span class="card-meta">Limited availability</span>
-            </div>
-          </div>
-        </div>
+<footer>
+<div class="fg">
+  <div>
+    <img class="fbl" src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png" alt="Cabarete Beach Dominican Republic" width="260" height="60"/>
+    <p class="fp" data-en="Your definitive guide to Cabarete Beach, Dominican Republic &mdash; kitesurfing, restaurants, nightlife, and the best activities on the Caribbean's North Coast." data-es="Tu guia definitiva de Cabarete Beach, Republica Dominicana &mdash; kitesurf, restaurantes, vida nocturna y las mejores actividades en la Costa Norte del Caribe.">Your definitive guide to Cabarete Beach, Dominican Republic &mdash; kitesurfing, restaurants, nightlife, and the best activities on the Caribbean's North Coast.</p>
+    <a href="mailto:sales@eyetoad.com" style="color:var(--ob);font-size:12px;text-decoration:none;font-weight:600;">&#128231; sales@eyetoad.com</a>
+  </div>
+  <div class="fc">
+    <h5 data-en="Navigate" data-es="Navegar">Navigate</h5>
+    <ul>
+      <li><a href="https://cabaretebeachdominicanrepublic.com/" data-en="Homepage" data-es="Inicio">Homepage</a></li>
+      <li><a href="https://cabaretebeachdominicanrepublic.com/things-to-do-cabarete/" data-en="Things To Do" data-es="Que Hacer">Things To Do</a></li>
+      <li><a href="https://cabaretebeachdominicanrepublic.com/cabarete-deals/" data-en="Featured Partners" data-es="Socios Destacados">Featured Partners</a></li>
+      <li><a href="https://cabaretebeachdominicanrepublic.com/#faq" data-en="Travel FAQ" data-es="FAQ de Viaje">Travel FAQ</a></li>
+    </ul>
+  </div>
+  <div class="fc">
+    <h5 data-en="Categories" data-es="Categorias">Categories</h5>
+    <ul>
+      <li><a href="#kite-section" data-en="Kite Schools" data-es="Escuelas Kite">Kite Schools</a></li>
+      <li><a href="#food-section" data-en="Restaurants" data-es="Restaurantes">Restaurants</a></li>
+      <li><a href="#hotel-section" data-en="Hotels" data-es="Hoteles">Hotels</a></li>
+      <li><a href="#tours-section" data-en="Tours" data-es="Tours">Tours</a></li>
+      <li><a href="#wellness-section" data-en="Wellness" data-es="Bienestar">Wellness</a></li>
+      <li><a href="#nightlife-section" data-en="Nightlife" data-es="Vida Nocturna">Nightlife</a></li>
+    </ul>
+  </div>
+  <div class="fc">
+    <h5 data-en="Advertise" data-es="Publicidad">Advertise</h5>
+    <ul>
+      <li><a href="mailto:sales@eyetoad.com?subject=Premium%20Banner" data-en="Premium Banner" data-es="Banner Premium">Premium Banner</a></li>
+      <li><a href="mailto:sales@eyetoad.com?subject=Gold%20Partner" data-en="Gold Partner Listing" data-es="Listado Socio Gold">Gold Partner Listing</a></li>
+      <li><a href="mailto:sales@eyetoad.com?subject=Standard%20Listing" data-en="Standard Listing" data-es="Listado Estandar">Standard Listing</a></li>
+      <li><a href="mailto:sales@eyetoad.com?subject=Category%20Sponsor" data-en="Category Sponsor" data-es="Patrocinador Categoria">Category Sponsor</a></li>
+      <li><a href="mailto:sales@eyetoad.com?subject=Barter%20Cabarete" data-en="Barter Inquiry" data-es="Consulta de Trueque">Barter Inquiry &#129309;</a></li>
+    </ul>
+  </div>
+</div>
+<div class="fbot">
+  <p>&copy; 2026 CabareteBeachDominicanRepublic.com &mdash; <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+  <p class="pby">&#127796; <span data-en="Powered by" data-es="Desarrollado por">Powered by</span> <a href="https://www.eyetoad.com" target="_blank" rel="noopener">Eye To Ad Media</a> &nbsp;&middot;&nbsp; <span data-en="Digital Marketing &amp; SEO" data-es="Marketing Digital y SEO">Digital Marketing &amp; SEO</span></p>
+</div>
+</footer>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","name":"Cabarete Deals & Featured Partners","url":"https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/","publisher":{"@type":"Organization","name":"Eye To Ad Media","url":"https://www.eyetoad.com","email":"sales@eyetoad.com"}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.cabaretebeachdominicanrepublic.com/"},{"@type":"ListItem","position":2,"name":"Featured Partners & Deals","item":"https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I get my business listed on the Cabarete Beach guide?","acceptedAnswer":{"@type":"Answer","text":"Email sales@eyetoad.com with your business name, category (kite school, restaurant, hotel, tour operator, wellness, nightlife), and what exclusive deal or offer you would like to provide visitors. We respond within 24 hours and can have your listing live within 48 hours. No tech skills required on your end."}},
+{"@type":"Question","name":"What is a Gold Partner listing in Cabarete?","acceptedAnswer":{"@type":"Answer","text":"A Gold Partner listing is the top-tier advertising placement on the Cabarete Beach Dominican Republic guide. It includes the top position in your business category, a gold badge and highlighted border, a full business photo and description, an exclusive deal or offer box, a direct link to your website or booking page, and listing across all three pages of the site. Gold Partners are the first businesses tourists see when researching each category."}},
+{"@type":"Question","name":"Is barter available for business listings on the Cabarete guide?","acceptedAnswer":{"@type":"Answer","text":"Yes. We are open to barter arrangements for business listings. This could include kite lessons, restaurant meals, hotel stays, or tour excursions in exchange for featured placement on the guide. Email sales@eyetoad.com with subject 'Barter Cabarete' to start a conversation."}},
+{"@type":"Question","name":"How many tourists see the Cabarete Beach guide?","acceptedAnswer":{"@type":"Answer","text":"The site is actively being built and optimized to rank for 'Cabarete Beach Dominican Republic' and related search terms. Cabarete attracts visitors from 50+ countries, and pre-trip research is how the vast majority of tourists plan their activities, restaurants, and accommodations before arriving. Our guide is optimized for these pre-trip searches."}},
+{"@type":"Question","name":"How long does it take to get listed?","acceptedAnswer":{"@type":"Answer","text":"Once you email us at sales@eyetoad.com with your business information, photo, and deal or offer, we typically build and publish your listing within 48 hours. The process requires no technical work on your end."}},
+{"@type":"Question","name":"What categories can be listed on the Cabarete guide?","acceptedAnswer":{"@type":"Answer","text":"We accept listings for kite and wind sports schools, surf schools and water activities, restaurants and beach bars, hotels and accommodations (condos, villas, guesthouses), tour operators and excursion companies (waterfalls, caves, horseback, boat trips, snorkeling), wellness studios and spas (yoga, massage, meditation, cacao ceremonies, dance), and nightlife venues and entertainment."}}
+]}
+]}
+</script>
+<script>
+let lang='en';
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-es').classList.toggle('active',l==='es');
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const t=el.getAttribute('data-'+l);
+    if(t!==null) el.innerHTML=t;
+  });
+  renderFAQ(l);
+}
 
-        <div class="partner-card fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-dominican-republic.png');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🪁 Kite School</div>
-          </div>
-          <div class="card-body">
-            <h3>Cabarete Kite Point</h3>
-            <p>One of Cabarete's most highly reviewed schools, located right on Kite Beach. Led by local professionals and the legendary Corniel family. You only pay for hours you actually use — no package lock-ins.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">ℹ️ About This School</div>
-              <p>Beginner through advanced · private &amp; group · IKO certified · all equipment included</p>
-            </div>
-            <div class="card-footer">
-              <a href="/things-to-do-cabarete/#kitesurfing" class="card-cta">Learn More →</a>
-              <span class="card-meta">Kite Beach, Cabarete</span>
-            </div>
-          </div>
-        </div>
+const faqs={
+  en:[
+    {q:"How do I get my business listed on this guide?",a:"Email sales@eyetoad.com with your business name, category (kite school, restaurant, hotel, tour operator, wellness, nightlife), and what exclusive deal or offer you would like to provide visitors. We respond within 24 hours and can have your listing live within 48 hours. No tech skills required on your end."},
+    {q:"What is a Gold Partner listing?",a:"A Gold Partner listing is the top-tier advertising placement on the Cabarete Beach Dominican Republic guide. It includes the top position in your business category, a gold badge, full business photo and description, an exclusive deal box, a direct link to your website or booking page, and listing across all three pages of the site."},
+    {q:"Is barter available for business listings?",a:"Yes. We are open to barter arrangements for business listings. This could include kite lessons, restaurant meals, hotel stays, or tour excursions in exchange for featured placement on the guide. Email sales@eyetoad.com with subject 'Barter Cabarete' to start a conversation."},
+    {q:"How long does it take to get listed?",a:"Once you email us at sales@eyetoad.com with your business information, photo, and deal or offer, we typically build and publish your listing within 48 hours. The process requires no technical work on your end."},
+    {q:"What categories can be listed on the Cabarete guide?",a:"We accept listings for kite and wind sports schools, surf schools and water activities, restaurants and beach bars, hotels and accommodations, tour operators and excursion companies, wellness studios and spas, and nightlife venues and entertainment."},
+    {q:"Can I update my listing or offer after it goes live?",a:"Yes. You can update your exclusive deal, offer, or business description at any time by emailing sales@eyetoad.com. We typically update listings within 24 hours of your request."},
+    {q:"Do you offer discounts for multiple category listings?",a:"Yes. If your business spans multiple categories (for example, a kite school that also offers accommodation), we can discuss bundled listing pricing. Email sales@eyetoad.com to discuss options for your specific business."},
+    {q:"Is this guide only in English?",a:"No. This guide supports both English and Spanish languages. All content is bilingual, and visitors can toggle between English and Spanish using the language switcher at the top of every page. Your listing will be visible to both English and Spanish-speaking tourists."}
+  ],
+  es:[
+    {q:"Como puedo listar mi negocio en esta guia?",a:"Envia un email a sales@eyetoad.com con el nombre de tu negocio, categoria (escuela de kite, restaurante, hotel, operador de tours, bienestar, vida nocturna) y que oferta exclusiva te gustaria proporcionar a los visitantes. Respondemos en 24 horas y podemos publicar tu listado en 48 horas."},
+    {q:"Que es un listado de Socio Gold?",a:"Un listado de Socio Gold es el posicionamiento publicitario de primer nivel en la guia Cabarete Beach Dominican Republic. Incluye la posicion principal en tu categoria de negocio, insignia dorada, foto completa y descripcion del negocio, una caja de oferta exclusiva, un enlace directo a tu sitio web o pagina de reserva, y listado en las tres paginas del sitio."},
+    {q:"Esta disponible el trueque para listados de negocios?",a:"Si. Estamos abiertos a arreglos de trueque para listados de negocios. Esto podria incluir lecciones de kite, comidas en restaurante, estadias en hotel o excursiones a cambio de posicionamiento destacado en la guia. Envia un email a sales@eyetoad.com con el asunto 'Barter Cabarete'."},
+    {q:"Cuanto tiempo lleva publicar un listado?",a:"Una vez que nos envies la informacion de tu negocio, foto y oferta por email, normalmente construimos y publicamos tu listado en 48 horas. El proceso no requiere ningun trabajo tecnico de tu parte."},
+    {q:"Que categorias pueden listarse en la guia de Cabarete?",a:"Aceptamos listados para escuelas de kite y deportes de viento, escuelas de surf y actividades acuaticas, restaurantes y bares de playa, hoteles y alojamientos, operadores de tours y empresas de excursiones, estudios de bienestar y spas, y locales de vida nocturna y entretenimiento."},
+    {q:"Puedo actualizar mi listado u oferta despues de publicarlo?",a:"Si. Puedes actualizar tu oferta exclusiva, trato o descripcion del negocio en cualquier momento enviando un email a sales@eyetoad.com. Normalmente actualizamos los listados en 24 horas de tu solicitud."},
+    {q:"Ofrecen descuentos para listados en multiples categorias?",a:"Si. Si tu negocio abarca multiples categorias (por ejemplo, una escuela de kite que tambien ofrece alojamiento), podemos discutir precios de listado en paquete. Envia un email a sales@eyetoad.com para hablar sobre las opciones para tu negocio especifico."},
+    {q:"Esta guia solo esta en ingles?",a:"No. Esta guia es bilingue en ingles y espanol. Todo el contenido es bilingue y los visitantes pueden cambiar entre ingles y espanol usando el selector de idioma en la parte superior de cada pagina. Tu listado sera visible tanto para turistas de habla inglesa como espanola."}
+  ]
+};
 
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🪁</div>
-            <h3>Kite School — Open Slot</h3>
-            <p>Standard partner listing for a kite or wind sports school. Photo, description, deal, and direct contact link.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Kite School">Get Listed →</a>
-          </div>
-        </div>
+function renderFAQ(l){
+  const list=document.getElementById('fql');
+  list.innerHTML='';
+  faqs[l].forEach((f,i)=>{
+    const d=document.createElement('div');
+    d.className='fi';d.id='fq'+i;
+    d.innerHTML='<button class="fq" onclick="tFaq('+i+')">'+f.q+'<span class="fic">+</span></button><div class="fa"><div class="fai">'+f.a+'</div></div>';
+    list.appendChild(d);
+  });
+}
 
-      </div>
-    </section>
+function tFaq(i){
+  const el=document.getElementById('fq'+i);
+  const open=el.classList.contains('open');
+  document.querySelectorAll('.fi.open').forEach(e=>e.classList.remove('open'));
+  if(!open) el.classList.add('open');
+}
 
-    <!-- ── FEATURED PARTNERS: SURF & WATER ── -->
-    <section style="padding: 56px 0 0;" id="surf-section">
-      <div class="section-kicker">🏄 Surf &amp; Water Sports</div>
-      <h2 class="section-title">Surf Schools &amp; Water Activities</h2>
-      <p class="section-intro">From <a href="/things-to-do-cabarete/#surfing" style="color:var(--ocean-mid);font-weight:600;">Playa Encuentro surf lessons</a> to scuba diving in Sosúa — feature your water sports business here.</p>
-      <div class="partners-grid" data-category="surf">
-
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/visit-cabarete-dominican-republic.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🏄 Surf School</div>
-            <div class="card-deal-badge">FEATURED</div>
-          </div>
-          <div class="card-body">
-            <h3>Surf School — Gold Partner Slot</h3>
-            <p>Playa Encuentro sees 350 rideable days per year and draws surf learners from around the world. Be the featured school tourists book before they board their flight.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Exclusive Deal Here</div>
-              <p>e.g. "Book online, get board rental included" · "Beginner package from $60"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Surf School" class="card-cta gold-cta">⭐ Claim This Spot</a>
-              <span class="card-meta">Playa Encuentro, Cabarete</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/beach-cabarete.jpg'); background-position: bottom;">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🤿 Scuba Diving</div>
-          </div>
-          <div class="card-body">
-            <h3>Dive Cabarete — Sosúa</h3>
-            <p>The North Coast's premier PADI dive center, based in Sosúa — 15 minutes from Cabarete. The Canyon reef site is legendary. Discovery dives available for complete beginners. Highly rated by solo travelers and couples alike.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">ℹ️ About This Operator</div>
-              <p>PADI certified · beginner discovery dives · multiple reef sites · Sosúa, 15 min from Cabarete</p>
-            </div>
-            <div class="card-footer">
-              <a href="/things-to-do-cabarete/#water-sports" class="card-cta">Learn More →</a>
-              <span class="card-meta">Sosúa Beach</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🌊</div>
-            <h3>Water Sports — Open Slot</h3>
-            <p>SUP, wing foiling, boat tours, snorkeling, kayaking, fishing. Get your water activity business listed.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Water Sports">Get Listed →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── FEATURED PARTNERS: FOOD & DRINK ── -->
-    <section style="padding: 56px 0 0;" id="food-section">
-      <div class="section-kicker">🍽️ Food &amp; Drink</div>
-      <h2 class="section-title">Featured Restaurants &amp; Beach Bars</h2>
-      <p class="section-intro">
-        Cabarete's <a href="/things-to-do-cabarete/#restaurants" style="color:var(--ocean-mid);font-weight:600;">beachfront dining scene</a> is one of the Caribbean's most diverse — Italian, Dominican, Mexican, Japanese, all with sand between your toes. Get your restaurant found first.
-      </p>
-      <div class="partners-grid" data-category="food">
-
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🍽️ Restaurant</div>
-            <div class="card-deal-badge">GOLD SPOT OPEN</div>
-          </div>
-          <div class="card-body">
-            <h3>Your Restaurant — Gold Partner</h3>
-            <p>Tourists research Cabarete restaurants extensively before they arrive. Be the first establishment they see when they search "best restaurants Cabarete Dominican Republic" — and the first they visit when they land.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Exclusive Offer Here</div>
-              <p>e.g. "Show this page for a complimentary appetizer" · "Free Presidente with any entrée"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Restaurant" class="card-cta gold-cta">⭐ Claim Gold Spot</a>
-              <span class="card-meta">Limited to 2 per category</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/beach-cabarete.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">☕ Café</div>
-          </div>
-          <div class="card-body">
-            <h3>Cabarete Coffee Company</h3>
-            <p>A social enterprise and Cabarete institution. Exceptional coffee, incredible breakfast bowls, and the legendary Kite Loop Panini. Run by the Mariposa DR Foundation — supporting this business funds community education programs.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🌟 Community Champion</div>
-              <p>Every purchase supports the Mariposa DR Foundation's community programs</p>
-            </div>
-            <div class="card-footer">
-              <a href="/things-to-do-cabarete/#restaurants" class="card-cta">See All Restaurants →</a>
-              <span class="card-meta">⭐ 4.8 · 426 reviews</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-dominican-republic.png');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🌮 Mexican</div>
-          </div>
-          <div class="card-body">
-            <h3>Gordito's Fresh Mex</h3>
-            <p>Cabarete's most beloved casual restaurant. 4.7 stars across 1,333 reviews. Fresh Mexican-inspired food, legendary Taco Tuesday, and a local following that speaks for itself. Consistently packed — and deservedly so.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Local Favorite</div>
-              <p>Taco Tuesdays · massive portions · budget-friendly · always fresh</p>
-            </div>
-            <div class="card-footer">
-              <a href="/things-to-do-cabarete/#restaurants" class="card-cta">Full Restaurant Guide →</a>
-              <span class="card-meta">⭐ 4.7 · 1,333 reviews</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🍹</div>
-            <h3>Bar / Beach Club — Open Slot</h3>
-            <p>Beach bars, nightlife spots, cocktail lounges. Feature your venue here with photo, deal, and direct link.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Bar or Beach Club">Get Listed →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── FEATURED PARTNERS: HOTELS ── -->
-    <section style="padding: 56px 0 0;" id="hotel-section">
-      <div class="section-kicker">🏨 Hotels &amp; Stays</div>
-      <h2 class="section-title">Featured Hotels &amp; Accommodations</h2>
-      <p class="section-intro">From eco-luxury boutique retreats to kite-side resort rooms — Cabarete's accommodation scene spans every style and budget. Feature your property where tourists book their stays.</p>
-      <div class="partners-grid" data-category="hotel">
-
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/visit-cabarete-dominican-republic.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🏨 Hotel / Resort</div>
-            <div class="card-deal-badge">FEATURED STAY</div>
-          </div>
-          <div class="card-body">
-            <h3>Your Hotel — Gold Partner</h3>
-            <p>Travelers researching Cabarete hotels land on this guide. A Gold Partner placement puts your property in the most prominent position — complete with photos, your unique selling points, and a direct booking link or special offer.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Exclusive Rate Here</div>
-              <p>e.g. "Book direct — free airport pickup included" · "Stay 5 nights, pay 4"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Hotel" class="card-cta gold-cta">⭐ Claim Hotel Spot</a>
-              <span class="card-meta">Cabarete beachfront</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🌿 Eco-Luxury</div>
-          </div>
-          <div class="card-body">
-            <h3>Natura Cabana Boutique Hotel &amp; Spa</h3>
-            <p>Cabarete's most serene retreat. Lush tropical gardens, private beach access, the Attabeyra Spa with local-ingredient treatments, morning beachfront yoga, and an oceanfront restaurant. The Dominican Republic's most thoughtful eco-luxury stay.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">✨ Why Stay Here</div>
-              <p>Spa · yoga · private beach · eco-luxury · monthly artisan market on-site</p>
-            </div>
-            <div class="card-footer">
-              <a href="/things-to-do-cabarete/#wellness" class="card-cta">See Wellness Guide →</a>
-              <span class="card-meta">Cabarete beachfront</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🏡</div>
-            <h3>Vacation Rental — Open Slot</h3>
-            <p>Condos, villas, apartments, guesthouses. Reach tourists before they book on Airbnb or Booking.com.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Accommodation">Get Listed →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── FEATURED PARTNERS: TOURS ── -->
-    <section style="padding: 56px 0 0;" id="tours-section">
-      <div class="section-kicker">🌿 Tours &amp; Excursions</div>
-      <h2 class="section-title">Featured Tour Operators &amp; Excursions</h2>
-      <p class="section-intro">
-        Cabarete is the gateway to some of the Caribbean's best adventures — <a href="/things-to-do-cabarete/#daytrips" style="color:var(--ocean-mid);font-weight:600;">27 Damajagua Waterfalls, Cayo Arena, El Choco caves, Laguna Gri Gri</a> and more. Feature your tour company where adventurous tourists are planning their itineraries.
-      </p>
-      <div class="partners-grid" data-category="tours">
-
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-dominican-republic.png'); background-position: top;">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🌿 Tour Operator</div>
-            <div class="card-deal-badge">GOLD SPOT OPEN</div>
-          </div>
-          <div class="card-body">
-            <h3>Tour Operator — Gold Partner</h3>
-            <p>Tourists researching Cabarete day trips and excursions land here actively looking to book. A Gold Partner listing puts your tours — waterfalls, caves, horseback, boat trips — in front of the most motivated buyers.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Deal or Highlight Here</div>
-              <p>e.g. "Book Damajagua + Cayo Arena combo, save 20%" · "Free hotel pickup included"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Tour Operator" class="card-cta gold-cta">⭐ Claim Tour Spot</a>
-              <span class="card-meta">All excursions welcome</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/beach-cabarete.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">💧 Waterfalls</div>
-          </div>
-          <div class="card-body">
-            <h3>27 Damajagua Waterfalls Tour</h3>
-            <p>One of the Dominican Republic's most spectacular natural attractions — trek through jungle then jump, slide, and swim down 27 natural limestone cascades. About 1 hour from Cabarete. Guided tours with equipment, safety gear, and local knowledge make this a must-do.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">📍 Day Trip Essential</div>
-              <p>~1 hour from Cabarete · helmets &amp; life vests provided · family-friendly (older kids)</p>
-            </div>
-            <div class="card-footer">
-              <a href="/things-to-do-cabarete/#daytrips" class="card-cta">Full Day Trip Guide →</a>
-              <span class="card-meta">From ~$40–$60/person</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🗺️</div>
-            <h3>Tour / Excursion — Open Slot</h3>
-            <p>Horseback, cave tours, boat trips, zip-lining, whale watching, cultural tours. All welcome.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Tour Excursion">Get Listed →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── FEATURED PARTNERS: WELLNESS ── -->
-    <section style="padding: 56px 0 0;" id="wellness-section">
-      <div class="section-kicker">🧘 Wellness &amp; Spa</div>
-      <h2 class="section-title">Wellness, Yoga &amp; Spa Partners</h2>
-      <p class="section-intro">Cabarete's <a href="/things-to-do-cabarete/#wellness" style="color:var(--ocean-mid);font-weight:600;">wellness scene</a> is genuine and growing. Feature your studio, spa, retreat, or healing practice here.</p>
-      <div class="partners-grid" data-category="wellness">
-
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg');">
-            <div class="card-img-overlay"></div>
-            <div class="card-category">🧘 Wellness</div>
-            <div class="card-deal-badge">FEATURED</div>
-          </div>
-          <div class="card-body">
-            <h3>Yoga Studio or Spa — Gold Partner</h3>
-            <p>Wellness travelers are one of Cabarete's fastest-growing visitor segments. A Gold Partner listing puts your studio, retreat, or spa in front of exactly the people actively searching for oceanside wellness experiences.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Offer Here</div>
-              <p>e.g. "First yoga class free for guide visitors" · "Spa package: 60-min massage + facial"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Wellness" class="card-cta gold-cta">⭐ Claim Wellness Spot</a>
-              <span class="card-meta">Yoga · Spa · Retreats</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🌸</div>
-            <h3>Wellness — Open Slot</h3>
-            <p>Yoga, massage, meditation, breathwork, holistic healing, dance, cacao ceremonies. All welcome.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Wellness">Get Listed →</a>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">💃</div>
-            <h3>Dance School — Open Slot</h3>
-            <p>Bachata, merengue, salsa instruction. Private and group lessons. Reach tourists looking for authentic cultural experiences.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Dance School">Get Listed →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── FEATURED PARTNERS: NIGHTLIFE ── -->
-    <section style="padding: 56px 0 32px;" id="nightlife-section">
-      <div class="section-kicker">🌙 Nightlife &amp; Entertainment</div>
-      <h2 class="section-title">Featured Nightlife &amp; Entertainment</h2>
-      <p class="section-intro">Cabarete's <a href="/things-to-do-cabarete/#nightlife" style="color:var(--ocean-mid);font-weight:600;">nightlife is entirely beachfront</a> — bars, clubs, live music, and markets all within walking distance. Feature your venue here.</p>
-      <div class="partners-grid" data-category="nightlife">
-
-        <div class="partner-card gold fade-in">
-          <div class="card-img" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png'); background-color: #0d1117; background-size: contain; background-repeat: no-repeat; background-position: center;">
-            <div class="card-img-overlay" style="background: linear-gradient(to top, rgba(13,17,23,.9), rgba(0,0,0,.4));"></div>
-            <div class="card-category">🌙 Nightlife Venue</div>
-            <div class="card-deal-badge">GOLD SPOT OPEN</div>
-          </div>
-          <div class="card-body">
-            <h3>Nightlife Venue — Gold Partner</h3>
-            <p>Tourists planning their Cabarete evenings consult this guide. Get your bar, club, or entertainment venue listed at the top of the nightlife section — complete with your weekly lineup, specials, and atmosphere description.</p>
-            <div class="card-deal-box">
-              <div class="card-deal-box-label">🎁 Your Special Here</div>
-              <p>e.g. "Happy hour 5–7 PM, buy one get one" · "Thursday Latin Night — free cover before 11 PM"</p>
-            </div>
-            <div class="card-footer">
-              <a href="mailto:sales@eyetoad.com?subject=Gold Partner - Nightlife" class="card-cta gold-cta">⭐ Claim Nightlife Spot</a>
-              <span class="card-meta">Bars · Clubs · Live Music</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🎶</div>
-            <h3>Entertainment — Open Slot</h3>
-            <p>Live music venues, karaoke bars, beach clubs, casino, open mic, events. All welcome.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Entertainment">Get Listed →</a>
-          </div>
-        </div>
-
-        <div class="partner-card available fade-in">
-          <div class="available-slot-inner">
-            <div class="available-icon">🛍️</div>
-            <h3>Market / Event — Open Slot</h3>
-            <p>Weekly markets, pop-up events, festivals, cultural nights. Drive foot traffic through our guide.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner - Market or Event">Get Listed →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </div><!-- /page-wrap -->
-
-  <!-- WHY ADVERTISE HERE -->
-  <section class="why-section">
-    <div class="page-wrap">
-      <div class="section-kicker">📈 Why List With Us</div>
-      <h2 class="section-title" style="color:var(--white);">Why Cabarete Businesses<br/><em>Get Featured Here</em></h2>
-      <div class="why-grid">
-        <div class="why-card fade-in">
-          <div class="why-icon">🎯</div>
-          <h4>Pre-Trip Intent</h4>
-          <p>Tourists find this guide while actively planning their Cabarete trip — not while scrolling social media. They arrive with your business name already written down. That's the highest-value advertising moment that exists.</p>
-        </div>
-        <div class="why-card fade-in">
-          <div class="why-icon">🔍</div>
-          <h4>SEO-First Platform</h4>
-          <p>This site is built from the ground up to rank for "Cabarete Beach Dominican Republic" and every related search term. The better we rank, the more tourists see your listing — and we are actively optimizing.</p>
-        </div>
-        <div class="why-card fade-in">
-          <div class="why-icon">🌍</div>
-          <h4>International Audience</h4>
-          <p>Cabarete draws visitors from 50+ countries. This guide reaches North American, European, and international travelers — in English with Spanish language support. Broader reach than any local flyer or Facebook post.</p>
-        </div>
-        <div class="why-card fade-in">
-          <div class="why-icon">⚡</div>
-          <h4>Go Live Fast</h4>
-          <p>No lengthy setup. Email us your business info, deal, and photo — we get you listed fast. You can update your offer anytime. No tech skills required. We handle everything.</p>
-        </div>
-        <div class="why-card fade-in">
-          <div class="why-icon">💰</div>
-          <h4>Better Than Flyers</h4>
-          <p>A business card handed to someone who just landed gets lost by day two. A listing on a search-optimized travel guide works for you 24/7, before tourists ever board their plane. Compounding value.</p>
-        </div>
-        <div class="why-card fade-in">
-          <div class="why-icon">🤝</div>
-          <h4>Barter Welcome</h4>
-          <p>Not ready to pay cash? We're open to conversations about barter arrangements — lessons, meals, stays, excursions in exchange for featured placement. Talk to us. Cabarete runs on relationships.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LISTING TIERS -->
-  <section class="tiers-section" id="tiers">
-    <div class="page-wrap">
-      <div class="section-kicker">📋 Listing Options</div>
-      <h2 class="section-title">Choose Your Listing Level</h2>
-      <p class="section-intro">Every listing includes real content, a photo, your deal or offer, and a direct link. Pricing is flexible — contact us to discuss what works for your business.</p>
-      <div class="tiers-grid">
-
-        <div class="tier-card popular fade-in">
-          <div class="tier-pop-label">⭐ Most Popular</div>
-          <div class="tier-header">
-            <div class="tier-icon">🥇</div>
-            <h3>Gold Partner</h3>
-            <div class="tier-price">Contact Us <small>/ month</small></div>
-          </div>
-          <div class="tier-body">
-            <ul class="tier-features">
-              <li class="highlight">Top position in your category</li>
-              <li class="highlight">Gold badge + border highlighting</li>
-              <li>Full business photo + description</li>
-              <li>Exclusive deal / offer box</li>
-              <li>Direct link to your site or booking</li>
-              <li>Listed across all 3 site pages</li>
-              <li>Featured in FAQ answers where relevant</li>
-              <li>Priority email contact from tourists</li>
-            </ul>
-            <a href="mailto:sales@eyetoad.com?subject=Gold Partner Inquiry" class="tier-cta gold-cta">Get Gold Listing →</a>
-          </div>
-        </div>
-
-        <div class="tier-card fade-in">
-          <div class="tier-header" style="background: var(--ocean-mid);">
-            <div class="tier-icon">🥈</div>
-            <h3>Standard Partner</h3>
-            <div class="tier-price">Contact Us <small>/ month</small></div>
-          </div>
-          <div class="tier-body">
-            <ul class="tier-features">
-              <li>Listed in your category section</li>
-              <li>Business photo + description</li>
-              <li>Deal or offer box</li>
-              <li>Direct link to your website</li>
-              <li>Listed on deals page</li>
-              <li>Basic business details</li>
-            </ul>
-            <a href="mailto:sales@eyetoad.com?subject=Standard Partner Inquiry" class="tier-cta">Get Standard Listing →</a>
-          </div>
-        </div>
-
-        <div class="tier-card category fade-in">
-          <div class="tier-header">
-            <div class="tier-icon">📢</div>
-            <h3>Category Sponsor</h3>
-            <div class="tier-price">Contact Us <small>/ month</small></div>
-          </div>
-          <div class="tier-body">
-            <ul class="tier-features">
-              <li class="highlight">"Presented by [Your Business]" banner</li>
-              <li>Appears on the Things To Do page</li>
-              <li>In-section advertising strip</li>
-              <li>Logo + tagline + link</li>
-              <li>Exclusive per category — one sponsor only</li>
-              <li>Maximum visibility for activity-specific searches</li>
-            </ul>
-            <a href="mailto:sales@eyetoad.com?subject=Category Sponsor Inquiry" class="tier-cta">Sponsor a Category →</a>
-          </div>
-        </div>
-
-        <div class="tier-card standard fade-in">
-          <div class="tier-header">
-            <div class="tier-icon">🌴</div>
-            <h3>Premium Banner</h3>
-            <div class="tier-price">Contact Us <small>/ month</small></div>
-          </div>
-          <div class="tier-body">
-            <ul class="tier-features">
-              <li class="highlight">Top-of-page banner placement</li>
-              <li class="highlight">Above all other content</li>
-              <li>Custom headline + description</li>
-              <li>Logo + photo + two CTAs</li>
-              <li>Visible on homepage too</li>
-              <li>The highest-visibility slot on the site</li>
-              <li>One slot only — first come, first served</li>
-            </ul>
-            <a href="mailto:sales@eyetoad.com?subject=Premium Banner Inquiry" class="tier-cta gold-cta">Inquire About Banner →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-section">
-    <div class="page-wrap">
-      <div class="section-kicker">🚀 Simple Process</div>
-      <h2 class="section-title">How Getting Featured Works</h2>
-      <p class="section-intro">We keep it simple. No complicated tech. No long-term contracts. Just your business in front of the right tourists at the right time.</p>
-      <div class="steps-grid">
-        <div class="step fade-in">
-          <div class="step-num">1</div>
-          <h4>Contact Us</h4>
-          <p>Email <a href="mailto:sales@eyetoad.com" style="color:var(--ocean-mid);font-weight:600;">sales@eyetoad.com</a> with your business name, category, and what you'd like to offer visitors. We respond within 24 hours.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="step-num">2</div>
-          <h4>We Build Your Listing</h4>
-          <p>Send us a photo, your description, and your exclusive deal or offer. We write it up, format it, and make it look great — no tech work on your end.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="step-num">3</div>
-          <h4>Go Live</h4>
-          <p>Your listing goes live within 48 hours. Tourists searching Cabarete before their trip start finding your business. Pre-trip awareness = more bookings.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="step-num">4</div>
-          <h4>Tourists Arrive Ready</h4>
-          <p>Visitors land in Cabarete with your business already on their list. Show them the guide when they walk in — many will recognize it and feel confident booking.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PITCH QUOTES -->
-  <section class="pitch-section">
-    <div class="page-wrap">
-      <div class="section-kicker">💡 The Business Case</div>
-      <h2 class="section-title">What Smart Cabarete Businesses Know</h2>
-      <p class="section-intro">The moment a tourist researches "things to do in Cabarete" is the highest-value moment in their buying journey. That's exactly when this guide appears.</p>
-      <div class="pitch-grid">
-        <div class="pitch-card fade-in">
-          <div class="pitch-quote">"Tourists who find you before they arrive are 3x more likely to visit than those who discover you on the street. Pre-trip research is where the decision happens."</div>
-          <div class="pitch-source"><strong>Travel Behavior Research</strong>Why pre-trip visibility matters</div>
-        </div>
-        <div class="pitch-card coral fade-in">
-          <div class="pitch-quote">"In Cabarete, word of mouth travels far — but it starts on Google. Get in front of tourists while they're planning, not after they've already filled their calendar."</div>
-          <div class="pitch-source"><strong>The Cabarete Opportunity</strong>North Coast tourism is growing</div>
-        </div>
-        <div class="pitch-card green fade-in">
-          <div class="pitch-quote">"A featured listing on a well-ranked travel guide works for your business 24 hours a day, 7 days a week — long before any tourist boards their flight to Puerto Plata."</div>
-          <div class="pitch-source"><strong>Digital Visibility</strong>Always-on marketing</div>
-        </div>
-        <div class="pitch-card gold fade-in">
-          <div class="pitch-quote">"Cabarete hosts the World Kiteboarding Championship annually and attracts visitors from 50+ countries. International tourists expect to research online before they arrive — be where they look."</div>
-          <div class="pitch-source"><strong>Cabarete Tourism Facts</strong>Growing international audience</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPLORE OTHER PAGES -->
-  <section class="explore-section">
-    <div class="page-wrap">
-      <div class="section-kicker">🗺️ Explore The Full Guide</div>
-      <h2 class="section-title">More From Our Cabarete Guide</h2>
-      <p class="section-intro">This site is three pages of real, detailed, SEO-optimized content about Cabarete — built to rank and built to convert tourists into customers for local businesses.</p>
-      <div class="explore-grid">
-        <a href="/" class="explore-card" style="text-decoration:none;">
-          <div class="explore-bg" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg');"></div>
-          <div class="explore-overlay"></div>
-          <div class="explore-content">
-            <h3>Cabarete Beach Guide — Homepage</h3>
-            <p>The full destination overview — kitesurfing, nightlife, restaurants, hotels, best time to visit and the interactive trip planner.</p>
-            <span class="explore-link">Visit Homepage →</span>
-          </div>
-        </a>
-        <a href="/things-to-do-cabarete/" class="explore-card" style="text-decoration:none;">
-          <div class="explore-bg" style="background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/beach-cabarete.jpg');"></div>
-          <div class="explore-overlay"></div>
-          <div class="explore-content">
-            <h3>Things To Do in Cabarete</h3>
-            <p>The complete activity guide — 9 full sections covering every experience from kitesurfing to cave swimming to the 27 Damajagua Waterfalls.</p>
-            <span class="explore-link">See All Activities →</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section style="background: #f8fbff; padding: 72px 0;">
-    <div class="page-wrap">
-      <div class="section-kicker">❓ Common Questions</div>
-      <h2 class="section-title">Partner &amp; Deals FAQ</h2>
-      <div class="faq-list" id="faq-list"></div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="cta-strip">
-    <h2>Ready To Get Your Business Featured?</h2>
-    <p>One email is all it takes. Tell us your business, your category, and what deal you'd like to offer — we'll handle the rest and have you live within 48 hours.</p>
-    <div class="cta-emails">
-      <a href="mailto:sales@eyetoad.com?subject=Cabarete Business Listing Inquiry" class="cta-email-link">
-        📧 sales@eyetoad.com — Contact Us Now
-      </a>
-      <p class="cta-spanish">¿Tienes un negocio en Cabarete? <a href="mailto:sales@eyetoad.com?subject=Negocio en Cabarete - Publicidad">Escríbenos en español →</a></p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-dominican-republic-logo-black.png" alt="Cabarete Beach Dominican Republic" width="180" height="40" />
-        <p>Your definitive guide to Cabarete Beach, Dominican Republic — kitesurfing, restaurants, nightlife, and the best activities on the Caribbean's North Coast.</p>
-        <a href="mailto:sales@eyetoad.com" style="color:var(--ocean-bright);font-size:13px;text-decoration:none;font-weight:600;">📧 sales@eyetoad.com</a>
-      </div>
-      <div class="footer-col">
-        <h5>Navigate</h5>
-        <ul>
-          <li><a href="/">🏠 Homepage</a></li>
-          <li><a href="/things-to-do-cabarete/">🗺️ Things To Do</a></li>
-          <li><a href="/cabarete-deals/">⭐ Featured Partners</a></li>
-          <li><a href="/#faq">❓ Travel FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Categories</h5>
-        <ul>
-          <li><a href="#kite-section">🪁 Kite Schools</a></li>
-          <li><a href="#food-section">🍽️ Restaurants</a></li>
-          <li><a href="#hotel-section">🏨 Hotels</a></li>
-          <li><a href="#tours-section">🌿 Tours</a></li>
-          <li><a href="#wellness-section">🧘 Wellness</a></li>
-          <li><a href="#nightlife-section">🌙 Nightlife</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Advertise</h5>
-        <ul>
-          <li><a href="mailto:sales@eyetoad.com?subject=Premium Banner">Premium Banner</a></li>
-          <li><a href="mailto:sales@eyetoad.com?subject=Gold Partner">Gold Partner Listing</a></li>
-          <li><a href="mailto:sales@eyetoad.com?subject=Standard Listing">Standard Listing</a></li>
-          <li><a href="mailto:sales@eyetoad.com?subject=Category Sponsor">Category Sponsor</a></li>
-          <li><a href="mailto:sales@eyetoad.com?subject=Barter Cabarete">Barter Inquiry 🤝</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 CabareteBeachDominicanRepublic.com — All rights reserved.</p>
-      <p class="powered-by">🌴 Powered by <a href="https://www.eyetoadmedia.com" target="_blank" rel="noopener">Eye To Ad Media</a> · Digital Marketing &amp; SEO · <a href="mailto:sales@eyetoad.com">sales@eyetoad.com</a></p>
-    </div>
-  </footer>
-
-  <!-- JSON-LD SCHEMA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/",
-        "name": "Cabarete Deals & Featured Partners | Dominican Republic Travel Guide",
-        "description": "Featured local businesses, exclusive deals and partner listings for Cabarete Dominican Republic. Kite schools, restaurants, hotels, tours and more.",
-        "url": "https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/",
-        "inLanguage": ["en","es"],
-        "isPartOf": { "@id": "https://www.cabaretebeachdominicanrepublic.com/#website" },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cabaretebeachdominicanrepublic.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Featured Partners & Deals", "item": "https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/" }
-          ]
-        }
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.cabaretebeachdominicanrepublic.com/#publisher",
-        "name": "Eye To Ad Media — Cabarete Beach Dominican Republic Guide",
-        "url": "https://www.cabaretebeachdominicanrepublic.com/",
-        "email": "sales@eyetoad.com",
-        "description": "Travel guide and advertising platform for Cabarete Beach, Dominican Republic. Connecting tourists with local businesses.",
-        "areaServed": {
-          "@type": "City",
-          "name": "Cabarete",
-          "containedInPlace": { "@type": "Country", "name": "Dominican Republic" }
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "How do I get my Cabarete business listed on this site?", "acceptedAnswer": { "@type": "Answer", "text": "Email sales@eyetoad.com with your business name, category (kite school, restaurant, hotel, tour operator, etc.), a photo, your business description, and any exclusive deal or offer you'd like to show tourists. We'll have your listing live within 48 hours. No technical skills required — we handle all setup." } },
-          { "@type": "Question", "name": "What kinds of businesses can advertise on this guide?", "acceptedAnswer": { "@type": "Answer", "text": "Any legitimate Cabarete or North Coast business that serves tourists is welcome: kite schools, surf schools, restaurants, beach bars, hotels, vacation rentals, tour operators, excursion companies, wellness studios, yoga instructors, dance schools, spa operators, nightlife venues, local markets, and more. If you serve visitors to Cabarete, there's a listing option for you." } },
-          { "@type": "Question", "name": "Is barter or trade accepted instead of cash payment?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we are open to barter arrangements with Cabarete businesses. Kite lessons, restaurant meals, hotel stays, spa treatments, or excursions in exchange for a featured listing are all worth a conversation. Email sales@eyetoad.com with 'Barter Inquiry' in the subject line and we'll discuss what works for both sides." } },
-          { "@type": "Question", "name": "What is the difference between Gold Partner and Standard Partner?", "acceptedAnswer": { "@type": "Answer", "text": "Gold Partners receive top placement in their category (the first card visitors see), a gold border and badge highlighting, their listing featured across all three pages of the site, and inclusion in relevant FAQ answers throughout the guide. Standard Partners receive a well-formatted listing in their category section with photo, description, deal box, and direct link. Both include a direct link to your website or booking page." } },
-          { "@type": "Question", "name": "How many tourists visit this guide?", "acceptedAnswer": { "@type": "Answer", "text": "This guide is actively being built and optimized to rank for 'Cabarete Beach Dominican Republic' and related search terms. Traffic grows as search rankings improve. Getting listed early means you benefit from increasing visibility at the lowest cost — and early partners are given priority placement that later entrants cannot displace." } },
-          { "@type": "Question", "name": "Can I update my deal or listing after going live?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Email sales@eyetoad.com with your updated offer, photo, or description at any time. We update listings promptly. Seasonal deals, event promotions, or changing your exclusive offer are all easy to arrange." } }
-        ]
-      },
-      {
-        "@type": "Speakable",
-        "cssSelector": [".page-hero h1", ".page-hero p", ".premium-banner h2"]
-      }
-    ]
-  }
-  </script>
-
-  <script>
-    // CATEGORY FILTER
-    function filterCat(cat, btn) {
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const grids = document.querySelectorAll('.partners-grid');
-      grids.forEach(grid => {
-        const gridCat = grid.getAttribute('data-category');
-        const section = grid.closest('section');
-        if (cat === 'all' || gridCat === cat) {
-          section.style.display = '';
-          section.style.opacity = '1';
-        } else {
-          section.style.display = 'none';
-        }
-      });
-      // Also hide/show premium banner
-      const premium = document.getElementById('section-premium');
-      if (premium) premium.style.display = cat === 'all' ? '' : 'none';
+const navAs=document.querySelectorAll('.cat-nav a');
+const spy=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      navAs.forEach(a=>a.classList.remove('active'));
+      const a=document.querySelector('.cat-nav a[href="#'+e.target.id+'"]');
+      if(a)a.classList.add('active');
     }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('[id]').forEach(s=>spy.observe(s));
 
-    // FAQ
-    const faqs = [
-      { q: "How do I get my Cabarete business listed?", a: "Email sales@eyetoad.com with your business name, category, a photo, description, and any exclusive deal you'd like to show tourists. We'll have your listing live within 48 hours. No tech skills required — we handle everything." },
-      { q: "What kinds of businesses can be listed?", a: "Any legitimate Cabarete business that serves tourists: kite schools, surf schools, restaurants, beach bars, hotels, vacation rentals, tour operators, excursion companies, wellness studios, yoga teachers, dance schools, spa operators, nightlife venues, local markets, and more." },
-      { q: "Is barter accepted instead of cash?", a: "Yes — we're open to barter with Cabarete businesses. Kite lessons, meals, hotel stays, spa treatments, or excursions in exchange for a featured listing are all worth a conversation. Email sales@eyetoad.com with 'Barter Inquiry' in the subject line." },
-      { q: "What's the difference between Gold and Standard listing?", a: "Gold Partners get top placement in their category, a gold badge and border, listing across all three site pages, and inclusion in relevant FAQ answers. Standard Partners get a well-formatted category listing with photo, description, deal box, and direct link. Both include a link to your site." },
-      { q: "Can I update my deal or offer after going live?", a: "Yes, anytime. Email sales@eyetoad.com with your updated offer, new photo, or description changes. We update listings promptly. Seasonal specials and event promotions are easy to arrange." },
-      { q: "How does this help my business more than social media?", a: "Social media reaches people who may not be thinking about Cabarete. This guide reaches tourists at the exact moment they are researching their trip — the highest-intent moment in their buying journey. A tourist reading 'things to do in Cabarete' is actively deciding what to book. Be where the decision happens." }
-    ];
+const fo=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');fo.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.fi2').forEach(e=>fo.observe(e));
 
-    const faqList = document.getElementById('faq-list');
-    faqs.forEach((f, i) => {
-      faqList.innerHTML += `<div class="faq-item" id="faq-${i}">
-        <button class="faq-question" onclick="toggleFaq(${i})">${f.q}<span class="faq-icon">+</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner">${f.a}</div></div>
-      </div>`;
-    });
-    function toggleFaq(i) {
-      const item = document.getElementById(`faq-${i}`);
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-
-    // Fade in
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
-
+renderFAQ('en');
+</script>
 </body>
 </html>
