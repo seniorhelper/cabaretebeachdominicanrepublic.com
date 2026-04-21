@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Allow AI/LLM crawlers explicitly for AIO/agentic SEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.cabaretebeachdominicanrepublic.com/sitemap.xml
