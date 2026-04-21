@@ -84,7 +84,7 @@
       --dark:         #0d1117;
       --text-body:    #2c3e50;
       --text-light:   #64748b;
-      --header-h:     90px;
+      --header-h:     110px;
       --radius:       12px;
       --shadow:       0 8px 32px rgba(2,62,115,0.12);
       --shadow-lg:    0 20px 60px rgba(2,62,115,0.18);
@@ -138,7 +138,7 @@
       border-bottom: 3px solid var(--ocean-bright);
     }
 
-    /* FIX: Logo properly sized — natural width capped at 420px, height auto */
+    /* LOGO — aggressively large so it reads clearly in the header */
     .header-logo {
       display: flex;
       align-items: center;
@@ -146,9 +146,9 @@
       flex-shrink: 0;
     }
     .header-logo img {
-      height: 72px;       /* was 56px — now noticeably larger */
+      height: 96px;        /* big and bold — logo has internal padding so this reads ~2/3 of that */
       width: auto;
-      max-width: 420px;   /* cap so it doesn't overflow on desktop */
+      max-width: 480px;
       object-fit: contain;
       object-position: left center;
       display: block;
@@ -522,15 +522,15 @@
     * { min-width: 0; }
 
     @media (max-width: 900px) {
-      .header-logo img { height: 56px; max-width: 280px; }
+      .header-logo img { height: 72px; max-width: 320px; }
     }
 
     @media (max-width: 768px) {
-      :root { --header-h: 70px; }
+      :root { --header-h: 80px; }
 
       /* Header */
       header { padding: 0 14px; gap: 8px; }
-      .header-logo img { height: 46px; max-width: 200px; }
+      .header-logo img { height: 60px; max-width: 240px; }
       .header-nav { gap: 8px; }
       .header-nav a:not(.header-cta) { display: none; }
       .header-cta { padding: 8px 12px; font-size: 11px !important; }
@@ -608,7 +608,7 @@
     @media (max-width: 390px) {
       .hero h1 { font-size: 1.9rem; }
       .hero-stat strong { font-size: 1.3rem; }
-      .header-logo img { height: 38px; max-width: 165px; }
+      .header-logo img { height: 48px; max-width: 190px; }
     }
 
     /* ── ANIMATIONS ── */
@@ -637,8 +637,8 @@
       <img
         src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png"
         alt="Cabarete Beach Dominican Republic"
-        width="420"
-        height="72"
+        width="480"
+        height="96"
       />
     </a>
     <nav class="header-nav">
