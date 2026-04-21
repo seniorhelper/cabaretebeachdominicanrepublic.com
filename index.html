@@ -39,6 +39,9 @@
   <link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/" />
   <link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/" />
 
+  <!-- SITEMAP ref (discoverable in head) -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/Cabarete-beach-favicon.png" />
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/Cabarete-beach-favicon.png" />
@@ -51,6 +54,7 @@
     LOCATION: Cabarete, Puerto Plata Province, Dominican Republic
     COORDINATES: 19.7468° N, 70.4102° W
     MANAGED BY: Eye To Ad Media
+    WEBSITE: www.eyetoad.com
     SPECIALTY: Caribbean's #1 kitesurfing destination; North Coast travel authority
     AIRPORT: Gregorio Luperón International Airport (POP), ~40 minutes away
     WIND: 250–300 kitable days/year; Alizé trade winds year-round
@@ -80,22 +84,15 @@
       --dark:         #0d1117;
       --text-body:    #2c3e50;
       --text-light:   #64748b;
-      --header-h:     80px;
+      --header-h:     90px;
       --radius:       12px;
       --shadow:       0 8px 32px rgba(2,62,115,0.12);
       --shadow-lg:    0 20px 60px rgba(2,62,115,0.18);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text-body);
-      background: var(--white);
-      overflow-x: hidden;
-    }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text-body); background: var(--white); overflow-x: hidden; }
 
     /* ── LANGUAGE TOGGLE ── */
     .lang-bar {
@@ -124,10 +121,7 @@
       font-weight: 500;
       letter-spacing: 0.5px;
     }
-    .lang-toggle button.active {
-      background: var(--ocean-bright);
-      color: var(--white);
-    }
+    .lang-toggle button.active { background: var(--ocean-bright); color: var(--white); }
 
     /* ── HEADER ── */
     header {
@@ -143,17 +137,28 @@
       z-index: 1000;
       border-bottom: 3px solid var(--ocean-bright);
     }
+
+    /* FIX: Logo properly sized — natural width capped at 420px, height auto */
+    .header-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
     .header-logo img {
-      height: 56px;
+      height: 72px;       /* was 56px — now noticeably larger */
       width: auto;
-      min-width: 240px;
+      max-width: 420px;   /* cap so it doesn't overflow on desktop */
       object-fit: contain;
       object-position: left center;
+      display: block;
     }
+
     .header-nav {
       display: flex;
       align-items: center;
       gap: 28px;
+      flex-shrink: 0;
     }
     .header-nav a {
       text-decoration: none;
@@ -164,6 +169,7 @@
       transition: color 0.2s;
     }
     .header-nav a:hover { color: var(--ocean-bright); }
+    /* FIX: Advertise CTA is a proper mailto link that actually works */
     .header-cta {
       background: linear-gradient(135deg, var(--coral), #c0553a);
       color: var(--white) !important;
@@ -174,931 +180,443 @@
       text-align: center;
       line-height: 1.3;
       transition: transform 0.2s, box-shadow 0.2s !important;
+      text-decoration: none;
+      display: inline-block;
     }
     .header-cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 4px 16px rgba(224,122,95,0.4) !important;
       color: var(--white) !important;
     }
-    .header-cta small {
-      display: block;
-      font-size: 10px;
-      font-weight: 400;
-      opacity: 0.85;
-    }
+    .header-cta small { display: block; font-size: 10px; font-weight: 400; opacity: 0.85; }
 
     /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
+    .hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; }
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg');
-      background-size: cover;
-      background-position: center 30%;
+      background-size: cover; background-position: center 30%;
       transform: scale(1.04);
       animation: heroZoom 18s ease-out forwards;
     }
     @keyframes heroZoom { to { transform: scale(1.0); } }
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg,
-        rgba(2,62,115,0.82) 0%,
-        rgba(0,119,182,0.45) 50%,
-        rgba(0,180,216,0.18) 100%);
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(2,62,115,0.82) 0%, rgba(0,119,182,0.45) 50%, rgba(0,180,216,0.18) 100%);
     }
     .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 48px;
+      position: relative; z-index: 2;
+      max-width: 800px; padding: 0 48px;
       animation: heroFade 1s ease-out 0.3s both;
     }
-    @keyframes heroFade {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes heroFade { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: var(--ocean-light);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      color: var(--ocean-light); padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 20px;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      font-weight: 900; color: var(--white); line-height: 1.1;
+      margin-bottom: 20px; text-shadow: 0 2px 20px rgba(0,0,0,0.3);
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--ocean-light);
-    }
-    .hero-desc {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.88);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 580px;
-    }
+    .hero h1 em { font-style: italic; color: var(--ocean-light); }
+    .hero-desc { font-size: 1.15rem; color: rgba(255,255,255,0.88); line-height: 1.7; margin-bottom: 36px; max-width: 580px; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn-primary {
       background: linear-gradient(135deg, var(--sand-dark), #b8860b);
-      color: var(--dark);
-      padding: 16px 32px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.3px;
-      transition: all 0.25s;
-      box-shadow: 0 4px 20px rgba(212,168,80,0.4);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--dark); padding: 16px 32px; border-radius: 10px;
+      text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: 0.3px;
+      transition: all 0.25s; box-shadow: 0 4px 20px rgba(212,168,80,0.4);
+      display: inline-flex; align-items: center; gap: 8px;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,168,80,0.5); }
     .btn-secondary {
-      background: rgba(255,255,255,0.12);
-      border: 2px solid rgba(255,255,255,0.5);
-      color: var(--white);
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.25s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.5);
+      color: var(--white); padding: 14px 28px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 15px;
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
     }
     .btn-secondary:hover { background: rgba(255,255,255,0.22); border-color: white; }
 
-    /* Hero stats bar */
     .hero-stats {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(2,62,115,0.9);
-      backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      z-index: 3;
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(2,62,115,0.9); backdrop-filter: blur(12px);
+      display: flex; justify-content: center; gap: 0; z-index: 3;
     }
     .hero-stat {
-      padding: 18px 40px;
-      text-align: center;
+      padding: 18px 40px; text-align: center;
       border-right: 1px solid rgba(255,255,255,0.12);
-      flex: 1;
-      max-width: 220px;
+      flex: 1; max-width: 220px;
     }
     .hero-stat:last-child { border-right: none; }
     .hero-stat strong {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--sand-dark);
-      font-weight: 700;
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; color: var(--sand-dark); font-weight: 700;
     }
-    .hero-stat span {
-      font-size: 12px;
-      color: rgba(255,255,255,0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
+    .hero-stat span { font-size: 12px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.8px; }
 
     /* ── QUICK ANSWER BOX ── */
     .quick-answer {
       background: linear-gradient(135deg, #e8f7ff, #caf0f8);
       border-left: 5px solid var(--ocean-mid);
-      margin: 48px auto;
-      max-width: 900px;
-      padding: 28px 32px;
-      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 48px auto; max-width: 900px;
+      padding: 28px 32px; border-radius: 0 var(--radius) var(--radius) 0;
     }
-    .quick-answer-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--ocean-mid);
-      margin-bottom: 10px;
-    }
-    .quick-answer p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--ocean-deep);
-    }
+    .quick-answer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ocean-mid); margin-bottom: 10px; }
+    .quick-answer p { font-size: 1.05rem; line-height: 1.7; color: var(--ocean-deep); }
 
     /* ── SECTIONS ── */
     section { padding: 72px 24px; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--ocean-bright);
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-      font-weight: 900;
-      color: var(--ocean-deep);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .section-intro {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      line-height: 1.75;
-      max-width: 680px;
-      margin-bottom: 48px;
-    }
+    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--ocean-bright); margin-bottom: 10px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--ocean-deep); line-height: 1.2; margin-bottom: 16px; }
+    .section-intro { font-size: 1.05rem; color: var(--text-light); line-height: 1.75; max-width: 680px; margin-bottom: 48px; }
 
-    /* ── FEATURED BANNER AD ZONE ── */
+    /* ── FEATURED BANNER ── */
     .featured-banner {
       background: linear-gradient(135deg, var(--ocean-deep), var(--dr-blue));
-      padding: 32px;
-      border-radius: var(--radius);
-      text-align: center;
-      margin: 0 auto 64px;
-      max-width: 1100px;
-      position: relative;
-      overflow: hidden;
+      padding: 32px; border-radius: var(--radius); text-align: center;
+      margin: 0 auto 64px; max-width: 1100px; position: relative; overflow: hidden;
     }
     .featured-banner::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      background: rgba(0,180,216,0.12);
-      border-radius: 50%;
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px; background: rgba(0,180,216,0.12); border-radius: 50%;
     }
     .featured-banner-tag {
-      display: inline-block;
-      background: var(--sand-dark);
-      color: var(--dark);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 14px;
+      display: inline-block; background: var(--sand-dark); color: var(--dark);
+      font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;
     }
-    .featured-banner h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .featured-banner p {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
+    .featured-banner h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 10px; }
+    .featured-banner p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 20px; }
     .featured-banner a {
-      display: inline-block;
-      background: var(--ocean-bright);
-      color: var(--white);
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: all 0.2s;
+      display: inline-block; background: var(--ocean-bright); color: var(--white);
+      padding: 12px 28px; border-radius: 8px; text-decoration: none;
+      font-weight: 700; font-size: 14px; transition: all 0.2s;
     }
     .featured-banner a:hover { background: var(--white); color: var(--ocean-deep); }
 
     /* ── ACTIVITY CARDS ── */
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-      margin-bottom: 48px;
-    }
+    .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 48px; }
     .activity-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
-      background: var(--white);
-      position: relative;
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s; background: var(--white); position: relative;
     }
-    .activity-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-    .activity-card-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-    .activity-card-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(2,62,115,0.7), transparent 50%);
-    }
+    .activity-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .activity-card-img { height: 220px; background-size: cover; background-position: center; position: relative; }
+    .activity-card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,62,115,0.7), transparent 50%); }
     .activity-card-cat {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--sand-dark);
-      color: var(--dark);
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 10px;
-      border-radius: 20px;
+      position: absolute; top: 14px; left: 14px; background: var(--sand-dark); color: var(--dark);
+      font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 20px;
     }
     .activity-card-body { padding: 24px; }
-    .activity-card-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--ocean-deep);
-      margin-bottom: 10px;
-    }
-    .activity-card-body p {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--ocean-mid);
-      font-weight: 600;
-      font-size: 13px;
-      text-decoration: none;
-      transition: gap 0.2s;
-    }
+    .activity-card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--ocean-deep); margin-bottom: 10px; }
+    .activity-card-body p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+    .card-link { display: inline-flex; align-items: center; gap: 6px; color: var(--ocean-mid); font-weight: 600; font-size: 13px; text-decoration: none; transition: gap 0.2s; }
     .card-link:hover { gap: 10px; }
 
-    /* ── FEATURED PARTNER SLOTS ── */
-    .partners-section {
-      background: linear-gradient(135deg, #f0f9ff, #e8f7ff);
-      border-radius: 20px;
-      padding: 56px 48px;
-      margin: 0 auto;
-      max-width: 1100px;
-    }
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 36px;
-    }
+    /* ── PARTNERS ── */
+    .partners-section { background: linear-gradient(135deg, #f0f9ff, #e8f7ff); border-radius: 20px; padding: 56px 48px; margin: 0 auto; max-width: 1100px; }
+    .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 36px; }
     .partner-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px;
-      text-align: center;
-      box-shadow: var(--shadow);
-      border: 2px dashed rgba(0,119,182,0.2);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
+      background: var(--white); border-radius: var(--radius); padding: 28px; text-align: center;
+      box-shadow: var(--shadow); border: 2px dashed rgba(0,119,182,0.2);
+      transition: all 0.3s; position: relative; overflow: hidden;
     }
-    .partner-card.featured-slot {
-      border: 2px solid var(--sand-dark);
-    }
+    .partner-card.featured-slot { border: 2px solid var(--sand-dark); }
     .partner-card.featured-slot::before {
-      content: '⭐ FEATURED SPOT';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      background: var(--sand-dark);
-      color: var(--dark);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 5px;
-      text-align: center;
+      content: '⭐ FEATURED SPOT'; position: absolute; top: 0; left: 0; right: 0;
+      background: var(--sand-dark); color: var(--dark); font-size: 10px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 5px; text-align: center;
     }
     .partner-card.featured-slot .partner-body { margin-top: 12px; }
     .partner-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .partner-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--ocean-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      margin: 0 auto 16px;
-    }
-    .partner-card h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--ocean-deep);
-      margin-bottom: 8px;
-    }
-    .partner-card p {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
+    .partner-icon { width: 64px; height: 64px; background: var(--ocean-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
+    .partner-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ocean-deep); margin-bottom: 8px; }
+    .partner-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; margin-bottom: 16px; }
     .partner-cta {
-      display: inline-block;
-      background: var(--ocean-mid);
-      color: var(--white);
-      padding: 9px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s;
+      display: inline-block; background: var(--ocean-mid); color: var(--white);
+      padding: 9px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s;
     }
     .partner-cta:hover { background: var(--ocean-deep); }
-    .partner-cta.outline {
-      background: transparent;
-      border: 2px solid var(--ocean-mid);
-      color: var(--ocean-mid);
-    }
+    .partner-cta.outline { background: transparent; border: 2px solid var(--ocean-mid); color: var(--ocean-mid); }
     .partner-cta.outline:hover { background: var(--ocean-mid); color: var(--white); }
 
     /* ── PHOTO STRIP ── */
-    .photo-strip {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 12px;
-      margin: 48px auto;
-      max-width: 1100px;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .photo-strip-img {
-      background-size: cover;
-      background-position: center;
-      min-height: 280px;
-    }
-    .photo-strip-right {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 12px;
-    }
+    .photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; margin: 48px auto; max-width: 1100px; border-radius: 16px; overflow: hidden; }
+    .photo-strip-img { background-size: cover; background-position: center; min-height: 280px; }
+    .photo-strip-right { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
     .photo-strip-right .photo-strip-img { min-height: 134px; }
 
     /* ── DR INFO SECTION ── */
     .dr-info {
       background: linear-gradient(160deg, var(--dr-blue) 0%, var(--ocean-deep) 60%, #023255 100%);
-      padding: 80px 24px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
+      padding: 80px 24px; color: var(--white); position: relative; overflow: hidden;
     }
-    .dr-info::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(0,180,216,0.18) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .dr-info::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -60px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(212,168,80,0.12) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .dr-info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+    .dr-info::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,180,216,0.18) 0%, transparent 70%); border-radius: 50%; }
+    .dr-info::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,168,80,0.12) 0%, transparent 70%); border-radius: 50%; }
+    .dr-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
     .dr-info h2 { color: var(--white); }
     .dr-info h2 em { color: var(--sand-dark); font-style: italic; }
     .dr-info .section-label { color: var(--ocean-bright); }
-    .dr-info p {
-      color: rgba(255,255,255,0.82);
-      line-height: 1.8;
-      margin-bottom: 20px;
-      font-size: 0.98rem;
-    }
-    .dr-info .info-facts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 32px;
-    }
-    .info-fact {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 10px;
-      padding: 18px;
-    }
-    .info-fact strong {
-      display: block;
-      font-size: 1.4rem;
-      color: var(--sand-dark);
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 4px;
-    }
-    .info-fact span {
-      font-size: 12px;
-      color: rgba(255,255,255,0.65);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .dr-info-image {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-      position: relative;
-    }
-    .dr-info-image img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      display: block;
-    }
+    .dr-info p { color: rgba(255,255,255,0.82); line-height: 1.8; margin-bottom: 20px; font-size: 0.98rem; }
+    .dr-info .info-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+    .info-fact { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 18px; }
+    .info-fact strong { display: block; font-size: 1.4rem; color: var(--sand-dark); font-family: 'Playfair Display', serif; margin-bottom: 4px; }
+    .info-fact span { font-size: 12px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.5px; }
+    .dr-info-image { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4); position: relative; }
+    .dr-info-image img { width: 100%; height: 420px; object-fit: cover; display: block; }
     .dr-info-image-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(2,62,115,0.9);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--white);
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-size: 13px;
+      position: absolute; bottom: 20px; left: 20px;
+      background: rgba(2,62,115,0.9); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2); color: var(--white);
+      padding: 12px 16px; border-radius: 10px; font-size: 13px;
     }
     .dr-info-image-badge strong { display: block; color: var(--sand-dark); font-size: 1rem; }
 
     /* ── KITE SECTION ── */
     .kite-section { background: var(--white); }
-    .kite-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
+    .kite-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .kite-stats { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
     .kite-stat-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 20px;
-      background: var(--ocean-light);
-      border-radius: 10px;
-      border-left: 4px solid var(--ocean-mid);
+      display: flex; align-items: center; gap: 16px; padding: 16px 20px;
+      background: var(--ocean-light); border-radius: 10px; border-left: 4px solid var(--ocean-mid);
     }
     .kite-stat-row .kstat-icon { font-size: 24px; }
-    .kite-stat-row strong {
-      display: block;
-      font-size: 1.05rem;
-      color: var(--ocean-deep);
-    }
+    .kite-stat-row strong { display: block; font-size: 1.05rem; color: var(--ocean-deep); }
     .kite-stat-row span { font-size: 13px; color: var(--text-light); }
-    .kite-img {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-    }
-    .kite-img img {
-      width: 100%;
-      height: 460px;
-      object-fit: cover;
-      display: block;
-    }
+    .kite-img { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); position: relative; }
+    .kite-img img { width: 100%; height: 460px; object-fit: cover; display: block; }
     .kite-season-bars { margin-top: 28px; }
     .season-bar { margin-bottom: 14px; }
-    .season-bar-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-      font-size: 13px;
-      color: var(--text-body);
-      font-weight: 500;
-    }
-    .season-bar-track {
-      height: 8px;
-      background: var(--ocean-light);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .season-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--ocean-mid), var(--ocean-bright));
-      border-radius: 4px;
-      animation: barGrow 1.5s ease-out both;
-    }
+    .season-bar-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; color: var(--text-body); font-weight: 500; }
+    .season-bar-track { height: 8px; background: var(--ocean-light); border-radius: 4px; overflow: hidden; }
+    .season-bar-fill { height: 100%; background: linear-gradient(90deg, var(--ocean-mid), var(--ocean-bright)); border-radius: 4px; animation: barGrow 1.5s ease-out both; }
     @keyframes barGrow { from { width: 0 !important; } }
 
-    /* ── NIGHTLIFE SECTION ── */
-    .nightlife-section {
-      background: linear-gradient(160deg, #0d1117 0%, #1a2332 100%);
-      padding: 80px 24px;
-      color: var(--white);
-    }
+    /* ── NIGHTLIFE ── */
+    .nightlife-section { background: linear-gradient(160deg, #0d1117 0%, #1a2332 100%); padding: 80px 24px; color: var(--white); }
     .nightlife-section h2 { color: var(--white); }
     .nightlife-section h2 em { color: var(--coral); }
     .nightlife-section .section-label { color: var(--coral); }
     .nightlife-section .section-intro { color: rgba(255,255,255,0.7); }
-    .nightlife-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 36px;
-    }
-    .night-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: all 0.3s;
-    }
-    .night-card:hover {
-      background: rgba(0,180,216,0.1);
-      border-color: var(--ocean-bright);
-      transform: translateY(-4px);
-    }
+    .nightlife-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 36px; }
+    .night-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 24px; transition: all 0.3s; }
+    .night-card:hover { background: rgba(0,180,216,0.1); border-color: var(--ocean-bright); transform: translateY(-4px); }
     .night-card-icon { font-size: 32px; margin-bottom: 14px; }
-    .night-card h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
+    .night-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 8px; }
     .night-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
-    .night-card .night-tag {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--ocean-bright);
-      text-transform: uppercase;
-    }
+    .night-card .night-tag { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--ocean-bright); text-transform: uppercase; }
 
-    /* ── RESTAURANTS SECTION ── */
+    /* ── RESTAURANTS ── */
     .restaurant-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
     .restaurant-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid rgba(0,119,182,0.1);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-      transition: all 0.2s;
+      display: flex; align-items: flex-start; gap: 16px; padding: 20px;
+      background: var(--white); border-radius: var(--radius);
+      border: 1px solid rgba(0,119,182,0.1); box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: all 0.2s;
     }
     .restaurant-row:hover { border-color: var(--ocean-bright); transform: translateX(4px); }
     .restaurant-emoji { font-size: 28px; flex-shrink: 0; }
     .restaurant-info h4 { font-weight: 700; color: var(--ocean-deep); font-size: 1rem; margin-bottom: 4px; }
     .restaurant-info p { font-size: 0.87rem; color: var(--text-light); line-height: 1.5; }
-    .restaurant-rating {
-      margin-left: auto;
-      flex-shrink: 0;
-      text-align: right;
-    }
+    .restaurant-rating { margin-left: auto; flex-shrink: 0; text-align: right; }
     .stars { color: var(--sand-dark); font-size: 13px; }
     .review-count { font-size: 11px; color: var(--text-light); }
 
-    /* ── TRIP PLANNER WIDGET ── */
-    .planner-section {
-      background: linear-gradient(135deg, var(--sand), #fef3db);
-      padding: 80px 24px;
-    }
-    .planner-widget {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: var(--shadow-lg);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .planner-widget h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: var(--ocean-deep);
-      margin-bottom: 8px;
-    }
+    /* ── TRIP PLANNER ── */
+    .planner-section { background: linear-gradient(135deg, var(--sand), #fef3db); padding: 80px 24px; }
+    .planner-widget { background: var(--white); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto; }
+    .planner-widget h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ocean-deep); margin-bottom: 8px; }
     .planner-widget > p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 28px; }
     .planner-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
     .planner-chip {
-      padding: 10px 18px;
-      border: 2px solid rgba(0,119,182,0.2);
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ocean-mid);
-      cursor: pointer;
-      transition: all 0.2s;
-      background: transparent;
-      font-family: 'DM Sans', sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      padding: 10px 18px; border: 2px solid rgba(0,119,182,0.2); border-radius: 50px;
+      font-size: 13px; font-weight: 600; color: var(--ocean-mid); cursor: pointer;
+      transition: all 0.2s; background: transparent; font-family: 'DM Sans', sans-serif;
+      display: flex; align-items: center; gap: 6px;
     }
-    .planner-chip:hover, .planner-chip.active {
-      background: var(--ocean-mid);
-      color: var(--white);
-      border-color: var(--ocean-mid);
-    }
-    .planner-result {
-      background: var(--ocean-light);
-      border-radius: var(--radius);
-      padding: 24px;
-      min-height: 120px;
-      display: none;
-    }
+    .planner-chip:hover, .planner-chip.active { background: var(--ocean-mid); color: var(--white); border-color: var(--ocean-mid); }
+    .planner-result { background: var(--ocean-light); border-radius: var(--radius); padding: 24px; min-height: 120px; display: none; }
     .planner-result.show { display: block; }
-    .planner-result h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--ocean-deep);
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
+    .planner-result h4 { font-family: 'Playfair Display', serif; color: var(--ocean-deep); font-size: 1.1rem; margin-bottom: 10px; }
     .planner-result ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .planner-result ul li {
-      font-size: 0.9rem;
-      color: var(--ocean-deep);
-      padding-left: 20px;
-      position: relative;
-    }
+    .planner-result ul li { font-size: 0.9rem; color: var(--ocean-deep); padding-left: 20px; position: relative; }
     .planner-result ul li::before { content: '→'; position: absolute; left: 0; color: var(--ocean-mid); }
 
     /* ── FAQ ── */
     .faq-section { background: #f8fbff; }
     .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-    .faq-item {
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid rgba(0,119,182,0.1);
-      overflow: hidden;
-    }
+    .faq-item { background: var(--white); border-radius: var(--radius); border: 1px solid rgba(0,119,182,0.1); overflow: hidden; }
     .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 20px 24px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--ocean-deep);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      transition: background 0.2s;
+      width: 100%; background: none; border: none; text-align: left; padding: 20px 24px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.98rem; font-weight: 600; color: var(--ocean-deep);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: background 0.2s;
     }
     .faq-question:hover { background: var(--ocean-light); }
     .faq-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--ocean-mid);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-      transition: transform 0.3s;
+      width: 24px; height: 24px; border-radius: 50%; background: var(--ocean-mid);
+      color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0; transition: transform 0.3s;
     }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     .faq-item.open .faq-answer { max-height: 400px; }
-    .faq-answer-inner {
-      padding: 0 24px 20px;
-      font-size: 0.93rem;
-      color: var(--text-light);
-      line-height: 1.75;
-      border-top: 1px solid rgba(0,119,182,0.08);
-      padding-top: 16px;
-    }
+    .faq-answer-inner { padding: 0 24px 20px; font-size: 0.93rem; color: var(--text-light); line-height: 1.75; border-top: 1px solid rgba(0,119,182,0.08); padding-top: 16px; }
 
-    /* ── ADVERTISE SECTION ── */
-    .advertise-section {
-      background: linear-gradient(135deg, var(--coral), #c0553a);
-      padding: 72px 24px;
-      text-align: center;
-      color: var(--white);
-    }
-    .advertise-section h2 {
-      color: var(--white);
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      margin-bottom: 14px;
-    }
-    .advertise-section p {
-      color: rgba(255,255,255,0.85);
-      font-size: 1.05rem;
-      max-width: 580px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-    }
-    .advertise-perks {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .advertise-perk {
-      text-align: center;
-      color: rgba(255,255,255,0.9);
-    }
+    /* ── ADVERTISE ── */
+    .advertise-section { background: linear-gradient(135deg, var(--coral), #c0553a); padding: 72px 24px; text-align: center; color: var(--white); }
+    .advertise-section h2 { color: var(--white); font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 14px; }
+    .advertise-section p { color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 580px; margin: 0 auto 28px; line-height: 1.7; }
+    .advertise-perks { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 36px; }
+    .advertise-perk { text-align: center; color: rgba(255,255,255,0.9); }
     .advertise-perk span { display: block; font-size: 28px; margin-bottom: 6px; }
     .advertise-perk p { font-size: 13px; margin: 0; color: rgba(255,255,255,0.8); max-width: 120px; }
     .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--white);
-      color: var(--coral);
-      padding: 16px 36px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: all 0.2s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); color: var(--coral);
+      padding: 16px 36px; border-radius: 10px; text-decoration: none;
+      font-weight: 700; font-size: 15px; transition: all 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
     .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--dark);
-      padding: 56px 24px 24px;
-      color: rgba(255,255,255,0.65);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      max-width: 1100px;
-      margin: 0 auto 40px;
-    }
-    .footer-brand img {
+    footer { background: var(--dark); padding: 56px 24px 24px; color: rgba(255,255,255,0.65); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 40px; }
+
+    /* FIX: Footer logo — correct size, no stretching, no filter weirdness */
+    .footer-brand-logo {
+      display: block;
       height: 48px;
+      width: auto;
+      max-width: 220px;
+      object-fit: contain;
+      object-position: left center;
       margin-bottom: 16px;
-      /* invert black logo to white */
-      filter: invert(1) brightness(2);
+      /* White version of logo — use brightness filter on the color logo instead of a separate asset */
+      filter: brightness(0) invert(1);
     }
-    .footer-brand p {
-      font-size: 0.87rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 16px;
-    }
-    .footer-col h5 {
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
+
+    .footer-brand p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    .footer-col h5 { color: var(--white); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .footer-col ul li a {
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.2s;
-    }
+    .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
     .footer-col ul li a:hover { color: var(--ocean-bright); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      text-align: center;
-      font-size: 12px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; text-align: center; font-size: 12px; max-width: 1100px; margin: 0 auto; }
     .footer-bottom a { color: var(--ocean-bright); text-decoration: none; }
-    .powered-by {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-    }
+    .powered-by { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.35); }
     .powered-by a { color: var(--sand-dark); font-weight: 600; text-decoration: none; }
     .powered-by a:hover { color: var(--ocean-bright); }
 
-    /* DR FLAG accent */
-    .dr-flag-accent {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-    }
-
-    /* ── SVG WAVE DIVIDER ── */
+    .dr-flag-accent { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.55); }
     .wave-divider { line-height: 0; overflow: hidden; }
     .wave-divider svg { display: block; width: 100%; }
 
     /* ── RESPONSIVE ── */
+
+    /* Prevent ALL horizontal scroll / wobble on every device */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    * { min-width: 0; }
+
+    @media (max-width: 900px) {
+      .header-logo img { height: 56px; max-width: 280px; }
+    }
+
     @media (max-width: 768px) {
-      header { padding: 0 16px; }
-      .header-logo img { min-width: 180px; height: 44px; }
-      .header-nav { gap: 12px; }
+      :root { --header-h: 70px; }
+
+      /* Header */
+      header { padding: 0 14px; gap: 8px; }
+      .header-logo img { height: 46px; max-width: 200px; }
+      .header-nav { gap: 8px; }
       .header-nav a:not(.header-cta) { display: none; }
-      .hero-content { padding: 0 20px; }
+      .header-cta { padding: 8px 12px; font-size: 11px !important; }
+      .header-cta small { display: none; }
+
+      /* Hero */
+      .hero-content { padding: 0 18px; }
+      .hero-btns { flex-direction: column; gap: 10px; }
+      .hero-btns a { width: 100%; justify-content: center; }
+
+      /* Hero stats — 2 per row */
       .hero-stats { flex-wrap: wrap; }
-      .hero-stat { max-width: 50%; }
-      .dr-info-grid { grid-template-columns: 1fr; }
+      .hero-stat { max-width: 50%; flex: 0 0 50%; padding: 14px 8px; }
+
+      /* General sections */
+      section { padding: 48px 16px; }
+
+      /* Quick answer */
+      .quick-answer { margin: 28px 16px; padding: 20px; }
+
+      /* Featured banner */
+      .featured-banner { margin: 0 16px 40px; padding: 22px 16px; }
+
+      /* Photo strip — main image full width, right images side-by-side below */
+      .photo-strip { grid-template-columns: 1fr; margin: 0; border-radius: 0; gap: 6px; }
+      .photo-strip-img { min-height: 220px; }
+      .photo-strip-right { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .photo-strip-right .photo-strip-img { min-height: 150px; }
+
+      /* About section */
+      .dr-info-grid { grid-template-columns: 1fr; gap: 32px; }
+      .dr-info-image img { height: 250px; }
+
+      /* Kite section */
+      .kite-grid { grid-template-columns: 1fr; gap: 32px; }
+      .kite-img img { height: 240px; }
+
+      /* Activity cards */
+      .activity-grid { grid-template-columns: 1fr; gap: 18px; }
+
+      /* Nightlife */
+      .nightlife-grid { grid-template-columns: 1fr; gap: 12px; }
+
+      /* Restaurant + Hotel two-col → single col */
+      .dr-info-grid,
       .kite-grid { grid-template-columns: 1fr; }
-      .photo-strip { grid-template-columns: 1fr; }
-      .photo-strip-right { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .partners-section { padding: 32px 20px; }
+
+      /* Partners */
+      .partners-section { padding: 24px 14px; border-radius: 12px; }
+      .partners-grid { grid-template-columns: 1fr; gap: 14px; }
+
+      /* Info facts */
+      .info-facts { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-brand-logo { height: 40px; }
+
+      /* Planner */
+      .planner-widget { padding: 22px 16px; }
+      .planner-chip { font-size: 12px; padding: 8px 12px; }
+
+      /* FAQ */
+      .faq-question { font-size: 0.88rem; padding: 16px; }
+      .faq-answer-inner { padding: 14px 16px 16px; }
+    }
+
+    @media (max-width: 768px) {
+      .rest-hotels-grid { display: block !important; }
+      .rest-hotels-grid > div + div { margin-top: 40px; }
+      .season-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Very small phones */
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero-stat strong { font-size: 1.3rem; }
+      .header-logo img { height: 38px; max-width: 165px; }
     }
 
     /* ── ANIMATIONS ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── LANG HIDDEN CLASS ── */
+    /* Used by the full bilingual system — elements with [data-en] and [data-es] swap text */
   </style>
 </head>
 <body>
@@ -1107,28 +625,29 @@
   <div class="lang-bar">
     <span class="dr-flag-accent">🇩🇴 Cabarete, Dominican Republic</span>
     <span class="lang-toggle">
-      <button class="active" onclick="setLang('en')">EN</button>
-      <button onclick="setLang('es')">ES</button>
+      <button class="active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button onclick="setLang('es')" id="btn-es">ES</button>
     </span>
   </div>
 
   <!-- HEADER -->
+  <!-- FIX: Advertise CTA is now a real mailto: link that actually opens email -->
   <header>
     <a href="/" class="header-logo">
       <img
         src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png"
         alt="Cabarete Beach Dominican Republic"
-        width="260"
-        height="56"
+        width="420"
+        height="72"
       />
     </a>
     <nav class="header-nav">
-      <a href="/">Home</a>
-      <a href="/things-to-do-cabarete/">Things To Do</a>
-      <a href="/cabarete-deals/">Featured Partners</a>
-      <a href="mailto:sales@eyetoad.com" class="header-cta">
-        🌴 Advertise Here
-        <small>Get Your Business Featured</small>
+      <a href="/" data-en="Home" data-es="Inicio">Home</a>
+      <a href="/things-to-do-cabarete/" data-en="Things To Do" data-es="Qué Hacer">Things To Do</a>
+      <a href="/cabarete-deals/" data-en="Featured Partners" data-es="Socios Destacados">Featured Partners</a>
+      <a href="mailto:sales@eyetoad.com?subject=Advertise%20on%20Cabarete%20Beach%20Guide" class="header-cta" id="advertise-btn">
+        🌴 <span data-en="Advertise Here" data-es="Anúnciate Aquí">Advertise Here</span>
+        <small data-en="Get Your Business Featured" data-es="Destaca tu Negocio">Get Your Business Featured</small>
       </a>
     </nav>
   </header>
@@ -1139,51 +658,51 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-kicker">
-        🌊 Caribbean's #1 Kitesurfing Destination
+        🌊 <span data-en="Caribbean's #1 Kitesurfing Destination" data-es="Destino #1 de Kitesurf del Caribe">Caribbean's #1 Kitesurfing Destination</span>
       </div>
       <h1>
         Cabarete Beach<br/>
         <em>Dominican Republic</em>
       </h1>
-      <p class="hero-desc">
+      <p class="hero-desc" data-en="Where the trade winds never stop and the Caribbean nights never end. Your definitive guide to Cabarete — from Kite Beach to hidden waterfalls, sunset cocktails to world-class waves." data-es="Donde los vientos alisios nunca cesan y las noches caribeñas nunca terminan. Tu guía definitiva de Cabarete — desde Kite Beach hasta cascadas ocultas, cócteles al atardecer y olas de clase mundial.">
         Where the trade winds never stop and the Caribbean nights never end.
         Your definitive guide to Cabarete — from Kite Beach to hidden waterfalls,
         sunset cocktails to world-class waves.
       </p>
       <div class="hero-btns">
         <a href="/things-to-do-cabarete/" class="btn-primary">
-          🗺️ Plan Your Trip
+          🗺️ <span data-en="Plan Your Trip" data-es="Planifica tu Viaje">Plan Your Trip</span>
         </a>
         <a href="/cabarete-deals/" class="btn-secondary">
-          ⭐ Featured Deals
+          ⭐ <span data-en="Featured Deals" data-es="Ofertas Destacadas">Featured Deals</span>
         </a>
       </div>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
         <strong>300</strong>
-        <span>Windy Days / Year</span>
+        <span data-en="Windy Days / Year" data-es="Días de Viento / Año">Windy Days / Year</span>
       </div>
       <div class="hero-stat">
         <strong>40 min</strong>
-        <span>From Puerto Plata Airport</span>
+        <span data-en="From Puerto Plata Airport" data-es="Del Aeropuerto Puerto Plata">From Puerto Plata Airport</span>
       </div>
       <div class="hero-stat">
         <strong>80°F</strong>
-        <span>Year-Round Temperature</span>
+        <span data-en="Year-Round Temperature" data-es="Temperatura Todo el Año">Year-Round Temperature</span>
       </div>
       <div class="hero-stat">
         <strong>10+</strong>
-        <span>Kite Schools on Beach</span>
+        <span data-en="Kite Schools on Beach" data-es="Escuelas de Kite en Playa">Kite Schools on Beach</span>
       </div>
     </div>
   </section>
 
-  <!-- QUICK ANSWER BOX (AIO GOLD) -->
+  <!-- QUICK ANSWER BOX -->
   <div class="container" style="padding: 0 24px;">
     <div class="quick-answer fade-in">
-      <div class="quick-answer-label">📍 Quick Answer — What is Cabarete Beach?</div>
-      <p>
+      <div class="quick-answer-label">📍 <span data-en="Quick Answer — What is Cabarete Beach?" data-es="Respuesta Rápida — ¿Qué es Cabarete Beach?">Quick Answer — What is Cabarete Beach?</span></div>
+      <p data-en="&lt;strong&gt;Cabarete Beach is a world-famous beach town on the Dominican Republic's North Coast,&lt;/strong&gt; widely recognized as the Caribbean's premier kitesurfing and windsurfing destination. Located just 40 minutes east of Puerto Plata's international airport, Cabarete attracts travelers from over 50 countries with its near-constant trade winds (250–300 kitable days per year), vibrant beachfront restaurant scene, underground caves, tropical nightlife, and a welcoming expat and adventure sports community unlike anywhere else in the Caribbean." data-es="&lt;strong&gt;Cabarete Beach es un pueblo playero mundialmente famoso en la Costa Norte de la República Dominicana,&lt;/strong&gt; ampliamente reconocido como el principal destino de kitesurf y windsurf del Caribe. Ubicado a solo 40 minutos al este del aeropuerto internacional de Puerto Plata, Cabarete atrae viajeros de más de 50 países con sus vientos alisios casi constantes (250–300 días al año), vibrante escena de restaurantes frente al mar, cuevas subterráneas, vida nocturna tropical y una acogedora comunidad de expatriados y deportes de aventura.">
         <strong>Cabarete Beach is a world-famous beach town on the Dominican Republic's North Coast,</strong>
         widely recognized as the Caribbean's premier kitesurfing and windsurfing destination.
         Located just 40 minutes east of Puerto Plata's international airport, Cabarete attracts
@@ -1194,13 +713,15 @@
     </div>
   </div>
 
-  <!-- FEATURED PARTNER BANNER AD ZONE -->
+  <!-- FEATURED PARTNER BANNER -->
   <div class="container" style="padding: 0 24px;">
     <div class="featured-banner fade-in">
-      <div class="featured-banner-tag">⭐ Featured Partner Spotlight</div>
-      <h3>Your Business Could Be Right Here</h3>
-      <p>This premium banner is seen by thousands of tourists researching Cabarete before they arrive.<br/>Be the first thing visitors discover — kite schools, restaurants, hotels, excursions & more.</p>
-      <a href="mailto:sales@eyetoad.com?subject=Cabarete%20Featured%20Partner%20Inquiry">Get Featured → Contact Us</a>
+      <div class="featured-banner-tag">⭐ <span data-en="Featured Partner Spotlight" data-es="Socio Destacado">Featured Partner Spotlight</span></div>
+      <h3 data-en="Your Business Could Be Right Here" data-es="Tu Negocio Podría Estar Aquí">Your Business Could Be Right Here</h3>
+      <p data-en="This premium banner is seen by thousands of tourists researching Cabarete before they arrive.&lt;br/&gt;Be the first thing visitors discover — kite schools, restaurants, hotels, excursions &amp; more." data-es="Este banner premium es visto por miles de turistas que investigan Cabarete antes de llegar.&lt;br/&gt;Sé lo primero que los visitantes descubren — escuelas de kite, restaurantes, hoteles, excursiones y más.">
+        This premium banner is seen by thousands of tourists researching Cabarete before they arrive.<br/>Be the first thing visitors discover — kite schools, restaurants, hotels, excursions &amp; more.
+      </p>
+      <a href="mailto:sales@eyetoad.com?subject=Cabarete%20Featured%20Partner%20Inquiry" data-en="Get Featured → Contact Us" data-es="Destácate → Contáctanos">Get Featured → Contact Us</a>
     </div>
   </div>
 
@@ -1213,56 +734,52 @@
     </div>
   </div>
 
-  <!-- ABOUT CABARETE (DARK SECTION) -->
+  <!-- ABOUT CABARETE -->
   <section class="dr-info">
     <div class="dr-info-grid">
       <div>
-        <div class="section-label">🌴 About The Destination</div>
-        <h2>Cabarete: The North Coast's <em>Crown Jewel</em></h2>
-        <p>
+        <div class="section-label">🌴 <span data-en="About The Destination" data-es="Sobre el Destino">About The Destination</span></div>
+        <h2 data-en="Cabarete: The North Coast's &lt;em&gt;Crown Jewel&lt;/em&gt;" data-es="Cabarete: La &lt;em&gt;Joya de la Corona&lt;/em&gt; de la Costa Norte">Cabarete: The North Coast's <em>Crown Jewel</em></h2>
+        <p data-en="Cabarete started as a quiet fishing village. Then, in the 1980s, adventure seekers discovered its secret: relentless northeasterly trade winds — known as the &lt;em&gt;Alizé&lt;/em&gt; — blowing across a sheltered bay with a protective reef. By the 1990s, the world's top windsurfers and kitesurfers had made it their Caribbean home base, and Cabarete was officially on the map." data-es="Cabarete comenzó como un tranquilo pueblo de pescadores. Luego, en los años 80, los aventureros descubrieron su secreto: los implacables vientos alisios del noreste — conocidos como el &lt;em&gt;Alizé&lt;/em&gt; — soplando sobre una bahía protegida con un arrecife natural. Para los años 90, los mejores windsurfistas y kitesurfistas del mundo lo habían convertido en su base caribeña.">
           Cabarete started as a quiet fishing village. Then, in the 1980s, adventure seekers discovered
           its secret: relentless northeasterly trade winds — known as the <em>Alizé</em> — blowing
           across a sheltered bay with a protective reef. By the 1990s, the world's top windsurfers and
           kitesurfers had made it their Caribbean home base, and Cabarete was officially on the map.
         </p>
-        <p>
+        <p data-en="Today, it's so much more than a sports destination. Italian expats run oceanfront trattorias. Dominican fishermen still cast nets at dawn. Beach bars transform into bachata clubs after dark. El Choco National Park hides underground caves with freshwater lagoons just 10 minutes from the sand. And 27 Damajagua Waterfalls — one of the Caribbean's most spectacular natural attractions — sits just an hour away." data-es="Hoy en día, es mucho más que un destino deportivo. Expatriados italianos dirigen trattorias frente al océano. Los pescadores dominicanos aún lanzan redes al amanecer. Los bares de playa se transforman en clubes de bachata al caer la noche. El Parque Nacional El Choco esconde cuevas subterráneas con lagunas de agua dulce a solo 10 minutos de la arena.">
           Today, it's so much more than a sports destination. Italian expats run oceanfront trattorias.
           Dominican fishermen still cast nets at dawn. Beach bars transform into bachata clubs after
           dark. El Choco National Park hides underground caves with freshwater lagoons just 10 minutes
           from the sand. And 27 Damajagua Waterfalls — one of the Caribbean's most spectacular natural
           attractions — sits just an hour away.
         </p>
-        <p>
+        <p data-en="This is the real Dominican Republic: alive, raw, cosmopolitan, and utterly addictive." data-es="Esta es la verdadera República Dominicana: viva, auténtica, cosmopolita y absolutamente adictiva.">
           This is the real Dominican Republic: alive, raw, cosmopolitan, and utterly addictive.
         </p>
         <div class="info-facts">
           <div class="info-fact">
             <strong>#1</strong>
-            <span>Kitesurfing Spot in Caribbean</span>
+            <span data-en="Kitesurfing Spot in Caribbean" data-es="Spot de Kitesurf del Caribe">Kitesurfing Spot in Caribbean</span>
           </div>
           <div class="info-fact">
             <strong>50+</strong>
-            <span>Countries Represented</span>
+            <span data-en="Countries Represented" data-es="Países Representados">Countries Represented</span>
           </div>
           <div class="info-fact">
             <strong>24/7</strong>
-            <span>Year-Round Destination</span>
+            <span data-en="Year-Round Destination" data-es="Destino Todo el Año">Year-Round Destination</span>
           </div>
           <div class="info-fact">
             <strong>$$$</strong>
-            <span>Budget to Luxury Options</span>
+            <span data-en="Budget to Luxury Options" data-es="Opciones de Económico a Lujo">Budget to Luxury Options</span>
           </div>
         </div>
       </div>
       <div class="dr-info-image">
-        <img
-          src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/visit-cabarete-dominican-republic.jpg"
-          alt="Visit Cabarete Dominican Republic North Coast"
-          loading="lazy"
-        />
+        <img src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/visit-cabarete-dominican-republic.jpg" alt="Visit Cabarete Dominican Republic North Coast" loading="lazy" />
         <div class="dr-info-image-badge">
-          <strong>🇩🇴 Puerto Plata Province</strong>
-          North Coast of the Dominican Republic
+          <strong>🇩🇴 <span data-en="Puerto Plata Province" data-es="Provincia Puerto Plata">Puerto Plata Province</span></strong>
+          <span data-en="North Coast of the Dominican Republic" data-es="Costa Norte de la República Dominicana">North Coast of the Dominican Republic</span>
         </div>
       </div>
     </div>
@@ -1277,9 +794,9 @@
   <!-- THINGS TO DO -->
   <section class="kite-section">
     <div class="container">
-      <div class="section-label">🪂 Top Experiences</div>
-      <h2>Things To Do in Cabarete</h2>
-      <p class="section-intro">
+      <div class="section-label">🪂 <span data-en="Top Experiences" data-es="Experiencias Principales">Top Experiences</span></div>
+      <h2 data-en="Things To Do in Cabarete" data-es="Qué Hacer en Cabarete">Things To Do in Cabarete</h2>
+      <p class="section-intro" data-en="From the world's most consistent kite winds to hidden underground caves, Cabarete delivers more adventure per square mile than anywhere on the Caribbean coast." data-es="Desde los vientos de kite más constantes del mundo hasta cuevas subterráneas ocultas, Cabarete ofrece más aventura por kilómetro cuadrado que cualquier otro lugar de la costa caribeña.">
         From the world's most consistent kite winds to hidden underground caves, Cabarete delivers
         more adventure per square mile than anywhere on the Caribbean coast.
       </p>
@@ -1291,14 +808,14 @@
             <div class="activity-card-cat">⭐ #1 Activity</div>
           </div>
           <div class="activity-card-body">
-            <h3>Kitesurfing &amp; Windsurfing</h3>
-            <p>
+            <h3 data-en="Kitesurfing &amp; Windsurfing" data-es="Kitesurf y Windsurf">Kitesurfing &amp; Windsurfing</h3>
+            <p data-en="With 250–300 kitable days per year and the legendary Alizé trade winds, Kite Beach is the undisputed capital of Caribbean wind sports. Over 10 IKO-certified schools offer lessons for complete beginners through advanced freestyle." data-es="Con 250–300 días de kite al año y los legendarios vientos alisios Alizé, Kite Beach es la indiscutible capital de los deportes de viento del Caribe. Más de 10 escuelas certificadas IKO ofrecen lecciones para principiantes hasta freestyle avanzado.">
               With 250–300 kitable days per year and the legendary Alizé trade winds,
               Kite Beach is the undisputed capital of Caribbean wind sports. Over 10 IKO-certified
               schools offer lessons for complete beginners through advanced freestyle. Wind
               peaks mid-afternoon, giving you mornings for yoga, beaches, or exploring.
             </p>
-            <a href="/things-to-do-cabarete/#kitesurfing" class="card-link">Learn more →</a>
+            <a href="/things-to-do-cabarete/#kitesurfing" class="card-link" data-en="Learn more →" data-es="Saber más →">Learn more →</a>
           </div>
         </div>
 
@@ -1308,14 +825,13 @@
             <div class="activity-card-cat">🌊 Adventure</div>
           </div>
           <div class="activity-card-body">
-            <h3>Surfing at Playa Encuentro</h3>
-            <p>
+            <h3 data-en="Surfing at Playa Encuentro" data-es="Surf en Playa Encuentro">Surfing at Playa Encuentro</h3>
+            <p data-en="Just minutes from downtown, Playa Encuentro is considered one of the Caribbean's finest surf breaks. Beginner-friendly inner sections, powerful outer reef waves, and multiple surf schools make it perfect for all skill levels." data-es="A pocos minutos del centro, Playa Encuentro es considerada una de las mejores olas del Caribe. Secciones interiores para principiantes, potentes olas del arrecife exterior y múltiples escuelas de surf la hacen perfecta para todos los niveles.">
               Just minutes from downtown, Playa Encuentro is considered one of the Caribbean's
               finest surf breaks. Beginner-friendly inner sections, powerful outer reef waves,
-              and multiple surf schools make it perfect for all skill levels. Afternoons belong
-              to the kiters — mornings are pure surfing paradise.
+              and multiple surf schools make it perfect for all skill levels.
             </p>
-            <a href="/things-to-do-cabarete/#surfing" class="card-link">Learn more →</a>
+            <a href="/things-to-do-cabarete/#surfing" class="card-link" data-en="Learn more →" data-es="Saber más →">Learn more →</a>
           </div>
         </div>
 
@@ -1325,14 +841,14 @@
             <div class="activity-card-cat">🌿 Nature</div>
           </div>
           <div class="activity-card-body">
-            <h3>El Choco National Park &amp; Caves</h3>
-            <p>
+            <h3 data-en="El Choco National Park &amp; Caves" data-es="Parque Nacional El Choco y Cuevas">El Choco National Park &amp; Caves</h3>
+            <p data-en="Hidden beneath the tropical forest just outside of town, Las Cuevas de Cabarete are ancient limestone caves with crystal-clear underground lagoons you can actually swim in. El Choco National Park surrounds them with lush hiking trails and wildlife." data-es="Ocultas bajo el bosque tropical a las afueras del pueblo, Las Cuevas de Cabarete son antiguas cuevas de caliza con lagunas subterráneas cristalinas donde puedes nadar. El Parque Nacional El Choco las rodea con exuberantes senderos y fauna silvestre.">
               Hidden beneath the tropical forest just outside of town, Las Cuevas de Cabarete
               are ancient limestone caves with crystal-clear underground lagoons you can actually
               swim in. El Choco National Park surrounds them with lush hiking trails, wildlife,
               and an experience unlike any beach resort activity.
             </p>
-            <a href="/things-to-do-cabarete/#nature" class="card-link">Learn more →</a>
+            <a href="/things-to-do-cabarete/#nature" class="card-link" data-en="Learn more →" data-es="Saber más →">Learn more →</a>
           </div>
         </div>
 
@@ -1342,14 +858,14 @@
             <div class="activity-card-cat">💧 Day Trip</div>
           </div>
           <div class="activity-card-body">
-            <h3>27 Damajagua Waterfalls</h3>
-            <p>
+            <h3 data-en="27 Damajagua Waterfalls" data-es="27 Cascadas de Damajagua">27 Damajagua Waterfalls</h3>
+            <p data-en="An hour from Cabarete, 27 Charcos de Damajagua is one of the Dominican Republic's most extraordinary natural attractions. Trek through tropical forest, jump, slide, and swim down 27 natural cascade pools carved into turquoise-blue rock." data-es="A una hora de Cabarete, los 27 Charcos de Damajagua son una de las atracciones naturales más extraordinarias de la República Dominicana. Camina por el bosque tropical, salta, deslízate y nada por 27 pozas naturales en roca azul turquesa.">
               An hour from Cabarete, 27 Charcos de Damajagua is one of the Dominican Republic's
               most extraordinary natural attractions. Trek through tropical forest, jump, slide,
               and swim down 27 natural cascade pools carved into turquoise-blue rock. Go with
               a local guide for safety and access to the upper falls.
             </p>
-            <a href="/things-to-do-cabarete/#daytripss" class="card-link">Learn more →</a>
+            <a href="/things-to-do-cabarete/#daytrips" class="card-link" data-en="Learn more →" data-es="Saber más →">Learn more →</a>
           </div>
         </div>
 
@@ -1359,14 +875,14 @@
             <div class="activity-card-cat">🐎 Unique</div>
           </div>
           <div class="activity-card-body">
-            <h3>Horseback Riding on the Beach</h3>
-            <p>
+            <h3 data-en="Horseback Riding on the Beach" data-es="Paseo a Caballo en la Playa">Horseback Riding on the Beach</h3>
+            <p data-en="Ride along Cabarete's shoreline at sunset — one of the most memorable Caribbean experiences. Local operators offer morning and sunset rides through coastal forest and along the beach. Pro tip: book the sunset ride for cooler temperatures and spectacular skies." data-es="Cabalga por la costa de Cabarete al atardecer — una de las experiencias más memorables del Caribe. Los operadores locales ofrecen paseos matutinos y al atardecer por el bosque costero y la playa.">
               Ride along Cabarete's shoreline at sunset — one of the most memorable Caribbean
               experiences you'll find anywhere. Local operators offer morning and sunset rides
               through coastal forest and along the beach. Pro tip: book the sunset ride for
               cooler temperatures and spectacular skies.
             </p>
-            <a href="/things-to-do-cabarete/#horseback" class="card-link">Learn more →</a>
+            <a href="/things-to-do-cabarete/#horseback" class="card-link" data-en="Learn more →" data-es="Saber más →">Learn more →</a>
           </div>
         </div>
 
@@ -1376,21 +892,21 @@
             <div class="activity-card-cat">🧘 Wellness</div>
           </div>
           <div class="activity-card-body">
-            <h3>Yoga, Spa &amp; Beach Wellness</h3>
-            <p>
+            <h3 data-en="Yoga, Spa &amp; Beach Wellness" data-es="Yoga, Spa y Bienestar en la Playa">Yoga, Spa &amp; Beach Wellness</h3>
+            <p data-en="Cabarete has cultivated a genuine wellness culture. Morning beachfront yoga sessions, world-class spa treatments at Natura Cabana, cacao ceremony tours, bachata dance lessons, and fresh smoothie cafes make this as much a mind-body retreat as an adventure destination." data-es="Cabarete ha cultivado una auténtica cultura del bienestar. Sesiones de yoga matutinas frente al mar, tratamientos de spa de clase mundial en Natura Cabana, tours de ceremonia de cacao, clases de bachata y cafés de smoothies frescos.">
               Cabarete has cultivated a genuine wellness culture. Morning beachfront yoga sessions,
               world-class spa treatments at Natura Cabana using local ingredients, cacao ceremony
               tours, bachata dance lessons, and fresh smoothie cafes make this as much a mind-body
               retreat as it is an adventure destination.
             </p>
-            <a href="/things-to-do-cabarete/#wellness" class="card-link">Learn more →</a>
+            <a href="/things-to-do-cabarete/#wellness" class="card-link" data-en="Learn more →" data-es="Saber más →">Learn more →</a>
           </div>
         </div>
       </div>
 
       <div style="text-align:center; margin-top: 12px;">
         <a href="/things-to-do-cabarete/" class="btn-primary" style="display:inline-flex;">
-          🗺️ View Full Things To Do Guide
+          🗺️ <span data-en="View Full Things To Do Guide" data-es="Ver Guía Completa de Actividades">View Full Things To Do Guide</span>
         </a>
       </div>
     </div>
@@ -1401,15 +917,15 @@
     <div class="container">
       <div class="kite-grid">
         <div>
-          <div class="section-label">🪁 Wind Sports Capital</div>
-          <h2>Kitesurfing in Cabarete:<br/>The Full Picture</h2>
-          <p style="color: var(--text-light); line-height: 1.75; margin-bottom: 24px; font-size: 0.98rem;">
+          <div class="section-label">🪁 <span data-en="Wind Sports Capital" data-es="Capital de los Deportes de Viento">Wind Sports Capital</span></div>
+          <h2 data-en="Kitesurfing in Cabarete:&lt;br/&gt;The Full Picture" data-es="Kitesurf en Cabarete:&lt;br/&gt;El Panorama Completo">Kitesurfing in Cabarete:<br/>The Full Picture</h2>
+          <p style="color: var(--text-light); line-height: 1.75; margin-bottom: 24px; font-size: 0.98rem;" data-en="Ask any experienced kitesurfer where in the Caribbean they'd go if they could only pick one spot — and most will say Cabarete. The combination of the Alizé trade winds, a protective reef creating a flat-water lagoon at La Boca, and the open bay at Kite Beach creates near-perfect conditions for every level of rider." data-es="Pregúntale a cualquier kitesurfista experimentado dónde iría en el Caribe si solo pudiera elegir un lugar — y la mayoría dirá Cabarete. La combinación de los vientos alisios Alizé, un arrecife protector que crea una laguna de agua plana en La Boca y la bahía abierta en Kite Beach crean condiciones casi perfectas para todo nivel.">
             Ask any experienced kitesurfer where in the Caribbean they'd go if they could only
             pick one spot — and most will say Cabarete. The combination of the Alizé trade winds,
             a protective reef creating a flat-water lagoon at La Boca, and the open bay at Kite Beach
             creates near-perfect conditions for every level of rider.
           </p>
-          <p style="color: var(--text-light); line-height: 1.75; margin-bottom: 24px; font-size: 0.98rem;">
+          <p style="color: var(--text-light); line-height: 1.75; margin-bottom: 24px; font-size: 0.98rem;" data-en="Not a kitesurfer? You don't need to be. Watching hundreds of kites fill the sky from a beachfront bar with a cold Presidente in hand is genuinely spectacular." data-es="¿No practicas kitesurf? No hace falta. Ver cientos de cometas llenando el cielo desde un bar frente a la playa con una fría Presidente en mano es genuinamente espectacular.">
             Not a kitesurfer? You don't need to be. Watching hundreds of kites fill the sky from a
             beachfront bar with a cold Presidente in hand is genuinely spectacular — the kind of scene
             you only find in Cabarete.
@@ -1418,56 +934,60 @@
             <div class="kite-stat-row">
               <span class="kstat-icon">💨</span>
               <div>
-                <strong>250–300 kitable days/year</strong>
-                <span>More consistent than most Caribbean destinations</span>
+                <strong data-en="250–300 kitable days/year" data-es="250–300 días de kite al año">250–300 kitable days/year</strong>
+                <span data-en="More consistent than most Caribbean destinations" data-es="Más consistente que la mayoría de destinos caribeños">More consistent than most Caribbean destinations</span>
               </div>
             </div>
             <div class="kite-stat-row">
               <span class="kstat-icon">📅</span>
               <div>
-                <strong>June–August: Peak Season</strong>
-                <span>15–30 knots of consistent thermal wind</span>
+                <strong data-en="June–August: Peak Season" data-es="Junio–Agosto: Temporada Alta">June–August: Peak Season</strong>
+                <span data-en="15–30 knots of consistent thermal wind" data-es="15–30 nudos de viento térmico constante">15–30 knots of consistent thermal wind</span>
               </div>
             </div>
             <div class="kite-stat-row">
               <span class="kstat-icon">🏫</span>
               <div>
-                <strong>10+ IKO-Certified Schools</strong>
-                <span>Kite Point, LEK Kiteboarding, GoKite, dare2fly & more</span>
+                <strong data-en="10+ IKO-Certified Schools" data-es="10+ Escuelas Certificadas IKO">10+ IKO-Certified Schools</strong>
+                <span data-en="Kite Point, LEK Kiteboarding, GoKite, dare2fly & more" data-es="Kite Point, LEK Kiteboarding, GoKite, dare2fly y más">Kite Point, LEK Kiteboarding, GoKite, dare2fly &amp; more</span>
               </div>
             </div>
             <div class="kite-stat-row">
               <span class="kstat-icon">🌊</span>
               <div>
-                <strong>Multiple Riding Spots</strong>
-                <span>Kite Beach, La Boca (flat water), Bozo Beach, Encuentro</span>
+                <strong data-en="Multiple Riding Spots" data-es="Múltiples Spots para Kite">Multiple Riding Spots</strong>
+                <span data-en="Kite Beach, La Boca (flat water), Bozo Beach, Encuentro" data-es="Kite Beach, La Boca (agua plana), Bozo Beach, Encuentro">Kite Beach, La Boca (flat water), Bozo Beach, Encuentro</span>
               </div>
             </div>
           </div>
 
           <div class="kite-season-bars" style="margin-top: 32px;">
-            <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 18px;">Wind Strength by Season</h4>
+            <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 18px;" data-en="Wind Strength by Season" data-es="Fuerza del Viento por Temporada">Wind Strength by Season</h4>
             <div class="season-bar">
-              <div class="season-bar-label"><span>Dec–Apr (Winter)</span><span>14–24 knots</span></div>
+              <div class="season-bar-label">
+                <span data-en="Dec–Apr (Winter)" data-es="Dic–Abr (Invierno)">Dec–Apr (Winter)</span>
+                <span>14–24 knots</span>
+              </div>
               <div class="season-bar-track"><div class="season-bar-fill" style="width: 65%;"></div></div>
             </div>
             <div class="season-bar">
-              <div class="season-bar-label"><span>May–Aug (Summer)</span><span>16–30 knots 🔥</span></div>
+              <div class="season-bar-label">
+                <span data-en="May–Aug (Summer)" data-es="May–Ago (Verano)">May–Aug (Summer)</span>
+                <span>16–30 knots 🔥</span>
+              </div>
               <div class="season-bar-track"><div class="season-bar-fill" style="width: 90%;"></div></div>
             </div>
             <div class="season-bar">
-              <div class="season-bar-label"><span>Sep–Nov (Shoulder)</span><span>10–20 knots</span></div>
+              <div class="season-bar-label">
+                <span data-en="Sep–Nov (Shoulder)" data-es="Sep–Nov (Temporada Baja)">Sep–Nov (Shoulder)</span>
+                <span>10–20 knots</span>
+              </div>
               <div class="season-bar-track"><div class="season-bar-fill" style="width: 48%;"></div></div>
             </div>
           </div>
         </div>
         <div class="kite-img fade-in">
-          <img
-            src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg"
-            alt="Kitesurfing at Cabarete Kite Beach Dominican Republic"
-            loading="lazy"
-            style="width:100%; height:460px; object-fit:cover; display:block;"
-          />
+          <img src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg" alt="Kitesurfing at Cabarete Kite Beach Dominican Republic" loading="lazy" style="width:100%; height:460px; object-fit:cover; display:block;" />
         </div>
       </div>
     </div>
@@ -1476,9 +996,9 @@
   <!-- NIGHTLIFE -->
   <section class="nightlife-section">
     <div class="container">
-      <div class="section-label">🌙 After Dark</div>
-      <h2>Cabarete Nightlife:<br/><em>The Beach Never Sleeps</em></h2>
-      <p class="section-intro">
+      <div class="section-label">🌙 <span data-en="After Dark" data-es="De Noche">After Dark</span></div>
+      <h2 data-en="Cabarete Nightlife:&lt;br/&gt;&lt;em&gt;The Beach Never Sleeps&lt;/em&gt;" data-es="Vida Nocturna de Cabarete:&lt;br/&gt;&lt;em&gt;La Playa Nunca Duerme&lt;/em&gt;">Cabarete Nightlife:<br/><em>The Beach Never Sleeps</em></h2>
+      <p class="section-intro" data-en="When the kites come down, Cabarete transforms. The beachfront bars flip on their lights, the bachata and reggaeton start drifting across the sand, and a cosmopolitan crowd of expats, athletes, and travelers congregates for one of the Caribbean's most authentic nightlife experiences." data-es="Cuando los kites bajan, Cabarete se transforma. Los bares frente a la playa encienden sus luces, la bachata y el reggaeton empiezan a flotar sobre la arena, y una multitud cosmopolita de expatriados, atletas y viajeros se reúne para una de las experiencias nocturnas más auténticas del Caribe.">
         When the kites come down, Cabarete transforms. The beachfront bars flip on their lights,
         the bachata and reggaeton start drifting across the sand, and a cosmopolitan crowd of
         expats, athletes, and travelers congregates for one of the Caribbean's most authentic
@@ -1489,51 +1009,51 @@
         <div class="night-card">
           <div class="night-card-icon">🍹</div>
           <h4>Mojito Bar</h4>
-          <p>The quintessential Cabarete experience. Lowest prices on the beachfront, organic juices, incredible mojitos, and a crowd that spans every nationality. Open all day.</p>
+          <p data-en="The quintessential Cabarete experience. Lowest prices on the beachfront, organic juices, incredible mojitos, and a crowd that spans every nationality. Open all day." data-es="La experiencia quintaesencial de Cabarete. Los precios más bajos del frente de playa, jugos orgánicos, increíbles mojitos y una clientela de todas las nacionalidades. Abierto todo el día.">The quintessential Cabarete experience. Lowest prices on the beachfront, organic juices, incredible mojitos, and a crowd that spans every nationality. Open all day.</p>
           <span class="night-tag">⭐ 4.4 · 806 Reviews</span>
         </div>
         <div class="night-card">
           <div class="night-card-icon">🎧</div>
           <h4>Bahia Bazaar / Ojo</h4>
-          <p>Sunset cocktails and appetizers evolve into full DJ sets and real party energy as the night progresses. Tuesdays and Thursdays are the nights to be here.</p>
-          <span class="night-tag">🔥 Best for Nightlife</span>
+          <p data-en="Sunset cocktails and appetizers evolve into full DJ sets and real party energy as the night progresses. Tuesdays and Thursdays are the nights to be here." data-es="Los cócteles del atardecer y los aperitivos evolucionan en sesiones completas de DJ y energía de fiesta real a medida que avanza la noche. Los martes y jueves son las noches para estar aquí.">Sunset cocktails and appetizers evolve into full DJ sets and real party energy as the night progresses. Tuesdays and Thursdays are the nights to be here.</p>
+          <span class="night-tag">🔥 <span data-en="Best for Nightlife" data-es="Mejor para Vida Nocturna">Best for Nightlife</span></span>
         </div>
         <div class="night-card">
           <div class="night-card-icon">💃</div>
           <h4>LAX — Latin Night</h4>
-          <p>Thursday is Latin night. Arrive by 11:30 PM and prepare to move your hips. Some of the best live bachata and merengue on the North Coast. Get there early for a table.</p>
-          <span class="night-tag">🎵 Thursday Nights</span>
+          <p data-en="Thursday is Latin night. Arrive by 11:30 PM and prepare to move your hips. Some of the best live bachata and merengue on the North Coast. Get there early for a table." data-es="El jueves es la noche latina. Llega antes de las 11:30 PM y prepárate para mover las caderas. Algunos de los mejores bachata y merengue en vivo de la Costa Norte.">Thursday is Latin night. Arrive by 11:30 PM and prepare to move your hips. Some of the best live bachata and merengue on the North Coast. Get there early for a table.</p>
+          <span class="night-tag">🎵 <span data-en="Thursday Nights" data-es="Noches de Jueves">Thursday Nights</span></span>
         </div>
         <div class="night-card">
           <div class="night-card-icon">🍕</div>
           <h4>Pomodoro — Open Mic Sundays</h4>
-          <p>Italian pizza, gelato, and a legendary Sunday open mic night that's become a Cabarete institution. Musicians from around the world show up to play — and sometimes the crowd is the best part.</p>
-          <span class="night-tag">🎸 Every Sunday</span>
+          <p data-en="Italian pizza, gelato, and a legendary Sunday open mic night that's become a Cabarete institution. Musicians from around the world show up to play — and sometimes the crowd is the best part." data-es="Pizza italiana, helado y una legendaria noche de micrófono abierto los domingos que se ha convertido en una institución de Cabarete. Músicos de todo el mundo se presentan — y a veces el público es la mejor parte.">Italian pizza, gelato, and a legendary Sunday open mic night that's become a Cabarete institution. Musicians from around the world show up to play — and sometimes the crowd is the best part.</p>
+          <span class="night-tag">🎸 <span data-en="Every Sunday" data-es="Cada Domingo">Every Sunday</span></span>
         </div>
         <div class="night-card">
           <div class="night-card-icon">🛍️</div>
-          <h4>Wednesday Night Market</h4>
-          <p>Every Wednesday from 4–10 PM, Cabarete Beach hosts a lively market with handcrafted jewelry, local art, Dominican street food, and live music. Even non-shoppers love it.</p>
-          <span class="night-tag">📅 Every Wednesday</span>
+          <h4 data-en="Wednesday Night Market" data-es="Mercado Nocturno del Miércoles">Wednesday Night Market</h4>
+          <p data-en="Every Wednesday from 4–10 PM, Cabarete Beach hosts a lively market with handcrafted jewelry, local art, Dominican street food, and live music. Even non-shoppers love it." data-es="Cada miércoles de 4–10 PM, Cabarete Beach alberga un animado mercado con joyería artesanal, arte local, comida callejera dominicana y música en vivo. Incluso a quienes no les gusta comprar les encanta.">Every Wednesday from 4–10 PM, Cabarete Beach hosts a lively market with handcrafted jewelry, local art, Dominican street food, and live music. Even non-shoppers love it.</p>
+          <span class="night-tag">📅 <span data-en="Every Wednesday" data-es="Cada Miércoles">Every Wednesday</span></span>
         </div>
         <div class="night-card">
           <div class="night-card-icon">🥂</div>
           <h4>Bliss Restaurant</h4>
-          <p>For a more elevated evening, Bliss delivers romantic oceanfront dining with fresh seafood, locally-sourced meats, and craft cocktails. Widely considered Cabarete's finest restaurant.</p>
-          <span class="night-tag">🌟 Fine Dining</span>
+          <p data-en="For a more elevated evening, Bliss delivers romantic oceanfront dining with fresh seafood, locally-sourced meats, and craft cocktails. Widely considered Cabarete's finest restaurant." data-es="Para una velada más elegante, Bliss ofrece una romántica cena frente al océano con mariscos frescos, carnes de origen local y cócteles artesanales. Ampliamente considerado el mejor restaurante de Cabarete.">For a more elevated evening, Bliss delivers romantic oceanfront dining with fresh seafood, locally-sourced meats, and craft cocktails. Widely considered Cabarete's finest restaurant.</p>
+          <span class="night-tag">🌟 <span data-en="Fine Dining" data-es="Alta Cocina">Fine Dining</span></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESTAURANTS -->
+  <!-- RESTAURANTS + HOTELS -->
   <section style="background: var(--white); padding: 80px 24px;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+      <div class="rest-hotels-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
         <div>
-          <div class="section-label">🍽️ Where To Eat</div>
-          <h2>Best Restaurants in Cabarete</h2>
-          <p class="section-intro" style="margin-bottom: 28px;">
+          <div class="section-label">🍽️ <span data-en="Where To Eat" data-es="Dónde Comer">Where To Eat</span></div>
+          <h2 data-en="Best Restaurants in Cabarete" data-es="Mejores Restaurantes en Cabarete">Best Restaurants in Cabarete</h2>
+          <p class="section-intro" style="margin-bottom: 28px;" data-en="Cabarete's dining scene is a direct reflection of its international community — Italian-owned trattorias, Dominican seafood shacks, Mexican taquerias, and fresh juice bars all compete for your appetite along a single beautiful beachfront strip." data-es="La escena gastronómica de Cabarete es un reflejo directo de su comunidad internacional — trattorias de propietarios italianos, chiringuitos dominicanos de mariscos, taquerías mexicanas y bares de jugos frescos compiten por tu apetito a lo largo de un hermoso paseo marítimo.">
             Cabarete's dining scene is a direct reflection of its international community —
             Italian-owned trattorias, Dominican seafood shacks, Mexican taquerias, and fresh
             juice bars all compete for your appetite along a single beautiful beachfront strip.
@@ -1543,7 +1063,7 @@
               <div class="restaurant-emoji">☕</div>
               <div class="restaurant-info">
                 <h4>Cabarete Coffee Company</h4>
-                <p>A social enterprise run by the Mariposa DR Foundation. Exceptional coffee, fresh breakfast, and a feel-good reason to keep coming back. Their Kite Loop Panini is legendary.</p>
+                <p data-en="A social enterprise run by the Mariposa DR Foundation. Exceptional coffee, fresh breakfast, and a feel-good reason to keep coming back. Their Kite Loop Panini is legendary." data-es="Una empresa social dirigida por la Fundación Mariposa DR. Café excepcional, desayuno fresco y una razón para seguir regresando. Su Kite Loop Panini es legendario.">A social enterprise run by the Mariposa DR Foundation. Exceptional coffee, fresh breakfast, and a feel-good reason to keep coming back. Their Kite Loop Panini is legendary.</p>
               </div>
               <div class="restaurant-rating">
                 <div class="stars">★★★★★</div>
@@ -1554,7 +1074,7 @@
               <div class="restaurant-emoji">🌮</div>
               <div class="restaurant-info">
                 <h4>Gordito's Fresh Mex</h4>
-                <p>Cabarete's most beloved casual spot. Fresh Mexican-inspired food, massive portions, legendary Taco Tuesday, and a vibe that keeps locals and tourists coming back daily.</p>
+                <p data-en="Cabarete's most beloved casual spot. Fresh Mexican-inspired food, massive portions, legendary Taco Tuesday, and a vibe that keeps locals and tourists coming back daily." data-es="El lugar casual más querido de Cabarete. Comida fresca de inspiración mexicana, porciones generosas, legendario Taco Tuesday y un ambiente que hace que locales y turistas vuelvan a diario.">Cabarete's most beloved casual spot. Fresh Mexican-inspired food, massive portions, legendary Taco Tuesday, and a vibe that keeps locals and tourists coming back daily.</p>
               </div>
               <div class="restaurant-rating">
                 <div class="stars">★★★★★</div>
@@ -1565,7 +1085,7 @@
               <div class="restaurant-emoji">🦞</div>
               <div class="restaurant-info">
                 <h4>La Casita de Papi</h4>
-                <p>Famous among locals for the freshest seafood in town. The paella and whole grilled fish are must-orders. This is where Dominicans eat — which tells you everything.</p>
+                <p data-en="Famous among locals for the freshest seafood in town. The paella and whole grilled fish are must-orders. This is where Dominicans eat — which tells you everything." data-es="Famoso entre los locales por tener los mariscos más frescos del pueblo. La paella y el pescado entero a la parrilla son imprescindibles. Aquí es donde comen los dominicanos — eso lo dice todo.">Famous among locals for the freshest seafood in town. The paella and whole grilled fish are must-orders. This is where Dominicans eat — which tells you everything.</p>
               </div>
               <div class="restaurant-rating">
                 <div class="stars">★★★★½</div>
@@ -1576,38 +1096,38 @@
               <div class="restaurant-emoji">🥩</div>
               <div class="restaurant-info">
                 <h4>Bliss Restaurant</h4>
-                <p>Cabarete's premier fine dining experience. Stunning ocean views, impeccable service, and a menu built around fresh local seafood, prime meats, and inventive cocktails.</p>
+                <p data-en="Cabarete's premier fine dining experience. Stunning ocean views, impeccable service, and a menu built around fresh local seafood, prime meats, and inventive cocktails." data-es="La mejor experiencia de alta cocina de Cabarete. Impresionantes vistas al océano, servicio impecable y un menú construido en torno a mariscos frescos locales, carnes premium y cócteles inventivos.">Cabarete's premier fine dining experience. Stunning ocean views, impeccable service, and a menu built around fresh local seafood, prime meats, and inventive cocktails.</p>
               </div>
               <div class="restaurant-rating">
                 <div class="stars">★★★★★</div>
-                <div class="review-count">Best for Special Occasions</div>
+                <div class="review-count" data-en="Best for Special Occasions" data-es="Mejor para Ocasiones Especiales">Best for Special Occasions</div>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <div class="section-label">🏨 Where To Stay</div>
-          <h2>Best Hotels in Cabarete</h2>
-          <p class="section-intro" style="margin-bottom: 28px;">
+          <div class="section-label">🏨 <span data-en="Where To Stay" data-es="Dónde Hospedarse">Where To Stay</span></div>
+          <h2 data-en="Best Hotels in Cabarete" data-es="Mejores Hoteles en Cabarete">Best Hotels in Cabarete</h2>
+          <p class="section-intro" style="margin-bottom: 28px;" data-en="From eco-luxury boutique retreats to party-central kite resort accommodations, Cabarete's lodging scene covers every style and budget." data-es="Desde retiros boutique de eco-lujo hasta alojamientos en resorts de kite en el centro de la acción, la escena de alojamiento de Cabarete cubre todos los estilos y presupuestos.">
             From eco-luxury boutique retreats to party-central kite resort accommodations,
             Cabarete's lodging scene covers every style and budget.
           </p>
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <div style="padding: 20px; background: var(--ocean-light); border-radius: var(--radius); border-left: 4px solid var(--ocean-mid);">
-              <strong style="color: var(--ocean-deep); display: block; margin-bottom: 4px;">🌿 Natura Cabana Boutique Hotel & Spa</strong>
-              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;">Eco-luxury surrounded by tropical garden, steps from a private beach. Morning yoga sessions, spa treatments with local ingredients. The most serene stay in Cabarete.</p>
+              <strong style="color: var(--ocean-deep); display: block; margin-bottom: 4px;">🌿 Natura Cabana Boutique Hotel &amp; Spa</strong>
+              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;" data-en="Eco-luxury surrounded by tropical garden, steps from a private beach. Morning yoga sessions, spa treatments with local ingredients. The most serene stay in Cabarete." data-es="Eco-lujo rodeado de jardín tropical, a pasos de una playa privada. Sesiones de yoga matutinas, tratamientos de spa con ingredientes locales. La estancia más serena de Cabarete.">Eco-luxury surrounded by tropical garden, steps from a private beach. Morning yoga sessions, spa treatments with local ingredients. The most serene stay in Cabarete.</p>
             </div>
             <div style="padding: 20px; background: var(--ocean-light); border-radius: var(--radius); border-left: 4px solid var(--ocean-mid);">
               <strong style="color: var(--ocean-deep); display: block; margin-bottom: 4px;">🪁 Agualina Kite Resort</strong>
-              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;">Steps from Kite Beach. The kitesurfer's home base — wake up, walk 30 seconds to your lesson. Pool, restaurant, and a community of riders from around the world.</p>
+              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;" data-en="Steps from Kite Beach. The kitesurfer's home base — wake up, walk 30 seconds to your lesson. Pool, restaurant, and a community of riders from around the world." data-es="A pasos de Kite Beach. La base del kitesurfista — despierta, camina 30 segundos hasta tu lección. Piscina, restaurante y una comunidad de riders de todo el mundo.">Steps from Kite Beach. The kitesurfer's home base — wake up, walk 30 seconds to your lesson. Pool, restaurant, and a community of riders from around the world.</p>
             </div>
             <div style="padding: 20px; background: var(--ocean-light); border-radius: var(--radius); border-left: 4px solid var(--ocean-mid);">
               <strong style="color: var(--ocean-deep); display: block; margin-bottom: 4px;">🌊 Ultravioleta Boutique Residences</strong>
-              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;">Modern, chic apartments with an infinity pool that dissolves into the ocean horizon. Perfect for couples or longer stays. Style and luxury without the resort price tag.</p>
+              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;" data-en="Modern, chic apartments with an infinity pool that dissolves into the ocean horizon. Perfect for couples or longer stays. Style and luxury without the resort price tag." data-es="Apartamentos modernos y elegantes con piscina infinita que se disuelve en el horizonte oceánico. Perfectos para parejas o estancias largas. Estilo y lujo sin el precio del resort.">Modern, chic apartments with an infinity pool that dissolves into the ocean horizon. Perfect for couples or longer stays. Style and luxury without the resort price tag.</p>
             </div>
             <div style="padding: 20px; background: var(--ocean-light); border-radius: var(--radius); border-left: 4px solid var(--ocean-mid);">
               <strong style="color: var(--ocean-deep); display: block; margin-bottom: 4px;">🏖️ Velero Beach Resort</strong>
-              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;">Elegant oceanfront accommodations with beautiful beach access. A full-service resort that feels intimate. Penthouses available for longer stays or larger groups.</p>
+              <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;" data-en="Elegant oceanfront accommodations with beautiful beach access. A full-service resort that feels intimate. Penthouses available for longer stays or larger groups." data-es="Elegante alojamiento frente al océano con hermoso acceso a la playa. Un resort de servicio completo que se siente íntimo. Áticos disponibles para estancias largas o grupos grandes.">Elegant oceanfront accommodations with beautiful beach access. A full-service resort that feels intimate. Penthouses available for longer stays or larger groups.</p>
             </div>
           </div>
         </div>
@@ -1618,21 +1138,21 @@
   <!-- TRIP PLANNER WIDGET -->
   <section class="planner-section">
     <div class="container" style="text-align: center;">
-      <div class="section-label">🧭 Interactive Tool</div>
-      <h2>What Kind of Traveler Are You?</h2>
-      <p class="section-intro" style="margin: 0 auto 36px;">
+      <div class="section-label">🧭 <span data-en="Interactive Tool" data-es="Herramienta Interactiva">Interactive Tool</span></div>
+      <h2 data-en="What Kind of Traveler Are You?" data-es="¿Qué Tipo de Viajero Eres?">What Kind of Traveler Are You?</h2>
+      <p class="section-intro" style="margin: 0 auto 36px;" data-en="Tell us your vibe — we'll show you exactly what to prioritize in Cabarete." data-es="Dinos tu estilo — te mostramos exactamente qué priorizar en Cabarete.">
         Tell us your vibe — we'll show you exactly what to prioritize in Cabarete.
       </p>
       <div class="planner-widget fade-in">
-        <h3>Your Cabarete Trip Planner</h3>
-        <p>Select your travel style to get personalized recommendations:</p>
+        <h3 data-en="Your Cabarete Trip Planner" data-es="Tu Planificador de Viaje a Cabarete">Your Cabarete Trip Planner</h3>
+        <p data-en="Select your travel style to get personalized recommendations:" data-es="Selecciona tu estilo de viaje para obtener recomendaciones personalizadas:">Select your travel style to get personalized recommendations:</p>
         <div class="planner-options">
-          <button class="planner-chip" onclick="showPlan('adrenaline')">🪁 Adrenaline Seeker</button>
+          <button class="planner-chip" onclick="showPlan('adrenaline')">🪁 <span data-en="Adrenaline Seeker" data-es="Buscador de Adrenalina">Adrenaline Seeker</span></button>
           <button class="planner-chip" onclick="showPlan('foodie')">🍽️ Foodie</button>
-          <button class="planner-chip" onclick="showPlan('wellness')">🧘 Wellness &amp; Relaxation</button>
-          <button class="planner-chip" onclick="showPlan('family')">👨‍👩‍👧 Family Trip</button>
-          <button class="planner-chip" onclick="showPlan('nightlife')">🌙 Nightlife &amp; Social</button>
-          <button class="planner-chip" onclick="showPlan('digital')">💻 Digital Nomad</button>
+          <button class="planner-chip" onclick="showPlan('wellness')">🧘 <span data-en="Wellness &amp; Relaxation" data-es="Bienestar y Relajación">Wellness &amp; Relaxation</span></button>
+          <button class="planner-chip" onclick="showPlan('family')">👨‍👩‍👧 <span data-en="Family Trip" data-es="Viaje en Familia">Family Trip</span></button>
+          <button class="planner-chip" onclick="showPlan('nightlife')">🌙 <span data-en="Nightlife &amp; Social" data-es="Vida Nocturna y Social">Nightlife &amp; Social</span></button>
+          <button class="planner-chip" onclick="showPlan('digital')">💻 <span data-en="Digital Nomad" data-es="Nómada Digital">Digital Nomad</span></button>
         </div>
         <div class="planner-result" id="plan-result">
           <h4 id="plan-title"></h4>
@@ -1645,41 +1165,41 @@
   <!-- FEATURED PARTNERS -->
   <section style="background: white; padding: 80px 24px;">
     <div class="container">
-      <div class="section-label">⭐ Local Partners</div>
-      <h2>Featured Cabarete Businesses</h2>
+      <div class="section-label">⭐ <span data-en="Local Partners" data-es="Socios Locales">Local Partners</span></div>
+      <h2 data-en="Featured Cabarete Businesses" data-es="Negocios Destacados de Cabarete">Featured Cabarete Businesses</h2>
       <p class="section-intro">
-        These trusted local partners offer exclusive deals and experiences for visitors.
-        Own a business in Cabarete? <a href="mailto:sales@eyetoad.com" style="color: var(--ocean-mid);">Get listed here.</a>
+        <span data-en="These trusted local partners offer exclusive deals and experiences for visitors. Own a business in Cabarete?" data-es="Estos socios locales de confianza ofrecen ofertas y experiencias exclusivas para visitantes. ¿Tienes un negocio en Cabarete?">These trusted local partners offer exclusive deals and experiences for visitors. Own a business in Cabarete?</span>
+        <a href="mailto:sales@eyetoad.com" style="color: var(--ocean-mid);" data-en="Get listed here." data-es="Regístralo aquí.">Get listed here.</a>
       </p>
       <div class="partners-section">
         <div class="partners-grid">
           <div class="partner-card featured-slot">
             <div class="partner-body">
               <div class="partner-icon">🪁</div>
-              <h4>Your Kite School Here</h4>
-              <p>Premium featured placement. Thousands of pre-trip tourists see this spot every month. First available featured slot on the site.</p>
-              <a href="mailto:sales@eyetoad.com?subject=Featured Partner - Kite School" class="partner-cta">Claim This Spot</a>
+              <h4 data-en="Your Kite School Here" data-es="Tu Escuela de Kite Aquí">Your Kite School Here</h4>
+              <p data-en="Premium featured placement. Thousands of pre-trip tourists see this spot every month. First available featured slot on the site." data-es="Colocación destacada premium. Miles de turistas pre-viaje ven este espacio cada mes. Primer espacio disponible en el sitio.">Premium featured placement. Thousands of pre-trip tourists see this spot every month. First available featured slot on the site.</p>
+              <a href="mailto:sales@eyetoad.com?subject=Featured Partner - Kite School" class="partner-cta" data-en="Claim This Spot" data-es="Reserva Este Espacio">Claim This Spot</a>
             </div>
           </div>
           <div class="partner-card featured-slot">
             <div class="partner-body">
               <div class="partner-icon">🍽️</div>
-              <h4>Your Restaurant Here</h4>
-              <p>Be the first restaurant tourists discover when researching Cabarete dining. Photo, description, exclusive deal, and direct link to your booking.</p>
-              <a href="mailto:sales@eyetoad.com?subject=Featured Partner - Restaurant" class="partner-cta">Get Featured</a>
+              <h4 data-en="Your Restaurant Here" data-es="Tu Restaurante Aquí">Your Restaurant Here</h4>
+              <p data-en="Be the first restaurant tourists discover when researching Cabarete dining. Photo, description, exclusive deal, and direct link to your booking." data-es="Sé el primer restaurante que los turistas descubren cuando investigan la gastronomía de Cabarete. Foto, descripción, oferta exclusiva y enlace directo a tu reserva.">Be the first restaurant tourists discover when researching Cabarete dining. Photo, description, exclusive deal, and direct link to your booking.</p>
+              <a href="mailto:sales@eyetoad.com?subject=Featured Partner - Restaurant" class="partner-cta" data-en="Get Featured" data-es="Destácate">Get Featured</a>
             </div>
           </div>
           <div class="partner-card">
             <div class="partner-icon">🏨</div>
-            <h4>Hotel / Resort Listing</h4>
-            <p>Standard partner listing with photo, description, and direct booking link. Ideal for boutique hotels, guesthouses, and vacation rentals.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Partner - Hotel" class="partner-cta outline">Inquire</a>
+            <h4 data-en="Hotel / Resort Listing" data-es="Listado de Hotel / Resort">Hotel / Resort Listing</h4>
+            <p data-en="Standard partner listing with photo, description, and direct booking link. Ideal for boutique hotels, guesthouses, and vacation rentals." data-es="Listado estándar de socio con foto, descripción y enlace directo de reserva. Ideal para hoteles boutique, pensiones y alquileres vacacionales.">Standard partner listing with photo, description, and direct booking link. Ideal for boutique hotels, guesthouses, and vacation rentals.</p>
+            <a href="mailto:sales@eyetoad.com?subject=Partner - Hotel" class="partner-cta outline" data-en="Inquire" data-es="Consultar">Inquire</a>
           </div>
           <div class="partner-card">
             <div class="partner-icon">🌿</div>
-            <h4>Tours &amp; Excursions</h4>
-            <p>Waterfalls, caves, zip-lines, horseback riding, day trips — get your tour listed where tourists are actively searching for experiences.</p>
-            <a href="mailto:sales@eyetoad.com?subject=Partner - Tour Operator" class="partner-cta outline">Inquire</a>
+            <h4 data-en="Tours &amp; Excursions" data-es="Tours y Excursiones">Tours &amp; Excursions</h4>
+            <p data-en="Waterfalls, caves, zip-lines, horseback riding, day trips — get your tour listed where tourists are actively searching for experiences." data-es="Cascadas, cuevas, tirolinas, paseos a caballo, excursiones de día — registra tu tour donde los turistas buscan activamente experiencias.">Waterfalls, caves, zip-lines, horseback riding, day trips — get your tour listed where tourists are actively searching for experiences.</p>
+            <a href="mailto:sales@eyetoad.com?subject=Partner - Tour Operator" class="partner-cta outline" data-en="Inquire" data-es="Consultar">Inquire</a>
           </div>
         </div>
       </div>
@@ -1689,30 +1209,30 @@
   <!-- BEST TIME TO VISIT -->
   <section style="background: var(--sand); padding: 72px 24px;">
     <div class="container">
-      <div class="section-label">📅 When To Go</div>
-      <h2>Best Time To Visit Cabarete</h2>
-      <p class="section-intro">
+      <div class="section-label">📅 <span data-en="When To Go" data-es="Cuándo Ir">When To Go</span></div>
+      <h2 data-en="Best Time To Visit Cabarete" data-es="Mejor Época para Visitar Cabarete">Best Time To Visit Cabarete</h2>
+      <p class="section-intro" data-en="Cabarete is a genuine year-round destination, but each season has its distinct character. Here's how to pick the right time for your trip." data-es="Cabarete es un destino genuinamente abierto todo el año, pero cada temporada tiene su carácter distintivo. Así es como elegir el momento adecuado para tu viaje.">
         Cabarete is a genuine year-round destination, but each season has its distinct character.
         Here's how to pick the right time for your trip.
       </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+      <div class="season-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
         <div style="background: white; border-radius: var(--radius); padding: 28px; border-top: 4px solid var(--ocean-mid); box-shadow: var(--shadow);">
           <div style="font-size: 28px; margin-bottom: 12px;">❄️</div>
-          <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 8px;">December – April</h4>
-          <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 12px;">High season. Warm days, cooler evenings, 14–24 knot winds. Peak prices but best overall conditions. Cabarete Carnival in March.</p>
-          <span style="font-size: 12px; font-weight: 700; color: var(--ocean-mid); text-transform: uppercase; letter-spacing: 1px;">Best: All-around travel</span>
+          <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 8px;" data-en="December – April" data-es="Diciembre – Abril">December – April</h4>
+          <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 12px;" data-en="High season. Warm days, cooler evenings, 14–24 knot winds. Peak prices but best overall conditions. Cabarete Carnival in March." data-es="Temporada alta. Días cálidos, noches frescas, vientos de 14–24 nudos. Precios máximos pero mejores condiciones generales. Carnaval de Cabarete en marzo.">High season. Warm days, cooler evenings, 14–24 knot winds. Peak prices but best overall conditions. Cabarete Carnival in March.</p>
+          <span style="font-size: 12px; font-weight: 700; color: var(--ocean-mid); text-transform: uppercase; letter-spacing: 1px;" data-en="Best: All-around travel" data-es="Mejor para: Viaje en general">Best: All-around travel</span>
         </div>
         <div style="background: white; border-radius: var(--radius); padding: 28px; border-top: 4px solid var(--coral); box-shadow: var(--shadow);">
           <div style="font-size: 28px; margin-bottom: 12px;">☀️</div>
-          <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 8px;">May – August</h4>
-          <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 12px;">Strongest winds of the year (16–30 knots). Glassy flat water, hot sun. Peak kiteboarding season. Beach can get crowded at Kite Beach.</p>
-          <span style="font-size: 12px; font-weight: 700; color: var(--coral); text-transform: uppercase; letter-spacing: 1px;">Best: Kitesurfers</span>
+          <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 8px;" data-en="May – August" data-es="Mayo – Agosto">May – August</h4>
+          <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 12px;" data-en="Strongest winds of the year (16–30 knots). Glassy flat water, hot sun. Peak kiteboarding season. Beach can get crowded at Kite Beach." data-es="Los vientos más fuertes del año (16–30 nudos). Agua plana y cristalina, sol intenso. Temporada pico de kitesurf. La playa puede estar concurrida en Kite Beach.">Strongest winds of the year (16–30 knots). Glassy flat water, hot sun. Peak kiteboarding season. Beach can get crowded at Kite Beach.</p>
+          <span style="font-size: 12px; font-weight: 700; color: var(--coral); text-transform: uppercase; letter-spacing: 1px;" data-en="Best: Kitesurfers" data-es="Mejor para: Kitesurfistas">Best: Kitesurfers</span>
         </div>
         <div style="background: white; border-radius: var(--radius); padding: 28px; border-top: 4px solid var(--palm-green); box-shadow: var(--shadow);">
           <div style="font-size: 28px; margin-bottom: 12px;">🍃</div>
-          <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 8px;">Sep – Mid-Nov (Secret Season)</h4>
-          <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 12px;">Lowest prices, fewest tourists, still great weather. Brief afternoon showers but mornings are gorgeous. The budget traveler's Cabarete.</p>
-          <span style="font-size: 12px; font-weight: 700; color: var(--palm-green); text-transform: uppercase; letter-spacing: 1px;">Best: Budget travelers</span>
+          <h4 style="font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 8px;" data-en="Sep – Mid-Nov (Secret Season)" data-es="Sep – Med-Nov (Temporada Secreta)">Sep – Mid-Nov (Secret Season)</h4>
+          <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 12px;" data-en="Lowest prices, fewest tourists, still great weather. Brief afternoon showers but mornings are gorgeous. The budget traveler's Cabarete." data-es="Precios más bajos, menos turistas, aún buen clima. Breves lluvias vespertinas pero las mañanas son espléndidas. El Cabarete del viajero con presupuesto.">Lowest prices, fewest tourists, still great weather. Brief afternoon showers but mornings are gorgeous. The budget traveler's Cabarete.</p>
+          <span style="font-size: 12px; font-weight: 700; color: var(--palm-green); text-transform: uppercase; letter-spacing: 1px;" data-en="Best: Budget travelers" data-es="Mejor para: Viajeros con presupuesto">Best: Budget travelers</span>
         </div>
       </div>
     </div>
@@ -1721,22 +1241,20 @@
   <!-- FAQ -->
   <section class="faq-section" id="faq">
     <div class="container">
-      <div class="section-label">❓ Frequently Asked Questions</div>
-      <h2>Cabarete Beach FAQ</h2>
-      <p class="section-intro">
+      <div class="section-label">❓ <span data-en="Frequently Asked Questions" data-es="Preguntas Frecuentes">Frequently Asked Questions</span></div>
+      <h2 data-en="Cabarete Beach FAQ" data-es="Preguntas Frecuentes sobre Cabarete Beach">Cabarete Beach FAQ</h2>
+      <p class="section-intro" data-en="Everything tourists ask before visiting Cabarete, answered honestly." data-es="Todo lo que los turistas preguntan antes de visitar Cabarete, respondido con honestidad.">
         Everything tourists ask before visiting Cabarete, answered honestly.
       </p>
-      <div class="faq-list" id="faq-list">
-        <!-- FAQs injected by JS -->
-      </div>
+      <div class="faq-list" id="faq-list"></div>
     </div>
   </section>
 
   <!-- ADVERTISE CTA -->
   <section class="advertise-section">
     <div class="container">
-      <h2>Own a Business in Cabarete?<br/>Get Featured Here.</h2>
-      <p>
+      <h2 data-en="Own a Business in Cabarete?&lt;br/&gt;Get Featured Here." data-es="¿Tienes un Negocio en Cabarete?&lt;br/&gt;Destácate Aquí.">Own a Business in Cabarete?<br/>Get Featured Here.</h2>
+      <p data-en="This site is actively being built to rank for 'Cabarete Beach Dominican Republic' and related terms. Get in early — your business gets featured in front of tourists before they arrive and while they're actively planning their trip." data-es="Este sitio se está construyendo activamente para posicionarse en 'Cabarete Beach Dominican Republic' y términos relacionados. Entra temprano — tu negocio se destaca ante los turistas antes de que lleguen y mientras planifican activamente su viaje.">
         This site is actively being built to rank for "Cabarete Beach Dominican Republic" and
         related terms. Get in early — your business gets featured in front of tourists
         <em>before they arrive</em> and while they're actively planning their trip.
@@ -1744,39 +1262,43 @@
       <div class="advertise-perks">
         <div class="advertise-perk">
           <span>📍</span>
-          <p>Prime Placement on Travel Guide</p>
+          <p data-en="Prime Placement on Travel Guide" data-es="Posición Prime en la Guía de Viaje">Prime Placement on Travel Guide</p>
         </div>
         <div class="advertise-perk">
           <span>🔗</span>
-          <p>Direct Link to Your Website or Booking</p>
+          <p data-en="Direct Link to Your Website or Booking" data-es="Enlace Directo a tu Web o Reserva">Direct Link to Your Website or Booking</p>
         </div>
         <div class="advertise-perk">
           <span>🌍</span>
-          <p>International Tourist Audience</p>
+          <p data-en="International Tourist Audience" data-es="Audiencia de Turistas Internacionales">International Tourist Audience</p>
         </div>
         <div class="advertise-perk">
           <span>⚡</span>
-          <p>Get Listed Fast — Spots Are Limited</p>
+          <p data-en="Get Listed Fast — Spots Are Limited" data-es="Regístrate Rápido — Los Espacios son Limitados">Get Listed Fast — Spots Are Limited</p>
         </div>
       </div>
       <a href="mailto:sales@eyetoad.com?subject=Advertise on Cabarete Beach Guide" class="btn-white">
-        📧 Contact: sales@eyetoad.com
+        📧 <span data-en="Contact: sales@eyetoad.com" data-es="Contacto: sales@eyetoad.com">Contact: sales@eyetoad.com</span>
       </a>
-      <p style="font-size: 13px; margin-top: 16px; opacity: 0.7;">¿Tienes un negocio en Cabarete? <a href="mailto:sales@eyetoad.com?subject=Publicidad Cabarete" style="color: var(--white); font-weight: 600;">Contáctanos →</a></p>
+      <p style="font-size: 13px; margin-top: 16px; opacity: 0.7;">
+        ¿Tienes un negocio en Cabarete? <a href="mailto:sales@eyetoad.com?subject=Publicidad Cabarete" style="color: var(--white); font-weight: 600;">Contáctanos →</a>
+      </p>
     </div>
   </section>
 
   <!-- FOOTER -->
+  <!-- FIX: eyetoad.com (not eyetoadmedia.com); logo properly sized with object-fit; filter correct -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
         <img
-          src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-dominican-republic-logo-black.png"
+          class="footer-brand-logo"
+          src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png"
           alt="Cabarete Beach Dominican Republic"
-          width="180"
-          height="40"
+          width="220"
+          height="48"
         />
-        <p>
+        <p data-en="Your definitive guide to Cabarete Beach, Dominican Republic. Kitesurfing, restaurants, nightlife, and hidden adventures on the Caribbean's most electric stretch of North Coast shoreline." data-es="Tu guía definitiva de Cabarete Beach, República Dominicana. Kitesurf, restaurantes, vida nocturna y aventuras ocultas en el tramo más electrizante de la Costa Norte del Caribe.">
           Your definitive guide to Cabarete Beach, Dominican Republic.
           Kitesurfing, restaurants, nightlife, and hidden adventures on
           the Caribbean's most electric stretch of North Coast shoreline.
@@ -1786,39 +1308,40 @@
         </a>
       </div>
       <div class="footer-col">
-        <h5>Explore</h5>
+        <h5 data-en="Explore" data-es="Explorar">Explore</h5>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/things-to-do-cabarete/">Things To Do</a></li>
-          <li><a href="/cabarete-deals/">Featured Partners</a></li>
+          <li><a href="/" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="/things-to-do-cabarete/" data-en="Things To Do" data-es="Qué Hacer">Things To Do</a></li>
+          <li><a href="/cabarete-deals/" data-en="Featured Partners" data-es="Socios Destacados">Featured Partners</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Activities</h5>
+        <h5 data-en="Activities" data-es="Actividades">Activities</h5>
         <ul>
-          <li><a href="/things-to-do-cabarete/#kitesurfing">Kitesurfing</a></li>
-          <li><a href="/things-to-do-cabarete/#surfing">Surfing</a></li>
-          <li><a href="/things-to-do-cabarete/#nature">Caves &amp; Nature</a></li>
-          <li><a href="/things-to-do-cabarete/#daytrips">Day Trips</a></li>
-          <li><a href="/things-to-do-cabarete/#nightlife">Nightlife</a></li>
+          <li><a href="/things-to-do-cabarete/#kitesurfing" data-en="Kitesurfing" data-es="Kitesurf">Kitesurfing</a></li>
+          <li><a href="/things-to-do-cabarete/#surfing" data-en="Surfing" data-es="Surf">Surfing</a></li>
+          <li><a href="/things-to-do-cabarete/#nature" data-en="Caves &amp; Nature" data-es="Cuevas y Naturaleza">Caves &amp; Nature</a></li>
+          <li><a href="/things-to-do-cabarete/#daytrips" data-en="Day Trips" data-es="Excursiones">Day Trips</a></li>
+          <li><a href="/things-to-do-cabarete/#nightlife" data-en="Nightlife" data-es="Vida Nocturna">Nightlife</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Advertise</h5>
+        <h5 data-en="Advertise" data-es="Publicidad">Advertise</h5>
         <ul>
-          <li><a href="mailto:sales@eyetoad.com?subject=Featured Banner Ad">Banner Ads</a></li>
-          <li><a href="mailto:sales@eyetoad.com?subject=Featured Partner Listing">Partner Listings</a></li>
-          <li><a href="mailto:sales@eyetoad.com?subject=Sponsored Activity Feature">Activity Sponsors</a></li>
-          <li><a href="mailto:sales@eyetoad.com">Contact Us</a></li>
+          <li><a href="mailto:sales@eyetoad.com?subject=Featured Banner Ad" data-en="Banner Ads" data-es="Banners Publicitarios">Banner Ads</a></li>
+          <li><a href="mailto:sales@eyetoad.com?subject=Featured Partner Listing" data-en="Partner Listings" data-es="Listados de Socios">Partner Listings</a></li>
+          <li><a href="mailto:sales@eyetoad.com?subject=Sponsored Activity Feature" data-en="Activity Sponsors" data-es="Patrocinadores de Actividades">Activity Sponsors</a></li>
+          <li><a href="mailto:sales@eyetoad.com" data-en="Contact Us" data-es="Contáctanos">Contact Us</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 CabareteBeachDominicanRepublic.com — All rights reserved.</p>
+      <p>© 2026 CabareteBeachDominicanRepublic.com — <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
       <p class="powered-by">
-        🌴 Powered by <a href="https://www.eyetoadmedia.com" target="_blank" rel="noopener">Eye To Ad Media</a>
-        &nbsp;·&nbsp; Digital Marketing &amp; SEO
+        🌴 <span data-en="Powered by" data-es="Desarrollado por">Powered by</span>
+        <a href="https://www.eyetoad.com" target="_blank" rel="noopener">Eye To Ad Media</a>
+        &nbsp;·&nbsp; <span data-en="Digital Marketing &amp; SEO" data-es="Marketing Digital y SEO">Digital Marketing &amp; SEO</span>
       </p>
     </div>
   </footer>
@@ -1843,7 +1366,7 @@
         "publisher": {
           "@type": "Organization",
           "name": "Eye To Ad Media",
-          "url": "https://www.eyetoadmedia.com",
+          "url": "https://www.eyetoad.com",
           "email": "sales@eyetoad.com"
         }
       },
@@ -1864,170 +1387,30 @@
           "addressRegion": "Puerto Plata Province",
           "addressCountry": "DO"
         },
-        "touristType": [
-          "Adventure Traveler",
-          "Beach Traveler",
-          "Sports Enthusiast",
-          "Wellness Traveler",
-          "Family Traveler"
-        ],
+        "touristType": ["Adventure Traveler","Beach Traveler","Sports Enthusiast","Wellness Traveler","Family Traveler"],
         "includesAttraction": [
-          {
-            "@type": "TouristAttraction",
-            "name": "Kite Beach Cabarete",
-            "description": "World-class kitesurfing beach with consistent trade winds year-round"
-          },
-          {
-            "@type": "TouristAttraction",
-            "name": "El Choco National Park",
-            "description": "Tropical rainforest with underground caves and freshwater lagoons"
-          },
-          {
-            "@type": "TouristAttraction",
-            "name": "Playa Encuentro",
-            "description": "Premier surfing beach on the Dominican Republic's north coast"
-          },
-          {
-            "@type": "TouristAttraction",
-            "name": "27 Charcos de Damajagua",
-            "description": "27 natural waterfall cascades and swimming holes in the Dominican countryside"
-          }
+          {"@type": "TouristAttraction","name": "Kite Beach Cabarete","description": "World-class kitesurfing beach with consistent trade winds year-round"},
+          {"@type": "TouristAttraction","name": "El Choco National Park","description": "Tropical rainforest with underground caves and freshwater lagoons"},
+          {"@type": "TouristAttraction","name": "Playa Encuentro","description": "Premier surfing beach on the Dominican Republic's north coast"},
+          {"@type": "TouristAttraction","name": "27 Charcos de Damajagua","description": "27 natural waterfall cascades and swimming holes in the Dominican countryside"}
         ]
       },
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.cabaretebeachdominicanrepublic.com/"
-          }
-        ]
+        "itemListElement": [{"@type": "ListItem","position": 1,"name": "Home","item": "https://www.cabaretebeachdominicanrepublic.com/"}]
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is Cabarete Beach known for?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cabarete Beach is internationally known as the Caribbean's #1 kitesurfing and windsurfing destination. Located on the Dominican Republic's North Coast, it receives 250–300 kitable days of wind per year thanks to the steady Alizé trade winds. Beyond wind sports, Cabarete is known for its vibrant nightlife, international restaurant scene, beachfront bars, El Choco National Park caves, and proximity to the 27 Damajagua Waterfalls."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I get to Cabarete Beach?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The nearest airport to Cabarete is Gregorio Luperón International Airport (POP) in Puerto Plata, approximately 40 minutes away by taxi or shuttle. From Santo Domingo's Las Américas Airport, the drive is approximately 3 hours. No direct flights land in Cabarete — the Puerto Plata airport is the standard entry point."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "When is the best time to visit Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cabarete is a year-round destination. December through April is high season with warm days, 14–24 knot winds, and ideal overall conditions. June through August brings the strongest winds (16–30 knots) for peak kitesurfing. September through mid-November is the 'Secret Season' — fewer tourists, lowest prices, and still beautiful weather making it ideal for budget travelers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Cabarete safe for tourists?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cabarete is considered one of the safer tourist destinations in the Dominican Republic. It is a small town where locals and authorities prioritize visitor safety, and its international community means most businesses are experienced with foreign travelers. Standard precautions apply: be aware of your belongings in crowded areas, avoid leaving items unattended on the beach, and use reputable taxi or shuttle services."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need to know how to kitesurf to enjoy Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely not. While Cabarete is famous for kitesurfing, non-kitesurfers have an enormous amount to enjoy: surfing at Playa Encuentro, underground cave swimming at El Choco, horseback riding on the beach, scuba diving in Sosúa, day trips to the 27 Damajagua Waterfalls and Cayo Arena island, beachfront dining, yoga and wellness, and vibrant nightlife. Watching hundreds of kites fill the sky from a beachfront bar is itself one of the Caribbean's great spectacles."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is Kite Beach in Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Kite Beach is the main kitesurfing beach in Cabarete, located slightly west of the town center. It is the most popular spot for kitesurfers due to its consistent side-to-side-onshore wind direction, protective reef reducing excessive chop, wide sandy beach for launching and landing, and the concentration of over 10 IKO-certified kitesurfing schools. It is internationally recognized as one of the best kitesurfing beaches in the world."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the best restaurant in Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cabarete has a remarkably diverse dining scene for its size. For casual dining, Gordito's Fresh Mex (4.7 stars, 1,333 reviews) and Cabarete Coffee Company (4.8 stars) are top local favorites. For fresh Dominican seafood, La Casita de Papi is legendary among locals. For fine dining and special occasions, Bliss Restaurant is widely considered Cabarete's finest, with oceanfront views, locally-sourced seafood, and an exceptional wine list."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What language is spoken in Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The official language of the Dominican Republic is Spanish. However, Cabarete is one of the most internationally diverse towns in the country — due to its large expat and tourism community, English is widely spoken in restaurants, hotels, kite schools, and tourist-facing businesses. French, German, Italian, and Russian are also commonly heard. Basic Spanish phrases are always appreciated by locals."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How many days should I spend in Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most visitors find 5–7 days ideal for Cabarete. This gives you time to try kitesurfing or surfing lessons, explore El Choco National Park, do a day trip to the 27 Damajagua Waterfalls or Cayo Arena, experience the nightlife scene, and genuinely relax on the beach without rushing. Many visitors end up extending their stay — Cabarete has a way of making one week feel like it was never enough."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is there to do near Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Within easy day-trip distance from Cabarete: the 27 Charcos de Damajagua waterfalls (1 hour), Cayo Arena — a remote sandbar island with snorkeling (2 hours), Sosúa for scuba diving and beach bars (15 minutes), the Puerto Plata teleférico (cable car) and Fort San Felipe (45 minutes), and Playa Grande — one of the Dominican Republic's most beautiful beaches (1.5 hours)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I drink tap water in Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Tap water in the Dominican Republic is not safe for drinking. Use bottled water for drinking and brushing teeth. Most hotels and resorts provide bottled water or have filtered water stations. Some restaurants also serve food washed in tap water, so be cautious about raw fruits and vegetables if you have a sensitive stomach."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What currency is used in Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The official currency is the Dominican Peso (DOP). US Dollars are widely accepted at most tourist businesses, hotels, and restaurants in Cabarete, though you may get a less favorable exchange rate. ATMs are available in town. Credit cards are accepted at most established restaurants and hotels, though some smaller beachfront spots are cash-only."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Cabarete good for families?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Cabarete is a welcoming destination for families. The calm morning waters before the wind picks up are ideal for children swimming. Family-friendly activities include the El Choco caves, horseback riding, the Damajagua Waterfalls (with appropriate age groups), and the Wednesday Night Market. Many hotels offer family suites and child-friendly amenities. The small-town atmosphere is generally safe and relaxed."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I get around Cabarete?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cabarete's main beach strip is very walkable. For longer distances: motoconchos (motorcycle taxis) are the cheapest and most common local option at around $1–2. Private taxis can be arranged via WhatsApp for reliable service. Renting a car gives full independence for day trips. Guaguas (shared public minibuses) connect Cabarete to Puerto Plata and Sosúa for very low fares."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I advertise my Cabarete business on this site?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Contact us at sales@eyetoad.com with the subject line 'Cabarete Business Listing'. We offer featured partner spots, banner ad placements, sponsored activity listings, and standard directory entries. Our site is built to rank for major Cabarete tourism search terms, putting your business in front of international tourists while they're actively planning their trip."
-            }
-          }
+          {"@type": "Question","name": "What is Cabarete Beach known for?","acceptedAnswer": {"@type": "Answer","text": "Cabarete Beach is internationally known as the Caribbean's #1 kitesurfing and windsurfing destination. Located on the Dominican Republic's North Coast, it receives 250–300 kitable days of wind per year thanks to the steady Alizé trade winds. Beyond wind sports, Cabarete is known for its vibrant nightlife, international restaurant scene, beachfront bars, El Choco National Park caves, and proximity to the 27 Damajagua Waterfalls."}},
+          {"@type": "Question","name": "How do I get to Cabarete Beach?","acceptedAnswer": {"@type": "Answer","text": "The nearest airport to Cabarete is Gregorio Luperón International Airport (POP) in Puerto Plata, approximately 40 minutes away by taxi or shuttle. From Santo Domingo's Las Américas Airport, the drive is approximately 3 hours."}},
+          {"@type": "Question","name": "When is the best time to visit Cabarete?","acceptedAnswer": {"@type": "Answer","text": "Cabarete is a year-round destination. December through April is high season with warm days, 14–24 knot winds, and ideal overall conditions. June through August brings the strongest winds (16–30 knots) for peak kitesurfing. September through mid-November is the 'Secret Season' — fewer tourists, lowest prices, and still beautiful weather."}},
+          {"@type": "Question","name": "Is Cabarete safe for tourists?","acceptedAnswer": {"@type": "Answer","text": "Cabarete is considered one of the safer tourist destinations in the Dominican Republic. It is a small town where locals and authorities prioritize visitor safety, and its international community means most businesses are experienced with foreign travelers. Standard precautions apply."}},
+          {"@type": "Question","name": "Do I need to know how to kitesurf to enjoy Cabarete?","acceptedAnswer": {"@type": "Answer","text": "Absolutely not. While Cabarete is famous for kitesurfing, non-kitesurfers have an enormous amount to enjoy: surfing at Playa Encuentro, underground cave swimming at El Choco, horseback riding on the beach, scuba diving in Sosúa, day trips to the 27 Damajagua Waterfalls and Cayo Arena island, beachfront dining, yoga and wellness, and vibrant nightlife."}},
+          {"@type": "Question","name": "What is the best restaurant in Cabarete?","acceptedAnswer": {"@type": "Answer","text": "Gordito's Fresh Mex (4.7 stars, 1,333 reviews) and Cabarete Coffee Company (4.8 stars) are top casual favorites. La Casita de Papi is legendary for fresh Dominican seafood. For fine dining, Bliss Restaurant is widely considered Cabarete's finest."}},
+          {"@type": "Question","name": "How many days should I spend in Cabarete?","acceptedAnswer": {"@type": "Answer","text": "Most visitors find 5–7 days ideal for Cabarete. This gives you time to try kitesurfing or surfing lessons, explore El Choco National Park, do a day trip to the 27 Damajagua Waterfalls or Cayo Arena, experience the nightlife scene, and genuinely relax on the beach."}},
+          {"@type": "Question","name": "How do I get around Cabarete?","acceptedAnswer": {"@type": "Answer","text": "Cabarete's main beach strip is very walkable. Motoconchos (motorcycle taxis) cost $1–2 for local rides. Private taxis can be arranged via WhatsApp. Renting a car is ideal for day trips. Guaguas (shared minibuses) connect Cabarete to Puerto Plata and Sosúa cheaply."}},
+          {"@type": "Question","name": "Is Cabarete good for families?","acceptedAnswer": {"@type": "Answer","text": "Yes. Calm morning waters are perfect for children to swim. Family activities include El Choco caves, horseback riding, the Wednesday Night Market, and the Damajagua Waterfalls. Velero Beach Resort and Natura Cabana are both family-friendly."}}
         ]
       },
       {
@@ -2040,126 +1423,250 @@
 
   <!-- JAVASCRIPT -->
   <script>
-    // LANGUAGE TOGGLE
-    const translations = {
-      heroKicker: { en: "🌊 Caribbean's #1 Kitesurfing Destination", es: "🌊 Destino #1 de Kitesurf del Caribe" },
-    };
+    // ─────────────────────────────────────────
+    // FULL BILINGUAL LANGUAGE SYSTEM
+    // All [data-en] and [data-es] attributes across the entire page swap on toggle
+    // ─────────────────────────────────────────
+    let currentLang = 'en';
+
     function setLang(lang) {
-      document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
-      document.querySelector(`.lang-toggle button:${lang === 'en' ? 'first' : 'last'}-child`).classList.add('active');
+      currentLang = lang;
       document.documentElement.lang = lang;
-      // In a full implementation this would swap content; for now shows the correct active state
-      if (lang === 'es') {
-        document.querySelector('.header-cta').innerHTML = '🌴 Anúnciate Aquí<small>Destaca tu Negocio</small>';
-      } else {
-        document.querySelector('.header-cta').innerHTML = '🌴 Advertise Here<small>Get Your Business Featured</small>';
-      }
+
+      // Toggle button active states
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+
+      // Swap ALL [data-en] / [data-es] elements
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text === null) return;
+        // Use innerHTML so HTML entities like <strong>, <em>, <br/> render correctly
+        el.innerHTML = text;
+      });
+
+      // Re-render FAQ in the current language
+      renderFAQ(lang);
+
+      // Re-render trip planner labels
+      document.querySelectorAll('.planner-chip').forEach(chip => {
+        const span = chip.querySelector('span[data-en]');
+        if (span) {
+          const text = span.getAttribute('data-' + lang);
+          if (text) span.innerHTML = text;
+        }
+      });
     }
 
+    // ─────────────────────────────────────────
     // TRIP PLANNER
+    // ─────────────────────────────────────────
     const plans = {
       adrenaline: {
-        title: "🪁 Your Adrenaline Itinerary",
-        items: [
-          "Day 1: Kitesurfing lesson at Kite Beach (full day) — book with Kite Point or LEK Kiteboarding",
-          "Day 2: Morning surf session at Playa Encuentro, afternoon cave swim at El Choco",
-          "Day 3: Day trip to 27 Damajagua Waterfalls — trek, jump, and slide all 27 cascades",
-          "Day 4: Scuba diving in Sosúa (15 min away), afternoon kitesurfing round 2",
-          "Day 5: Horseback ride on the beach at sunset, then nightlife on the strip"
-        ]
+        en: {
+          title: "🪁 Your Adrenaline Itinerary",
+          items: [
+            "Day 1: Kitesurfing lesson at Kite Beach (full day) — book with Kite Point or LEK Kiteboarding",
+            "Day 2: Morning surf session at Playa Encuentro, afternoon cave swim at El Choco",
+            "Day 3: Day trip to 27 Damajagua Waterfalls — trek, jump, and slide all 27 cascades",
+            "Day 4: Scuba diving in Sosúa (15 min away), afternoon kitesurfing round 2",
+            "Day 5: Horseback ride on the beach at sunset, then nightlife on the strip"
+          ]
+        },
+        es: {
+          title: "🪁 Tu Itinerario de Adrenalina",
+          items: [
+            "Día 1: Lección de kitesurf en Kite Beach (día completo) — reserva con Kite Point o LEK Kiteboarding",
+            "Día 2: Sesión de surf matutina en Playa Encuentro, natación en cuevas El Choco por la tarde",
+            "Día 3: Excursión a las 27 Cascadas de Damajagua — senderismo, saltos y deslizamientos",
+            "Día 4: Buceo en Sosúa (a 15 min), segunda sesión de kitesurf por la tarde",
+            "Día 5: Paseo a caballo al atardecer, luego vida nocturna en el paseo marítimo"
+          ]
+        }
       },
       foodie: {
-        title: "🍽️ Your Foodie Itinerary",
-        items: [
-          "Breakfast: Cabarete Coffee Company every morning (4.8 stars, incredible coffee)",
-          "Lunch: Gordito's Fresh Mex (Taco Tuesday is unmissable)",
-          "Dinner Night 1: La Casita de Papi — fresh local seafood, try the paella",
-          "Dinner Night 2: Bliss Restaurant — fine dining, ocean views, exceptional cocktails",
-          "Wednesday: Don't miss the Wednesday Night Market (4–10 PM, fresh street food + local vendors)",
-          "Sunday: Pomodoro pizza + open mic night — a Cabarete institution"
-        ]
+        en: {
+          title: "🍽️ Your Foodie Itinerary",
+          items: [
+            "Breakfast: Cabarete Coffee Company every morning (4.8 stars, incredible coffee)",
+            "Lunch: Gordito's Fresh Mex (Taco Tuesday is unmissable)",
+            "Dinner Night 1: La Casita de Papi — fresh local seafood, try the paella",
+            "Dinner Night 2: Bliss Restaurant — fine dining, ocean views, exceptional cocktails",
+            "Wednesday: Don't miss the Wednesday Night Market (4–10 PM, fresh street food + local vendors)",
+            "Sunday: Pomodoro pizza + open mic night — a Cabarete institution"
+          ]
+        },
+        es: {
+          title: "🍽️ Tu Itinerario Gastronómico",
+          items: [
+            "Desayuno: Cabarete Coffee Company cada mañana (4.8 estrellas, café increíble)",
+            "Almuerzo: Gordito's Fresh Mex (el Taco Tuesday es imperdible)",
+            "Cena Noche 1: La Casita de Papi — mariscos frescos locales, prueba la paella",
+            "Cena Noche 2: Bliss Restaurant — alta cocina, vistas al océano, cócteles excepcionales",
+            "Miércoles: No te pierdas el Mercado Nocturno (4–10 PM, comida callejera y vendedores locales)",
+            "Domingo: Pizza Pomodoro + noche de micrófono abierto — una institución de Cabarete"
+          ]
+        }
       },
       wellness: {
-        title: "🧘 Your Wellness Itinerary",
-        items: [
-          "Stay at: Natura Cabana Boutique Hotel & Spa (eco-luxury, private beach, morning yoga)",
-          "Morning routine: Beach yoga at sunrise, fresh smoothie at Mojito Bar",
-          "Day activity: Cacao experience tour — learn bean-to-bar chocolate making",
-          "Afternoon: Spa treatment at Natura Cabana using local ingredients",
-          "Day trip: El Choco National Park — meditative hiking, underground cave swim",
-          "Evening: Bachata dance lesson with Latin Dance Studio Cabarete"
-        ]
+        en: {
+          title: "🧘 Your Wellness Itinerary",
+          items: [
+            "Stay at: Natura Cabana Boutique Hotel & Spa (eco-luxury, private beach, morning yoga)",
+            "Morning routine: Beach yoga at sunrise, fresh smoothie at Mojito Bar",
+            "Day activity: Cacao experience tour — learn bean-to-bar chocolate making",
+            "Afternoon: Spa treatment at Natura Cabana using local ingredients",
+            "Day trip: El Choco National Park — meditative hiking, underground cave swim",
+            "Evening: Bachata dance lesson with Latin Dance Studio Cabarete"
+          ]
+        },
+        es: {
+          title: "🧘 Tu Itinerario de Bienestar",
+          items: [
+            "Hospédate en: Natura Cabana Boutique Hotel & Spa (eco-lujo, playa privada, yoga matutino)",
+            "Rutina matutina: Yoga en la playa al amanecer, smoothie fresco en Mojito Bar",
+            "Actividad diurna: Tour de experiencia de cacao — aprende a hacer chocolate",
+            "Tarde: Tratamiento de spa en Natura Cabana con ingredientes locales",
+            "Excursión: Parque Nacional El Choco — senderismo meditativo, natación en cueva subterránea",
+            "Noche: Clase de bachata con Latin Dance Studio Cabarete"
+          ]
+        }
       },
       family: {
-        title: "👨‍👩‍👧 Your Family Itinerary",
-        items: [
-          "Beach mornings: Calm waters before the afternoon wind — perfect for kids to swim",
-          "El Choco National Park: Cave swimming adventure the whole family will remember",
-          "Wednesday Night Market: 4–10 PM, safe outdoor event with food and crafts",
-          "Horseback riding: Sunset ride on the beach (check age minimums with operator)",
-          "Day trip: 27 Damajagua Waterfalls (suitable for older kids and teens)",
-          "Stay at: Velero Beach Resort or Natura Cabana — both family-friendly"
-        ]
+        en: {
+          title: "👨‍👩‍👧 Your Family Itinerary",
+          items: [
+            "Beach mornings: Calm waters before the afternoon wind — perfect for kids to swim",
+            "El Choco National Park: Cave swimming adventure the whole family will remember",
+            "Wednesday Night Market: 4–10 PM, safe outdoor event with food and crafts",
+            "Horseback riding: Sunset ride on the beach (check age minimums with operator)",
+            "Day trip: 27 Damajagua Waterfalls (suitable for older kids and teens)",
+            "Stay at: Velero Beach Resort or Natura Cabana — both family-friendly"
+          ]
+        },
+        es: {
+          title: "👨‍👩‍👧 Tu Itinerario Familiar",
+          items: [
+            "Mañanas de playa: Aguas tranquilas antes del viento vespertino — perfectas para que los niños naden",
+            "Parque Nacional El Choco: Aventura de natación en cuevas que toda la familia recordará",
+            "Mercado Nocturno del Miércoles: 4–10 PM, evento exterior seguro con comida y artesanías",
+            "Paseo a caballo: Paseo al atardecer en la playa (verifica edades mínimas con el operador)",
+            "Excursión: 27 Cascadas de Damajagua (apto para niños mayores y adolescentes)",
+            "Hospédate en: Velero Beach Resort o Natura Cabana — ambos son aptos para familias"
+          ]
+        }
       },
       nightlife: {
-        title: "🌙 Your Nightlife Itinerary",
-        items: [
-          "Every night: Start at Mojito Bar for sunset cocktails (best prices on the beach)",
-          "Monday: Karaoke at VoyVoy — surfer/kiter crowd, great atmosphere",
-          "Wednesday: Night Market 4–10 PM, then Bahia Bazaar for DJ sets",
-          "Thursday: Latin Night at LAX — arrive 11:30 PM, bachata till dawn",
-          "Friday/Saturday: Happy hour hop — bar crawl the entire beachfront strip",
-          "Sunday: Open mic at Pomodoro, then the after-party continues at the casino"
-        ]
+        en: {
+          title: "🌙 Your Nightlife Itinerary",
+          items: [
+            "Every night: Start at Mojito Bar for sunset cocktails (best prices on the beach)",
+            "Monday: Karaoke at VoyVoy — surfer/kiter crowd, great atmosphere",
+            "Wednesday: Night Market 4–10 PM, then Bahia Bazaar for DJ sets",
+            "Thursday: Latin Night at LAX — arrive 11:30 PM, bachata till dawn",
+            "Friday/Saturday: Happy hour hop — bar crawl the entire beachfront strip",
+            "Sunday: Open mic at Pomodoro, then the after-party continues at the casino"
+          ]
+        },
+        es: {
+          title: "🌙 Tu Itinerario de Vida Nocturna",
+          items: [
+            "Cada noche: Empieza en Mojito Bar con cócteles al atardecer (mejores precios en la playa)",
+            "Lunes: Karaoke en VoyVoy — ambiente de surfistas y kitesurfistas",
+            "Miércoles: Mercado Nocturno 4–10 PM, luego Bahia Bazaar para sesiones de DJ",
+            "Jueves: Noche Latina en LAX — llega a las 11:30 PM, bachata hasta el amanecer",
+            "Viernes/Sábado: Happy hour de bar en bar por todo el paseo marítimo",
+            "Domingo: Micrófono abierto en Pomodoro, luego la fiesta continúa en el casino"
+          ]
+        }
       },
       digital: {
-        title: "💻 Your Digital Nomad Itinerary",
-        items: [
-          "Work setup: Cabarete has solid internet (10mb+) — Vagamundo has great coffee & WiFi",
-          "Morning surf: Playa Encuentro before the wind picks up (perfect 9–11 AM)",
-          "Afternoon kite: Wind peaks 1–4 PM — perfect excuse to close the laptop",
-          "Monthly rental: Ask about long-stay discounts at Ultravioleta or Cabarete Palm Beach Condos",
-          "Spanish lessons: Una Vaina Bien Spanish offers weekly schedules with cultural activities",
-          "Community: Large expat community — coworking vibes at beachfront cafes"
-        ]
+        en: {
+          title: "💻 Your Digital Nomad Itinerary",
+          items: [
+            "Work setup: Cabarete has solid internet (10mb+) — Vagamundo has great coffee & WiFi",
+            "Morning surf: Playa Encuentro before the wind picks up (perfect 9–11 AM)",
+            "Afternoon kite: Wind peaks 1–4 PM — perfect excuse to close the laptop",
+            "Monthly rental: Ask about long-stay discounts at Ultravioleta or Cabarete Palm Beach Condos",
+            "Spanish lessons: Una Vaina Bien Spanish offers weekly schedules with cultural activities",
+            "Community: Large expat community — coworking vibes at beachfront cafes"
+          ]
+        },
+        es: {
+          title: "💻 Tu Itinerario de Nómada Digital",
+          items: [
+            "Configuración de trabajo: Cabarete tiene buen internet (10mb+) — Vagamundo tiene gran café y WiFi",
+            "Surf matutino: Playa Encuentro antes de que suba el viento (perfecto 9–11 AM)",
+            "Kite por la tarde: El viento llega al pico 1–4 PM — excusa perfecta para cerrar la laptop",
+            "Alquiler mensual: Pregunta por descuentos de larga estadía en Ultravioleta o Cabarete Palm Beach Condos",
+            "Clases de español: Una Vaina Bien Spanish ofrece horarios semanales con actividades culturales",
+            "Comunidad: Gran comunidad de expatriados — ambiente de coworking en cafés frente al mar"
+          ]
+        }
       }
     };
 
     function showPlan(type) {
-      const plan = plans[type];
+      const plan = plans[type][currentLang];
       document.getElementById('plan-title').textContent = plan.title;
       const list = document.getElementById('plan-list');
       list.innerHTML = plan.items.map(item => `<li>${item}</li>`).join('');
       const result = document.getElementById('plan-result');
       result.classList.add('show');
       document.querySelectorAll('.planner-chip').forEach(c => c.classList.remove('active'));
-      event.target.classList.add('active');
+      event.currentTarget.classList.add('active');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // FAQ
-    const faqs = [
-      { q: "What is Cabarete Beach known for?", a: "Cabarete Beach is internationally known as the Caribbean's #1 kitesurfing and windsurfing destination. Located on the Dominican Republic's North Coast, it receives 250–300 kitable days of wind per year thanks to the steady Alizé trade winds. Beyond wind sports, Cabarete is known for its vibrant nightlife, international restaurant scene, beachfront bars, El Choco National Park caves, and proximity to the 27 Damajagua Waterfalls." },
-      { q: "How do I get to Cabarete Beach?", a: "The nearest airport is Gregorio Luperón International Airport (POP) in Puerto Plata, approximately 40 minutes away by taxi or shuttle. From Santo Domingo it's about 3 hours by car. No flights land directly in Cabarete — Puerto Plata (POP) is your gateway." },
-      { q: "When is the best time to visit Cabarete?", a: "Cabarete is a year-round destination. December–April is high season with warm days and 14–24 knot winds. June–August brings the strongest winds (16–30 knots) for peak kitesurfing. September–mid November is the 'Secret Season' — fewer tourists, lowest prices, and still beautiful weather." },
-      { q: "Is Cabarete safe for tourists?", a: "Cabarete is considered one of the safer tourist destinations in the Dominican Republic. It's a small international community where businesses are experienced with foreign visitors. Standard precautions apply: be aware of your belongings in crowded areas, don't leave items unattended on the beach, and use reputable transportation." },
-      { q: "Do I need to kitesurf to enjoy Cabarete?", a: "Absolutely not. Cabarete offers surfing, underground cave swimming at El Choco, horseback riding, scuba diving in Sosúa, day trips to 27 Damajagua Waterfalls and Cayo Arena island, beachfront dining, yoga, wellness retreats, and vibrant nightlife. Even watching hundreds of kites fill the sky from a beachfront bar is an unforgettable experience." },
-      { q: "What is Kite Beach in Cabarete?", a: "Kite Beach is the main kitesurfing beach in Cabarete, slightly west of the town center. It has consistent side-to-side-onshore wind, a protective reef, a wide beach for launching, and 10+ IKO-certified schools. It's internationally recognized as one of the world's best kitesurfing beaches." },
-      { q: "What are the best restaurants in Cabarete?", a: "Gordito's Fresh Mex (4.7★, 1,333 reviews), Cabarete Coffee Company (4.8★), and La Casita de Papi for local seafood are top casual picks. For fine dining, Bliss Restaurant is widely considered Cabarete's finest. Mojito Bar on the beach is the go-to for affordable drinks and fresh food." },
-      { q: "How many days should I spend in Cabarete?", a: "Most visitors find 5–7 days ideal. This gives you time for kite or surf lessons, the caves, a waterfall day trip, nightlife, and genuine beach relaxation. Many visitors extend — Cabarete has a way of making one week feel like it was never enough." },
-      { q: "What language is spoken in Cabarete?", a: "Spanish is the official language. However, English is widely spoken at tourist-facing businesses due to the international community. French, German, Italian, and Russian are also commonly heard. Basic Spanish phrases are always appreciated by locals." },
-      { q: "What is there to do near Cabarete?", a: "27 Damajagua Waterfalls (1 hour), Cayo Arena island snorkeling (2 hours), Sosúa diving and beaches (15 min), Puerto Plata teleférico cable car (45 min), and Playa Grande — one of DR's most beautiful beaches (1.5 hours)." },
-      { q: "Can I drink tap water in Cabarete?", a: "No. Tap water in the Dominican Republic is not safe for drinking. Use bottled water for drinking and brushing teeth. Most hotels provide bottled water or filtered water stations." },
-      { q: "How do I get around Cabarete?", a: "The beach strip is walkable. Motoconchos (motorcycle taxis) cost $1–2 for local rides. Private taxis available via WhatsApp. Renting a car is ideal for day trips. Guaguas (shared minibuses) connect Cabarete to Puerto Plata and Sosúa cheaply." },
-      { q: "Is Cabarete good for families?", a: "Yes. Calm morning waters are perfect for children. Family activities include El Choco caves, horseback riding, the Wednesday Night Market, and the Damajagua Waterfalls. Velero Beach Resort and Natura Cabana are both family-friendly accommodation options." },
-      { q: "What is the Cabarete Carnival?", a: "The Cabarete Carnival is held in March and transforms the entire town into a riot of colors, music, costumes, and Dominican cultural celebration. It's one of the most vibrant local events of the year and coincides with high season — an excellent reason to plan a March visit." },
-      { q: "How can my business get listed on this site?", a: "Email sales@eyetoad.com with the subject 'Cabarete Business Listing.' We offer featured partner spots, banner ad placements, sponsored activity listings, and standard directory entries. Our site targets major Cabarete tourism search terms, putting your business in front of international tourists while they're actively planning their trip." }
-    ];
+    // ─────────────────────────────────────────
+    // FAQ DATA — bilingual
+    // ─────────────────────────────────────────
+    const faqData = {
+      en: [
+        { q: "What is Cabarete Beach known for?", a: "Cabarete Beach is internationally known as the Caribbean's #1 kitesurfing and windsurfing destination. Located on the Dominican Republic's North Coast, it receives 250–300 kitable days of wind per year thanks to the steady Alizé trade winds. Beyond wind sports, Cabarete is known for its vibrant nightlife, international restaurant scene, beachfront bars, El Choco National Park caves, and proximity to the 27 Damajagua Waterfalls." },
+        { q: "How do I get to Cabarete Beach?", a: "The nearest airport is Gregorio Luperón International Airport (POP) in Puerto Plata, approximately 40 minutes away by taxi or shuttle. From Santo Domingo it's about 3 hours by car. No flights land directly in Cabarete — Puerto Plata (POP) is your gateway." },
+        { q: "When is the best time to visit Cabarete?", a: "Cabarete is a year-round destination. December–April is high season with warm days and 14–24 knot winds. June–August brings the strongest winds (16–30 knots) for peak kitesurfing. September–mid November is the 'Secret Season' — fewer tourists, lowest prices, and still beautiful weather." },
+        { q: "Is Cabarete safe for tourists?", a: "Cabarete is considered one of the safer tourist destinations in the Dominican Republic. It's a small international community where businesses are experienced with foreign visitors. Standard precautions apply: be aware of your belongings in crowded areas, don't leave items unattended on the beach, and use reputable transportation." },
+        { q: "Do I need to kitesurf to enjoy Cabarete?", a: "Absolutely not. Cabarete offers surfing, underground cave swimming at El Choco, horseback riding, scuba diving in Sosúa, day trips to 27 Damajagua Waterfalls and Cayo Arena island, beachfront dining, yoga, wellness retreats, and vibrant nightlife. Even watching hundreds of kites fill the sky from a beachfront bar is an unforgettable experience." },
+        { q: "What is Kite Beach in Cabarete?", a: "Kite Beach is the main kitesurfing beach in Cabarete, slightly west of the town center. It has consistent side-to-side-onshore wind, a protective reef, a wide beach for launching, and 10+ IKO-certified schools. It's internationally recognized as one of the world's best kitesurfing beaches." },
+        { q: "What are the best restaurants in Cabarete?", a: "Gordito's Fresh Mex (4.7★, 1,333 reviews), Cabarete Coffee Company (4.8★), and La Casita de Papi for local seafood are top casual picks. For fine dining, Bliss Restaurant is widely considered Cabarete's finest. Mojito Bar on the beach is the go-to for affordable drinks and fresh food." },
+        { q: "How many days should I spend in Cabarete?", a: "Most visitors find 5–7 days ideal. This gives you time for kite or surf lessons, the caves, a waterfall day trip, nightlife, and genuine beach relaxation. Many visitors extend — Cabarete has a way of making one week feel like it was never enough." },
+        { q: "What language is spoken in Cabarete?", a: "Spanish is the official language. However, English is widely spoken at tourist-facing businesses due to the international community. French, German, Italian, and Russian are also commonly heard. Basic Spanish phrases are always appreciated by locals." },
+        { q: "What is there to do near Cabarete?", a: "27 Damajagua Waterfalls (1 hour), Cayo Arena island snorkeling (2 hours), Sosúa diving and beaches (15 min), Puerto Plata teleférico cable car (45 min), and Playa Grande — one of DR's most beautiful beaches (1.5 hours)." },
+        { q: "Can I drink tap water in Cabarete?", a: "No. Tap water in the Dominican Republic is not safe for drinking. Use bottled water for drinking and brushing teeth. Most hotels provide bottled water or filtered water stations." },
+        { q: "How do I get around Cabarete?", a: "The beach strip is walkable. Motoconchos (motorcycle taxis) cost $1–2 for local rides. Private taxis available via WhatsApp. Renting a car is ideal for day trips. Guaguas (shared minibuses) connect Cabarete to Puerto Plata and Sosúa cheaply." },
+        { q: "Is Cabarete good for families?", a: "Yes. Calm morning waters are perfect for children. Family activities include El Choco caves, horseback riding, the Wednesday Night Market, and the Damajagua Waterfalls. Velero Beach Resort and Natura Cabana are both family-friendly accommodation options." },
+        { q: "What is the Cabarete Carnival?", a: "The Cabarete Carnival is held in March and transforms the entire town into a riot of colors, music, costumes, and Dominican cultural celebration. It's one of the most vibrant local events of the year and coincides with high season — an excellent reason to plan a March visit." },
+        { q: "How can my business get listed on this site?", a: "Email sales@eyetoad.com with the subject 'Cabarete Business Listing.' We offer featured partner spots, banner ad placements, sponsored activity listings, and standard directory entries. Our site targets major Cabarete tourism search terms, putting your business in front of international tourists while they're actively planning their trip." }
+      ],
+      es: [
+        { q: "¿Por qué es famosa Cabarete Beach?", a: "Cabarete Beach es conocida internacionalmente como el destino #1 de kitesurf y windsurf del Caribe. Ubicada en la Costa Norte de la República Dominicana, recibe 250–300 días de viento kitable al año gracias a los constantes vientos alisios. Más allá de los deportes de viento, Cabarete es conocida por su vibrante vida nocturna, escena gastronómica internacional, bares frente al mar, las cuevas del Parque Nacional El Choco y la proximidad a las 27 Cascadas de Damajagua." },
+        { q: "¿Cómo llego a Cabarete Beach?", a: "El aeropuerto más cercano es el Aeropuerto Internacional Gregorio Luperón (POP) en Puerto Plata, aproximadamente a 40 minutos en taxi o shuttle. Desde Santo Domingo son unas 3 horas en coche. No aterrizan vuelos directamente en Cabarete — Puerto Plata (POP) es tu puerta de entrada." },
+        { q: "¿Cuál es la mejor época para visitar Cabarete?", a: "Cabarete es un destino disponible todo el año. Diciembre–Abril es temporada alta con días cálidos y vientos de 14–24 nudos. Junio–Agosto trae los vientos más fuertes (16–30 nudos) para el kitesurf de temporada pico. Septiembre–mediados de Noviembre es la 'Temporada Secreta' — menos turistas, precios más bajos y aún hermoso clima." },
+        { q: "¿Es Cabarete seguro para los turistas?", a: "Cabarete se considera uno de los destinos turísticos más seguros de la República Dominicana. Es una pequeña comunidad internacional donde los negocios tienen experiencia con visitantes extranjeros. Se aplican las precauciones estándar: cuida tus pertenencias en zonas concurridas, no dejes objetos desatendidos en la playa y usa transportes de confianza." },
+        { q: "¿Necesito saber kitesurf para disfrutar Cabarete?", a: "Para nada. Cabarete ofrece surf, natación en cuevas subterráneas en El Choco, paseos a caballo, buceo en Sosúa, excursiones a las 27 Cascadas de Damajagua y la isla Cayo Arena, gastronomía frente al mar, yoga, retiros de bienestar y vibrante vida nocturna. Incluso ver cientos de cometas llenando el cielo desde un bar frente a la playa es una experiencia inolvidable." },
+        { q: "¿Qué es Kite Beach en Cabarete?", a: "Kite Beach es la principal playa de kitesurf en Cabarete, ligeramente al oeste del centro del pueblo. Tiene viento constante, un arrecife protector, una amplia playa para despegar y más de 10 escuelas certificadas IKO. Está reconocida internacionalmente como una de las mejores playas de kitesurf del mundo." },
+        { q: "¿Cuáles son los mejores restaurantes en Cabarete?", a: "Gordito's Fresh Mex (4.7★, 1.333 reseñas), Cabarete Coffee Company (4.8★) y La Casita de Papi para mariscos locales son los favoritos informales. Para alta cocina, Bliss Restaurant es ampliamente considerado el mejor de Cabarete. Mojito Bar en la playa es el lugar ideal para bebidas asequibles y comida fresca." },
+        { q: "¿Cuántos días debo pasar en Cabarete?", a: "La mayoría de los visitantes encuentran que 5–7 días es lo ideal. Esto te da tiempo para lecciones de kite o surf, las cuevas, una excursión a las cascadas, vida nocturna y auténtica relajación en la playa. Muchos visitantes extienden su estancia — Cabarete tiene una forma de hacer que una semana nunca sea suficiente." },
+        { q: "¿Qué idioma se habla en Cabarete?", a: "El idioma oficial es el español. Sin embargo, el inglés es ampliamente hablado en los negocios orientados al turismo debido a la comunidad internacional. El francés, alemán, italiano y ruso también se escuchan con frecuencia. Los locales siempre agradecen las frases básicas en español." },
+        { q: "¿Qué hay para hacer cerca de Cabarete?", a: "Las 27 Cascadas de Damajagua (1 hora), esnórquel en la isla Cayo Arena (2 horas), buceo y playas en Sosúa (15 min), el teleférico de Puerto Plata (45 min) y Playa Grande — una de las playas más hermosas de la RD (1.5 horas)." },
+        { q: "¿Puedo beber el agua del grifo en Cabarete?", a: "No. El agua del grifo en la República Dominicana no es apta para beber. Usa agua embotellada para beber y cepillarte los dientes. La mayoría de los hoteles proporcionan agua embotellada o estaciones de agua filtrada." },
+        { q: "¿Cómo me muevo por Cabarete?", a: "El paseo de playa es caminable. Los motoconchos (taxis en moto) cuestan $1–2 para viajes locales. Taxis privados disponibles por WhatsApp. Alquilar un coche es ideal para excursiones. Las guaguas (minibuses compartidos) conectan Cabarete con Puerto Plata y Sosúa a precios muy bajos." },
+        { q: "¿Es Cabarete bueno para familias?", a: "Sí. Las aguas tranquilas de la mañana son perfectas para los niños. Las actividades familiares incluyen las cuevas de El Choco, paseos a caballo, el Mercado Nocturno del Miércoles y las Cascadas de Damajagua. Velero Beach Resort y Natura Cabana son opciones de alojamiento aptas para familias." },
+        { q: "¿Qué es el Carnaval de Cabarete?", a: "El Carnaval de Cabarete se celebra en marzo y transforma todo el pueblo en un derroche de colores, música, disfraces y celebración cultural dominicana. Es uno de los eventos locales más vibrantes del año y coincide con la temporada alta." },
+        { q: "¿Cómo puede aparecer mi negocio en este sitio?", a: "Escríbenos a sales@eyetoad.com con el asunto 'Listado de Negocio Cabarete'. Ofrecemos espacios de socios destacados, colocaciones de banners publicitarios, listados de actividades patrocinadas y entradas estándar en el directorio." }
+      ]
+    };
 
-    const faqList = document.getElementById('faq-list');
-    faqs.forEach((faq, i) => {
-      faqList.innerHTML += `
-        <div class="faq-item" id="faq-${i}">
+    function renderFAQ(lang) {
+      const faqs = faqData[lang];
+      const faqList = document.getElementById('faq-list');
+      faqList.innerHTML = '';
+      faqs.forEach((faq, i) => {
+        const item = document.createElement('div');
+        item.className = 'faq-item';
+        item.id = 'faq-' + i;
+        item.innerHTML = `
           <button class="faq-question" onclick="toggleFaq(${i})" aria-expanded="false">
             ${faq.q}
             <span class="faq-icon">+</span>
@@ -2167,18 +1674,21 @@
           <div class="faq-answer">
             <div class="faq-answer-inner">${faq.a}</div>
           </div>
-        </div>
-      `;
-    });
+        `;
+        faqList.appendChild(item);
+      });
+    }
 
     function toggleFaq(i) {
-      const item = document.getElementById(`faq-${i}`);
+      const item = document.getElementById('faq-' + i);
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     }
 
+    // ─────────────────────────────────────────
     // SCROLL FADE-IN
+    // ─────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2188,6 +1698,12 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ─────────────────────────────────────────
+    // INIT
+    // ─────────────────────────────────────────
+    renderFAQ('en');
+
   </script>
 
 </body>
