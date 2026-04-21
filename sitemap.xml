@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.cabaretebeachdominicanrepublic.com/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/"/>
+  </url>
+
+  <url>
+    <loc>https://www.cabaretebeachdominicanrepublic.com/things-to-do-cabarete/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/things-to-do-cabarete/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/que-hacer-en-cabarete/"/>
+  </url>
+
+  <url>
+    <loc>https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/cabarete-deals/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/ofertas-cabarete/"/>
+  </url>
+
+  <url>
+    <loc>https://www.cabaretebeachdominicanrepublic.com/es/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cabaretebeachdominicanrepublic.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.cabaretebeachdominicanrepublic.com/es/"/>
+  </url>
+
+</urlset>
