@@ -300,6 +300,121 @@
     }
     .featured-banner a:hover { background: var(--white); color: var(--ocean-deep); }
 
+    /* ── J&R SMARTPHONE AD ── */
+    .jr-ad-wrap {
+      margin: 0 auto 64px;
+      max-width: 1100px;
+      padding: 0 24px;
+    }
+    .jr-ad {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #050d1a 0%, #0a1a2e 55%, #050d1a 100%);
+      box-shadow: 0 0 0 2px rgba(0,212,255,0.35), 0 16px 48px rgba(0,0,0,0.45);
+      animation: jrBorderPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes jrBorderPulse {
+      0%,100% { box-shadow: 0 0 0 2px rgba(0,212,255,0.35), 0 16px 48px rgba(0,0,0,0.45); }
+      50%      { box-shadow: 0 0 0 2px rgba(0,212,255,0.7),  0 20px 60px rgba(0,212,255,0.15); }
+    }
+    .jr-ad::before {
+      content: ''; position: absolute; top: -60px; left: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .jr-ad::after {
+      content: ''; position: absolute; bottom: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .jr-ad-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px 32px 24px;
+    }
+    .jr-ad-left { min-width: 0; }
+    .jr-ad-toprow {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .jr-ad-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem; font-weight: 900; letter-spacing: 0.04em;
+      color: #fff; line-height: 1;
+    }
+    .jr-ad-brand span { color: #00d4ff; }
+    .jr-ad-open {
+      background: linear-gradient(135deg, #00c853, #69f0ae);
+      color: #002a10; font-size: 10px; font-weight: 800;
+      padding: 3px 10px; border-radius: 20px; letter-spacing: 0.1em;
+      text-transform: uppercase; white-space: nowrap;
+      animation: jrBadge 1.8s ease-in-out infinite;
+    }
+    @keyframes jrBadge { 0%,100%{transform:scale(1)} 50%{transform:scale(1.07)} }
+    .jr-ad-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      color: #fff; line-height: 1.15; margin-bottom: 8px;
+    }
+    .jr-ad-headline em { font-style: italic; color: #ffd700; }
+    .jr-ad-sub {
+      font-size: 0.88rem; color: rgba(180,220,240,0.9);
+      line-height: 1.55; margin-bottom: 14px; max-width: 540px;
+    }
+    .jr-ad-chips {
+      display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px;
+    }
+    .jr-ad-chip {
+      background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3);
+      color: #00d4ff; font-size: 11px; font-weight: 700;
+      padding: 4px 11px; border-radius: 20px; letter-spacing: 0.03em; white-space: nowrap;
+    }
+    .jr-ad-divider {
+      border: none; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
+      margin-bottom: 14px;
+    }
+    .jr-ad-meta {
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .jr-ad-address-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(0,212,255,0.65); margin-bottom: 2px;
+    }
+    .jr-ad-address { font-size: 12px; color: #cce8f4; font-weight: 600; }
+    .jr-ad-phone { font-size: 12px; color: #ffd700; font-weight: 700; }
+    .jr-ad-hours-strip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,215,0,0.06);
+      border-top: 1px solid rgba(255,215,0,0.18);
+      padding: 9px 32px;
+      font-size: 12px; color: rgba(255,215,0,0.85);
+      font-weight: 600; letter-spacing: 0.03em;
+    }
+    .jr-ad-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      color: #000; font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: 13px; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 13px 22px;
+      border-radius: 50px; text-decoration: none; white-space: nowrap;
+      box-shadow: 0 4px 18px rgba(0,212,255,0.4);
+      transition: all 0.2s; flex-shrink: 0; align-self: center;
+    }
+    .jr-ad-cta:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,212,255,0.55);
+      background: linear-gradient(135deg, #33ddff, #00aadd);
+    }
+    @media (max-width: 680px) {
+      .jr-ad-inner { grid-template-columns: 1fr; }
+      .jr-ad-cta { width: 100%; justify-content: center; }
+    }
+
     /* ── ACTIVITY CARDS ── */
     .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 48px; }
     .activity-card {
@@ -713,17 +828,75 @@
     </div>
   </div>
 
-  <!-- FEATURED PARTNER BANNER -->
-  <div class="container" style="padding: 0 24px;">
-    <div class="featured-banner fade-in">
-      <div class="featured-banner-tag">⭐ <span data-en="Featured Partner Spotlight" data-es="Socio Destacado">Featured Partner Spotlight</span></div>
-      <h3 data-en="Your Business Could Be Right Here" data-es="Tu Negocio Podría Estar Aquí">Your Business Could Be Right Here</h3>
-      <p data-en="This premium banner is seen by thousands of tourists researching Cabarete before they arrive.&lt;br/&gt;Be the first thing visitors discover — kite schools, restaurants, hotels, excursions &amp; more." data-es="Este banner premium es visto por miles de turistas que investigan Cabarete antes de llegar.&lt;br/&gt;Sé lo primero que los visitantes descubren — escuelas de kite, restaurantes, hoteles, excursiones y más.">
-        This premium banner is seen by thousands of tourists researching Cabarete before they arrive.<br/>Be the first thing visitors discover — kite schools, restaurants, hotels, excursions &amp; more.
-      </p>
-      <a href="mailto:sales@eyetoad.com?subject=Cabarete%20Featured%20Partner%20Inquiry" data-en="Get Featured → Contact Us" data-es="Destácate → Contáctanos">Get Featured → Contact Us</a>
-    </div>
-  </div>
+  <!-- FEATURED PARTNER BANNER — J&R SMARTPHONE -->
+  <div class="jr-ad-wrap fade-in">
+    <div class="jr-ad">
+
+      <div class="jr-ad-inner">
+        <div class="jr-ad-left">
+
+          <!-- brand + open badge -->
+          <div class="jr-ad-toprow">
+            <div class="jr-ad-brand">J<span>&amp;</span>R SMARTPHONE</div>
+            <div class="jr-ad-open"
+                 data-en="● Open Now · Closes 6 PM"
+                 data-es="● Abierto · Cierra 6 PM">● Open Now · Closes 6 PM</div>
+          </div>
+
+          <!-- headline -->
+          <div class="jr-ad-headline">
+            <span data-en="Everything Your Phone Needs — Right Here in"
+                  data-es="Todo lo que tu Celular Necesita — Aquí en">Everything Your Phone Needs — Right Here in</span>
+            <em> Cabarete</em>
+          </div>
+
+          <!-- sub -->
+          <p class="jr-ad-sub"
+             data-en="Come visit us at Plaza Morning Brezee! We carry new SIM cards, cases, chargers, screen protectors, earbuds, and accessories for every phone. Plus expert repairs, unlocking &amp; activation."
+             data-es="¡Visítanos en Plaza Morning Brezee! Tenemos SIM cards nuevos, fundas, cargadores, protectores, audífonos y accesorios para todo celular. También reparación, desbloqueo y activación.">
+            Come visit us at Plaza Morning Brezee! We carry new SIM cards, cases, chargers, screen protectors, earbuds, and accessories for every phone. Plus expert repairs, unlocking &amp; activation.
+          </p>
+
+          <!-- chips -->
+          <div class="jr-ad-chips">
+            <span class="jr-ad-chip" data-en="📱 New SIM Cards" data-es="📱 SIM Cards Nuevos">📱 New SIM Cards</span>
+            <span class="jr-ad-chip" data-en="🔧 Repairs" data-es="🔧 Reparaciones">🔧 Repairs</span>
+            <span class="jr-ad-chip" data-en="🔓 Unlocking" data-es="🔓 Desbloqueo">🔓 Unlocking</span>
+            <span class="jr-ad-chip" data-en="⚡ Activations" data-es="⚡ Activaciones">⚡ Activations</span>
+            <span class="jr-ad-chip" data-en="🎧 Accessories" data-es="🎧 Accesorios">🎧 Accessories</span>
+          </div>
+
+          <hr class="jr-ad-divider" />
+
+          <!-- address + phone -->
+          <div class="jr-ad-meta">
+            <div>
+              <div class="jr-ad-address-label"
+                   data-en="📍 Find Us" data-es="📍 Dónde estamos">📍 Find Us</div>
+              <div class="jr-ad-address">Plaza Morning Brezee, Cabarete 57000</div>
+              <div class="jr-ad-phone">☎ (809) 265-6892</div>
+            </div>
+          </div>
+
+        </div><!-- /.jr-ad-left -->
+
+        <!-- CTA button -->
+        <a href="tel:8092656892" class="jr-ad-cta"
+           data-en="📞 Call or Visit" data-es="📞 Llama o Visítanos">📞 Call or Visit</a>
+
+      </div><!-- /.jr-ad-inner -->
+
+      <!-- hours strip -->
+      <div class="jr-ad-hours-strip">
+        🕐 <span
+          data-en="Open Today — Stop by and pick up everything your phone needs before hitting the beach!"
+          data-es="Abierto Hoy — ¡Pasa y consigue todo lo que tu celular necesita antes de ir a la playa!">
+          Open Today — Stop by and pick up everything your phone needs before hitting the beach!
+        </span>
+      </div>
+
+    </div><!-- /.jr-ad -->
+  </div><!-- /.jr-ad-wrap -->
 
   <!-- PHOTO STRIP -->
   <div class="photo-strip fade-in">
