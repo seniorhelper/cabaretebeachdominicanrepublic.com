@@ -138,7 +138,6 @@
       border-bottom: 3px solid var(--ocean-bright);
     }
 
-    /* LOGO — aggressively large so it reads clearly in the header */
     .header-logo {
       display: flex;
       align-items: center;
@@ -146,7 +145,7 @@
       flex-shrink: 0;
     }
     .header-logo img {
-      height: 96px;        /* big and bold — logo has internal padding so this reads ~2/3 of that */
+      height: 96px;
       width: auto;
       max-width: 480px;
       object-fit: contain;
@@ -169,7 +168,6 @@
       transition: color 0.2s;
     }
     .header-nav a:hover { color: var(--ocean-bright); }
-    /* FIX: Advertise CTA is a proper mailto link that actually works */
     .header-cta {
       background: linear-gradient(135deg, var(--coral), #c0553a);
       color: var(--white) !important;
@@ -302,7 +300,7 @@
 
     /* ── J&R SMARTPHONE AD ── */
     .jr-ad-wrap {
-      margin: 0 auto 64px;
+      margin: 0 auto 40px;
       max-width: 1100px;
       padding: 0 24px;
     }
@@ -413,6 +411,178 @@
     @media (max-width: 680px) {
       .jr-ad-inner { grid-template-columns: 1fr; }
       .jr-ad-cta { width: 100%; justify-content: center; }
+    }
+
+    /* ── ALY TRANSFERS & TOURS AD ── */
+    .aly-ad-wrap {
+      margin: 0 auto 64px;
+      max-width: 1100px;
+      padding: 0 24px;
+    }
+    .aly-ad {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0f1e 0%, #0d1a10 40%, #1a0a0a 100%);
+      box-shadow: 0 0 0 2px rgba(192,35,43,0.5), 0 16px 48px rgba(0,0,0,0.5);
+      animation: alyBorderPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes alyBorderPulse {
+      0%,100% { box-shadow: 0 0 0 2px rgba(192,35,43,0.5), 0 16px 48px rgba(0,0,0,0.5); }
+      50%      { box-shadow: 0 0 0 3px rgba(192,35,43,0.9), 0 20px 60px rgba(192,35,43,0.2); }
+    }
+    .aly-ad::before {
+      content: ''; position: absolute; top: -60px; left: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(192,35,43,0.15) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .aly-ad::after {
+      content: ''; position: absolute; bottom: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(0,45,98,0.25) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+
+    /* top accent bar — DR flag colors */
+    .aly-ad-flag-bar {
+      display: flex;
+      height: 6px;
+    }
+    .aly-ad-flag-bar span:nth-child(1) { flex: 1; background: #002d62; }
+    .aly-ad-flag-bar span:nth-child(2) { flex: 1; background: #c0232b; }
+    .aly-ad-flag-bar span:nth-child(3) { flex: 1; background: #002d62; }
+    .aly-ad-flag-bar span:nth-child(4) { flex: 1; background: #c0232b; }
+
+    .aly-ad-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 28px 32px 24px;
+    }
+
+    /* logo badge */
+    .aly-ad-logo-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .aly-ad-logo-badge {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c0232b, #8b0000);
+      border: 3px solid rgba(212,168,80,0.6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px;
+      box-shadow: 0 0 24px rgba(192,35,43,0.4);
+      animation: alyLogoGlow 2.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes alyLogoGlow {
+      0%,100% { box-shadow: 0 0 24px rgba(192,35,43,0.4); }
+      50%      { box-shadow: 0 0 40px rgba(192,35,43,0.7); }
+    }
+    .aly-ad-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 900; letter-spacing: 0.06em;
+      color: #c0232b; line-height: 1; text-align: center;
+      text-shadow: 0 0 12px rgba(192,35,43,0.5);
+    }
+    .aly-ad-logo-sub {
+      font-size: 9px; font-weight: 800; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(212,168,80,0.9);
+      text-align: center; line-height: 1.3;
+    }
+
+    /* main content */
+    .aly-ad-left { min-width: 0; }
+    .aly-ad-toprow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 6px; flex-wrap: wrap;
+    }
+    .aly-ad-available {
+      background: linear-gradient(135deg, #00c853, #69f0ae);
+      color: #002a10; font-size: 10px; font-weight: 800;
+      padding: 3px 10px; border-radius: 20px; letter-spacing: 0.1em;
+      text-transform: uppercase; white-space: nowrap;
+      animation: jrBadge 1.8s ease-in-out infinite;
+    }
+    .aly-ad-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+      color: #fff; line-height: 1.2; margin-bottom: 6px;
+    }
+    .aly-ad-headline em { font-style: italic; color: #ffd700; }
+    .aly-ad-tagline {
+      font-size: 0.92rem; font-weight: 700;
+      color: rgba(212,168,80,0.95);
+      letter-spacing: 0.03em; margin-bottom: 10px;
+    }
+    .aly-ad-sub {
+      font-size: 0.87rem; color: rgba(200,220,210,0.85);
+      line-height: 1.55; margin-bottom: 14px; max-width: 520px;
+    }
+    .aly-ad-chips {
+      display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px;
+    }
+    .aly-ad-chip {
+      background: rgba(192,35,43,0.15); border: 1px solid rgba(192,35,43,0.4);
+      color: #ff8a8a; font-size: 11px; font-weight: 700;
+      padding: 4px 11px; border-radius: 20px; letter-spacing: 0.03em; white-space: nowrap;
+    }
+    .aly-ad-divider {
+      border: none; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(192,35,43,0.4), transparent);
+      margin-bottom: 14px;
+    }
+    .aly-ad-meta {
+      display: flex; align-items: flex-start; gap: 28px; flex-wrap: wrap;
+    }
+    .aly-ad-contact-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(212,168,80,0.7); margin-bottom: 3px;
+    }
+    .aly-ad-phone {
+      font-size: 15px; color: #ffd700; font-weight: 800; letter-spacing: 0.03em;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .aly-ad-email { font-size: 12px; color: rgba(200,220,210,0.75); font-weight: 600; margin-top: 2px; }
+
+    .aly-ad-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #c0232b, #8b0000);
+      color: #fff; font-family: 'DM Sans', sans-serif;
+      font-weight: 800; font-size: 13px; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 14px 22px;
+      border-radius: 50px; text-decoration: none; white-space: nowrap;
+      box-shadow: 0 4px 18px rgba(192,35,43,0.5);
+      transition: all 0.2s; flex-shrink: 0; align-self: center;
+      border: 1px solid rgba(212,168,80,0.3);
+    }
+    .aly-ad-cta:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,35,43,0.7);
+      background: linear-gradient(135deg, #e02d38, #a30000);
+    }
+    .aly-ad-bottom-strip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(0,45,98,0.5);
+      border-top: 1px solid rgba(212,168,80,0.2);
+      padding: 9px 32px;
+      font-size: 12px; color: rgba(212,168,80,0.85);
+      font-weight: 600; letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 820px) {
+      .aly-ad-inner { grid-template-columns: auto 1fr; }
+      .aly-ad-cta { grid-column: 1 / -1; width: 100%; justify-content: center; }
+    }
+    @media (max-width: 520px) {
+      .aly-ad-inner { grid-template-columns: 1fr; }
+      .aly-ad-logo-col { flex-direction: row; align-items: center; gap: 14px; }
+      .aly-ad-logo-text { font-size: 1.1rem; }
     }
 
     /* ── ACTIVITY CARDS ── */
@@ -601,8 +771,6 @@
     /* ── FOOTER ── */
     footer { background: var(--dark); padding: 56px 24px 24px; color: rgba(255,255,255,0.65); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 40px; }
-
-    /* FIX: Footer logo — correct size, no stretching, no filter weirdness */
     .footer-brand-logo {
       display: block;
       height: 48px;
@@ -611,10 +779,8 @@
       object-fit: contain;
       object-position: left center;
       margin-bottom: 16px;
-      /* White version of logo — use brightness filter on the color logo instead of a separate asset */
       filter: brightness(0) invert(1);
     }
-
     .footer-brand p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
     .footer-col h5 { color: var(--white); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
@@ -631,8 +797,6 @@
     .wave-divider svg { display: block; width: 100%; }
 
     /* ── RESPONSIVE ── */
-
-    /* Prevent ALL horizontal scroll / wobble on every device */
     html, body { max-width: 100%; overflow-x: hidden; }
     * { min-width: 0; }
 
@@ -642,73 +806,37 @@
 
     @media (max-width: 768px) {
       :root { --header-h: 80px; }
-
-      /* Header */
       header { padding: 0 14px; gap: 8px; }
       .header-logo img { height: 60px; max-width: 240px; }
       .header-nav { gap: 8px; }
       .header-nav a:not(.header-cta) { display: none; }
       .header-cta { padding: 8px 12px; font-size: 11px !important; }
       .header-cta small { display: none; }
-
-      /* Hero */
       .hero-content { padding: 0 18px; }
       .hero-btns { flex-direction: column; gap: 10px; }
       .hero-btns a { width: 100%; justify-content: center; }
-
-      /* Hero stats — 2 per row */
       .hero-stats { flex-wrap: wrap; }
       .hero-stat { max-width: 50%; flex: 0 0 50%; padding: 14px 8px; }
-
-      /* General sections */
       section { padding: 48px 16px; }
-
-      /* Quick answer */
       .quick-answer { margin: 28px 16px; padding: 20px; }
-
-      /* Featured banner */
       .featured-banner { margin: 0 16px 40px; padding: 22px 16px; }
-
-      /* Photo strip — main image full width, right images side-by-side below */
       .photo-strip { grid-template-columns: 1fr; margin: 0; border-radius: 0; gap: 6px; }
       .photo-strip-img { min-height: 220px; }
       .photo-strip-right { grid-template-columns: 1fr 1fr; gap: 6px; }
       .photo-strip-right .photo-strip-img { min-height: 150px; }
-
-      /* About section */
       .dr-info-grid { grid-template-columns: 1fr; gap: 32px; }
       .dr-info-image img { height: 250px; }
-
-      /* Kite section */
       .kite-grid { grid-template-columns: 1fr; gap: 32px; }
       .kite-img img { height: 240px; }
-
-      /* Activity cards */
       .activity-grid { grid-template-columns: 1fr; gap: 18px; }
-
-      /* Nightlife */
       .nightlife-grid { grid-template-columns: 1fr; gap: 12px; }
-
-      /* Restaurant + Hotel two-col → single col */
-      .dr-info-grid,
-      .kite-grid { grid-template-columns: 1fr; }
-
-      /* Partners */
       .partners-section { padding: 24px 14px; border-radius: 12px; }
       .partners-grid { grid-template-columns: 1fr; gap: 14px; }
-
-      /* Info facts */
       .info-facts { grid-template-columns: 1fr 1fr; gap: 10px; }
-
-      /* Footer */
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-brand-logo { height: 40px; }
-
-      /* Planner */
       .planner-widget { padding: 22px 16px; }
       .planner-chip { font-size: 12px; padding: 8px 12px; }
-
-      /* FAQ */
       .faq-question { font-size: 0.88rem; padding: 16px; }
       .faq-answer-inner { padding: 14px 16px 16px; }
     }
@@ -719,7 +847,6 @@
       .season-grid { grid-template-columns: 1fr !important; }
     }
 
-    /* Very small phones */
     @media (max-width: 390px) {
       .hero h1 { font-size: 1.9rem; }
       .hero-stat strong { font-size: 1.3rem; }
@@ -729,9 +856,6 @@
     /* ── ANIMATIONS ── */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── LANG HIDDEN CLASS ── */
-    /* Used by the full bilingual system — elements with [data-en] and [data-es] swap text */
   </style>
 </head>
 <body>
@@ -746,7 +870,6 @@
   </div>
 
   <!-- HEADER -->
-  <!-- FIX: Advertise CTA is now a real mailto: link that actually opens email -->
   <header>
     <a href="/" class="header-logo">
       <img
@@ -831,33 +954,24 @@
   <!-- FEATURED PARTNER BANNER — J&R SMARTPHONE -->
   <div class="jr-ad-wrap fade-in">
     <div class="jr-ad">
-
       <div class="jr-ad-inner">
         <div class="jr-ad-left">
-
-          <!-- brand + open badge -->
           <div class="jr-ad-toprow">
             <div class="jr-ad-brand">J<span>&amp;</span>R SMARTPHONE</div>
             <div class="jr-ad-open"
                  data-en="● Open Now · Closes 6 PM"
                  data-es="● Abierto · Cierra 6 PM">● Open Now · Closes 6 PM</div>
           </div>
-
-          <!-- headline -->
           <div class="jr-ad-headline">
             <span data-en="Everything Your Phone Needs — Right Here in"
                   data-es="Todo lo que tu Celular Necesita — Aquí en">Everything Your Phone Needs — Right Here in</span>
             <em> Cabarete</em>
           </div>
-
-          <!-- sub -->
           <p class="jr-ad-sub"
              data-en="Come visit us at Plaza Morning Brezee! We carry new SIM cards, cases, chargers, screen protectors, earbuds, and accessories for every phone. Plus expert repairs, unlocking &amp; activation."
              data-es="¡Visítanos en Plaza Morning Brezee! Tenemos SIM cards nuevos, fundas, cargadores, protectores, audífonos y accesorios para todo celular. También reparación, desbloqueo y activación.">
             Come visit us at Plaza Morning Brezee! We carry new SIM cards, cases, chargers, screen protectors, earbuds, and accessories for every phone. Plus expert repairs, unlocking &amp; activation.
           </p>
-
-          <!-- chips -->
           <div class="jr-ad-chips">
             <span class="jr-ad-chip" data-en="📱 New SIM Cards" data-es="📱 SIM Cards Nuevos">📱 New SIM Cards</span>
             <span class="jr-ad-chip" data-en="🔧 Repairs" data-es="🔧 Reparaciones">🔧 Repairs</span>
@@ -865,10 +979,7 @@
             <span class="jr-ad-chip" data-en="⚡ Activations" data-es="⚡ Activaciones">⚡ Activations</span>
             <span class="jr-ad-chip" data-en="🎧 Accessories" data-es="🎧 Accesorios">🎧 Accessories</span>
           </div>
-
           <hr class="jr-ad-divider" />
-
-          <!-- address + phone -->
           <div class="jr-ad-meta">
             <div>
               <div class="jr-ad-address-label"
@@ -877,16 +988,10 @@
               <div class="jr-ad-phone">☎ (809) 265-6892</div>
             </div>
           </div>
-
-        </div><!-- /.jr-ad-left -->
-
-        <!-- CTA button -->
+        </div>
         <a href="tel:8092656892" class="jr-ad-cta"
            data-en="📞 Call or Visit" data-es="📞 Llama o Visítanos">📞 Call or Visit</a>
-
-      </div><!-- /.jr-ad-inner -->
-
-      <!-- hours strip -->
+      </div>
       <div class="jr-ad-hours-strip">
         🕐 <span
           data-en="Open Today — Stop by and pick up everything your phone needs before hitting the beach!"
@@ -894,9 +999,98 @@
           Open Today — Stop by and pick up everything your phone needs before hitting the beach!
         </span>
       </div>
+    </div>
+  </div>
 
-    </div><!-- /.jr-ad -->
-  </div><!-- /.jr-ad-wrap -->
+  <!-- ═══════════════════════════════════════════════════════════
+       ALY TRANSFERS & TOURS AD
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="aly-ad-wrap fade-in">
+    <div class="aly-ad">
+
+      <!-- DR flag color bar across top -->
+      <div class="aly-ad-flag-bar">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="aly-ad-inner">
+
+        <!-- Logo badge column -->
+        <div class="aly-ad-logo-col">
+          <div class="aly-ad-logo-badge">🚐</div>
+          <div class="aly-ad-logo-text">ALY</div>
+          <div class="aly-ad-logo-sub"
+               data-en="Transfers &amp; Tours<br/>Dominican Republic"
+               data-es="Traslados y Tours<br/>República Dominicana">Transfers &amp; Tours<br/>Dominican Republic</div>
+        </div>
+
+        <!-- Main content -->
+        <div class="aly-ad-left">
+          <div class="aly-ad-toprow">
+            <div class="aly-ad-available"
+                 data-en="🇩🇴 Available 7 Days a Week"
+                 data-es="🇩🇴 Disponible 7 Días a la Semana">🇩🇴 Available 7 Days a Week</div>
+          </div>
+
+          <div class="aly-ad-headline">
+            <span data-en="The Only Taxi You Need in"
+                  data-es="El Único Taxi que Necesitas en">The Only Taxi You Need in</span>
+            <em> Cabarete</em>
+            <span data-en=" &amp; Surrounding Cities"
+                  data-es=" y Ciudades Cercanas"> &amp; Surrounding Cities</span>
+          </div>
+
+          <div class="aly-ad-tagline"
+               data-en="✅ On Time · Affordable · Friendly · Safe Updated Vehicles"
+               data-es="✅ Puntual · Accesible · Amigable · Vehículos Seguros y Modernos">
+            ✅ On Time · Affordable · Friendly · Safe Updated Vehicles
+          </div>
+
+          <p class="aly-ad-sub"
+             data-en="Airport pickups, hotel transfers, city tours, waterfalls, day trips — wherever you need to go in the Dominican Republic, ALY Transfers &amp; Tours gets you there comfortably, safely, and on schedule. We make your trip an unforgettable experience."
+             data-es="Recogidas en aeropuerto, traslados a hoteles, tours por la ciudad, cascadas, excursiones — a donde necesites ir en la República Dominicana, ALY Traslados y Tours te lleva cómodo, seguro y puntual. Hacemos tu viaje una experiencia inolvidable.">
+            Airport pickups, hotel transfers, city tours, waterfalls, day trips — wherever you need to go in the Dominican Republic, ALY Transfers &amp; Tours gets you there comfortably, safely, and on schedule. We make your trip an unforgettable experience.
+          </p>
+
+          <div class="aly-ad-chips">
+            <span class="aly-ad-chip" data-en="✈️ Airport Transfers" data-es="✈️ Traslados al Aeropuerto">✈️ Airport Transfers</span>
+            <span class="aly-ad-chip" data-en="🌊 Waterfall Tours" data-es="🌊 Tours a Cascadas">🌊 Waterfall Tours</span>
+            <span class="aly-ad-chip" data-en="🏖️ Beach Day Trips" data-es="🏖️ Excursiones a la Playa">🏖️ Beach Day Trips</span>
+            <span class="aly-ad-chip" data-en="🏙️ City Tours" data-es="🏙️ Tours por la Ciudad">🏙️ City Tours</span>
+            <span class="aly-ad-chip" data-en="🚐 Private Groups" data-es="🚐 Grupos Privados">🚐 Private Groups</span>
+          </div>
+
+          <hr class="aly-ad-divider" />
+
+          <div class="aly-ad-meta">
+            <div>
+              <div class="aly-ad-contact-label"
+                   data-en="📞 Book by WhatsApp or Call"
+                   data-es="📞 Reserva por WhatsApp o Llamada">📞 Book by WhatsApp or Call</div>
+              <div class="aly-ad-phone">📲 809-543-4218</div>
+              <div class="aly-ad-email">✉ alimoronta@gmail.com</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA button -->
+        <a href="https://wa.me/18095434218" target="_blank" rel="noopener" class="aly-ad-cta"
+           data-en="💬 WhatsApp Us" data-es="💬 Escríbenos">💬 WhatsApp Us</a>
+
+      </div>
+
+      <!-- Bottom strip -->
+      <div class="aly-ad-bottom-strip">
+        🌴 <span
+          data-en="Serving Cabarete, Puerto Plata, Sosúa, Las Terrenas, Santo Domingo &amp; all of the Dominican Republic — Travel in Comfort &amp; Safety!"
+          data-es="Servicio en Cabarete, Puerto Plata, Sosúa, Las Terrenas, Santo Domingo y toda la República Dominicana — ¡Viaja con Comodidad y Seguridad!">
+          Serving Cabarete, Puerto Plata, Sosúa, Las Terrenas, Santo Domingo &amp; all of the Dominican Republic — Travel in Comfort &amp; Safety!
+        </span>
+      </div>
+
+    </div>
+  </div>
+  <!-- ═══════════════════════════════════════════════════════════ -->
 
   <!-- PHOTO STRIP -->
   <div class="photo-strip fade-in">
@@ -1460,7 +1654,6 @@
   </section>
 
   <!-- FOOTER -->
-  <!-- FIX: eyetoad.com (not eyetoadmedia.com); logo properly sized with object-fit; filter correct -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -1598,7 +1791,6 @@
   <script>
     // ─────────────────────────────────────────
     // FULL BILINGUAL LANGUAGE SYSTEM
-    // All [data-en] and [data-es] attributes across the entire page swap on toggle
     // ─────────────────────────────────────────
     let currentLang = 'en';
 
@@ -1606,22 +1798,17 @@
       currentLang = lang;
       document.documentElement.lang = lang;
 
-      // Toggle button active states
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-es').classList.toggle('active', lang === 'es');
 
-      // Swap ALL [data-en] / [data-es] elements
       document.querySelectorAll('[data-en]').forEach(el => {
         const text = el.getAttribute('data-' + lang);
         if (text === null) return;
-        // Use innerHTML so HTML entities like <strong>, <em>, <br/> render correctly
         el.innerHTML = text;
       });
 
-      // Re-render FAQ in the current language
       renderFAQ(lang);
 
-      // Re-render trip planner labels
       document.querySelectorAll('.planner-chip').forEach(chip => {
         const span = chip.querySelector('span[data-en]');
         if (span) {
