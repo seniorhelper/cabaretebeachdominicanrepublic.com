@@ -1,0 +1,22 @@
+# Cabarete Beach Dominican Republic
+
+> Independent travel guide for Cabarete, Puerto Plata province, Dominican Republic.
+
+## Primary topic
+Cabarete Beach Dominican Republic: beaches, kitesurfing, surfing, wind sports, nature, dining and trip planning.
+
+## Key guides
+- /kitesurfing-cabarete/ — kitesurfing overview and safety
+- /kite-beach-cabarete/ — Kite Beach visitor guide
+- /surfing-cabarete-playa-encuentro/ — Playa Encuentro surfing guide
+- /cabarete-beaches/ — beach comparison
+- /el-choco-national-park-cabarete/ — caves and nature
+- /cabarete-restaurants-nightlife/ — dining and nightlife planning
+- /cabarete-travel-guide/ — practical trip planning
+- /things-to-do-cabarete/ — activities hub
+
+## Editorial notes
+This is an independent guide, not an official government tourism website. Dynamic conditions, prices, hours, entry requirements and ocean conditions should be verified with current authoritative sources.
+
+## Primary authoritative source
+https://www.godominicanrepublic.com/
