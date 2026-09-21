@@ -66,7 +66,7 @@
       --dark:         #0d1117;
       --text-body:    #2c3e50;
       --text-light:   #64748b;
-      --header-h:     110px;
+      --header-h:     132px;
       --radius:       12px;
       --shadow:       0 8px 32px rgba(2,62,115,0.12);
       --shadow-lg:    0 20px 60px rgba(2,62,115,0.18);
@@ -80,15 +80,17 @@
     .lang-toggle button.active { background: var(--ocean-bright); color: var(--white); }
     header { background: var(--white); height: var(--header-h); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--ocean-bright); }
     .header-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-    .header-logo img { height: 150px; width: auto; max-width: 480px; object-fit: contain; object-position: left center; display: block; }
+    .header-logo img { height: 122px; width: auto; max-width: 480px; object-fit: contain; object-position: left center; display: block; }
     .header-nav { display: flex; align-items: center; gap: 28px; flex-shrink: 0; }
     .header-nav a { text-decoration: none; color: var(--ocean-deep); font-weight: 500; font-size: 14px; letter-spacing: 0.3px; transition: color 0.2s; }
     .header-nav a:hover { color: var(--ocean-bright); }
+    .nav-more{position:relative}.nav-more>button{border:0;background:transparent;color:var(--ocean-deep);font:600 14px 'DM Sans',sans-serif;cursor:pointer;padding:8px 0}.nav-menu{display:none;position:absolute;right:0;top:100%;min-width:245px;background:#fff;border:1px solid #dce8ef;border-radius:12px;box-shadow:0 18px 45px rgba(2,62,115,.18);padding:10px;z-index:1200}.nav-more:hover .nav-menu,.nav-more:focus-within .nav-menu{display:block}.nav-menu a{display:block;padding:10px 12px;border-radius:8px}.nav-menu a:hover{background:#eef9fc}
+
     .header-cta { background: linear-gradient(135deg, var(--coral), #c0553a); color: var(--white) !important; padding: 10px 18px; border-radius: 8px; font-weight: 600 !important; font-size: 13px !important; text-align: center; line-height: 1.3; transition: transform 0.2s, box-shadow 0.2s !important; text-decoration: none; display: inline-block; }
     .header-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(224,122,95,0.4) !important; color: var(--white) !important; }
     .header-cta small { display: block; font-size: 10px; font-weight: 400; opacity: 0.85; }
-    .hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-beach-sunset.jpg'); background-size: cover; background-position: center 30%; transform: scale(1.04); animation: heroZoom 18s ease-out forwards; }
+    .hero { position: relative; min-height: 660px; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('/images/cabarete-beach-sunset.jpg'); background-size: cover; background-position: center 30%; transform: scale(1.04); animation: heroZoom 18s ease-out forwards; }
     @keyframes heroZoom { to { transform: scale(1.0); } }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(2,62,115,0.82) 0%, rgba(0,119,182,0.45) 50%, rgba(0,180,216,0.18) 100%); }
     .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 48px; animation: heroFade 1s ease-out 0.3s both; }
@@ -395,8 +397,11 @@
     }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-  </style>
-<link rel="stylesheet" href="/assets/site-2026.css">
+  
+    @media(max-width:1100px){header{height:auto;min-height:var(--header-h);padding:8px 18px;flex-wrap:wrap}.header-logo img{height:105px}.header-nav{width:100%;order:2;gap:16px;overflow-x:auto;padding:6px 0 10px}.header-nav>a{white-space:nowrap}.nav-more{flex:0 0 auto}.hero{min-height:610px}.hero-content{padding:50px 28px}}
+    @media(max-width:700px){.lang-bar{padding:5px 12px}.header-logo img{height:92px}.header-nav{gap:14px}.header-nav a,.nav-more>button{font-size:13px}.hero{min-height:560px}.hero-content{padding:42px 20px}.hero-desc{font-size:1rem}.nav-menu{position:fixed;left:12px;right:12px;top:180px;min-width:0}}
+</style>
+
 </head>
 <body>
 
@@ -412,11 +417,20 @@
     <a href="/" class="header-logo">
       <img src="https://raw.githubusercontent.com/seniorhelper/cabaretebeachdominicanrepublic.com/main/images/cabarete-Beach-Logo.png" alt="Cabarete Beach Dominican Republic" width="480" height="96"/>
     </a>
-    <nav class="header-nav">
-      <a href="/" data-en="Home" data-es="Inicio">Home</a>
-      <a href="/things-to-do-cabarete/" data-en="Things To Do" data-es="Qué Hacer">Things To Do</a>
-      <a href="/cabarete-deals/" data-en="Featured Partners" data-es="Socios Destacados">Featured Partners</a>
-      
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/things-to-do-cabarete/">Things To Do</a>
+      <a href="/kitesurfing-cabarete/">Kitesurfing</a>
+      <a href="/cabarete-beaches/">Beaches</a>
+      <a href="/cabarete-restaurants-nightlife/">Dining & Nightlife</a>
+      <div class="nav-more"><button type="button" aria-expanded="false">More ▾</button><div class="nav-menu">
+        <a href="/kite-beach-cabarete/">Kite Beach</a>
+        <a href="/surfing-cabarete-playa-encuentro/">Surfing & Playa Encuentro</a>
+        <a href="/el-choco-national-park-cabarete/">El Choco & Caves</a>
+        <a href="/cabarete-travel-guide/">Travel Guide</a>
+        <a href="/cabarete-deals/">Featured Partners</a>
+        <a href="/advertise-cabarete/">Advertise</a>
+      </div></div>
     </nav>
   </header>
 
@@ -424,19 +438,13 @@
     <div class="hero-bg" role="img" aria-label="Cabarete Beach sunset over the Caribbean"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-kicker">🌊 <span data-en="Caribbean's #1 Kitesurfing Destination" data-es="Destino #1 de Kitesurf del Caribe">Caribbean's #1 Kitesurfing Destination</span></div>
+      <div class="hero-kicker">🌊 <span data-en="Kitesurfing • Surfing • Beaches • North Coast" data-es="Destino #1 de Kitesurf del Caribe">Kitesurfing • Surfing • Beaches • North Coast</span></div>
       <h1>Cabarete Beach<br/><em>Dominican Republic</em></h1>
-      <p class="hero-desc" data-en="Where the trade winds never stop and the Caribbean nights never end. Your definitive guide to Cabarete — from Kite Beach to hidden waterfalls, sunset cocktails to world-class waves." data-es="Donde los vientos alisios nunca cesan y las noches caribeñas nunca terminan. Tu guía definitiva de Cabarete — desde Kite Beach hasta cascadas ocultas, cócteles al atardecer y olas de clase mundial.">Where the trade winds never stop and the Caribbean nights never end. Your definitive guide to Cabarete — from Kite Beach to hidden waterfalls, sunset cocktails to world-class waves.</p>
+      <p class="hero-desc" data-en="Plan Cabarete with practical guides to Kite Beach, surfing at Playa Encuentro, restaurants, nightlife, caves, beaches and north-coast adventures." data-es="Donde los vientos alisios nunca cesan y las noches caribeñas nunca terminan. Tu guía definitiva de Cabarete — desde Kite Beach hasta cascadas ocultas, cócteles al atardecer y olas de clase mundial.">Plan Cabarete with practical guides to Kite Beach, surfing at Playa Encuentro, restaurants, nightlife, caves, beaches and north-coast adventures.</p>
       <div class="hero-btns">
         <a href="/things-to-do-cabarete/" class="btn-primary">🗺️ <span data-en="Plan Your Trip" data-es="Planifica tu Viaje">Plan Your Trip</span></a>
         <a href="/cabarete-deals/" class="btn-secondary">⭐ <span data-en="Featured Deals" data-es="Ofertas Destacadas">Featured Deals</span></a>
       </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><strong>300</strong><span data-en="Windy Days / Year" data-es="Días de Viento / Año">Windy Days / Year</span></div>
-      <div class="hero-stat"><strong>40 min</strong><span data-en="From Puerto Plata Airport" data-es="Del Aeropuerto Puerto Plata">From Puerto Plata Airport</span></div>
-      <div class="hero-stat"><strong>80°F</strong><span data-en="Year-Round Temperature" data-es="Temperatura Todo el Año">Year-Round Temperature</span></div>
-      <div class="hero-stat"><strong>10+</strong><span data-en="Kite Schools on Beach" data-es="Escuelas de Kite en Playa">Kite Schools on Beach</span></div>
     </div>
   </section>
 
@@ -963,5 +971,5 @@
     renderFAQ('en');
   </script>
 
-<section class="network"><div class="wrap"><h2>Explore More Dominican Republic Guides</h2><div class="cards"><a href="https://dominicanrepublicplacestovisit.com/">Dominican Republic Places To Visit →</a><a href="https://dominicanrepublicvacationspots.com/">Dominican Republic Vacation Spots →</a><a href="https://thingstodoinpuertoplata.com/">Things To Do in Puerto Plata →</a><a href="https://puertoplatarestaurants.com/">Puerto Plata Restaurants →</a><a href="https://puertoplataseo.com/">Puerto Plata SEO →</a><a href="https://cabareterestaurants.com/">Cabarete Restaurants →</a></div></div></section><script src="/assets/site-2026.js" defer></script></body>
+<script src="/assets/site-2026.js" defer></script></body>
 </html>
