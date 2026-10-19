@@ -21,3 +21,7 @@ fetch('https://formsubmit.co/ajax/'+addr(f),{method:'POST',headers:{Accept:'appl
 .then(function(){if(b)b.disabled=false;});
 });})(fs[j]);
 })();
+
+(()=>{const w=document.querySelector('.nav-more'),b=w&&w.querySelector('.nav-more-btn');if(!b)return;const set=o=>{w.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false')};b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();set(!w.classList.contains('open'))});document.addEventListener('click',e=>{if(!w.contains(e.target))set(false)});document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});})();
+
+(()=>{const n=document.querySelector('header.site .nav'),l=n&&n.querySelector('.links');if(!n||!l||n.querySelector('.cab-burger'))return;const b=document.createElement('button');b.type='button';b.className='cab-burger';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','cabLinks');b.textContent='☰ Menu';l.id='cabLinks';n.insertBefore(b,l);b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'✕ Close':'☰ Menu'});})();

@@ -401,6 +401,7 @@
     @media(max-width:700px){.lang-bar{padding:5px 12px}.header-logo img{height:92px}.header-nav{gap:14px}.header-nav a,.nav-more>button{font-size:13px}.hero{min-height:560px}.hero-content{padding:42px 20px}.hero-desc{font-size:1rem}.nav-menu{position:fixed;left:12px;right:12px;top:180px;min-width:0}}
 </style>
 
+<style id="nav-fix">.nav-more.open .nav-menu{display:block}.nav-more>button .nm-m{display:none}.nav-menu-primary{display:none}@media(max-width:768px){.nav-more>button .nm-d{display:none}.nav-more>button .nm-m{display:inline}.nav-more:hover .nav-menu{display:none}.nav-more.open .nav-menu,.nav-more:focus-within.open .nav-menu{display:block}.nav-menu-primary{display:block;border-bottom:1px solid #dce8ef;margin-bottom:6px;padding-bottom:6px}.nav-menu{max-height:calc(100vh - 200px);overflow:auto}.header-nav .nav-menu a{display:block!important;color:var(--ocean-deep);font-size:15px;padding:11px 12px}}</style>
 </head>
 <body>
 
@@ -422,11 +423,12 @@
       <a href="/kitesurfing-cabarete/">Kitesurfing</a>
       <a href="/cabarete-beaches/">Beaches</a>
       <a href="/cabarete-restaurants-nightlife/">Dining & Nightlife</a>
-      <div class="nav-more"><button type="button" aria-expanded="false">More ▾</button><div class="nav-menu">
+      <div class="nav-more"><button type="button" class="nav-more-btn" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true"><span class="nm-d">More ▾</span><span class="nm-m" aria-hidden="true">☰ Menu</span></button><div class="nav-menu" id="navMenu"><div class="nav-menu-primary"><a href="/">Home</a><a href="/things-to-do-cabarete/">Things To Do</a><a href="/kitesurfing-cabarete/">Kitesurfing</a><a href="/cabarete-beaches/">Beaches</a><a href="/cabarete-restaurants-nightlife/">Dining &amp; Nightlife</a><a href="/best-time-to-visit-cabarete/">Best Time to Visit</a></div>
         <a href="/kite-beach-cabarete/">Kite Beach</a>
         <a href="/surfing-cabarete-playa-encuentro/">Surfing & Playa Encuentro</a>
         <a href="/el-choco-national-park-cabarete/">El Choco & Caves</a>
         <a href="/cabarete-travel-guide/">Travel Guide</a>
+        <a href="/cabarete-vs-punta-cana/">Cabarete vs Punta Cana</a>
         <a href="/cabarete-deals/">Featured Partners</a>
         <a href="/advertise-cabarete/">Advertise</a>
       </div></div>
@@ -970,5 +972,5 @@
     renderFAQ('en');
   </script>
 
-<script src="/assets/site-2026.js" defer></script></body>
+<script src="/assets/site-2026.js?v=20261019" defer></script></body>
 </html>
